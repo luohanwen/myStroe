@@ -1,0 +1,31 @@
+.jingle-calendar{
+    width: 100%;
+    overflow: hidden;
+}
+.jingle-calendar-nav{
+    height: 50px;
+    line-height: 50px;
+    display: -webkit-box;
+    display: box;
+    text-align: center;
+}
+.jingle-calendar-nav>div{
+    -webkit-box-flex : 1;
+}
+.jingle-calendar-nav i.icon{
+    padding: 10px;
+}
+.jingle-calendar-body{
+    overflow-x: hidden;
+}
+.jingle-calendar table{
+    width: 100%;
+}
+.jingle-calendar table th{
+    text-align: center;
+    padding: 5px 0;
+}
+.jingle-calendar table td{
+    text-align: center;
+    padding: 15px 0;
+}

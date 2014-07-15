@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>折 叠 栏</title>
+    <link type="text/css" rel="stylesheet" href="uiframe_1.1.0/css/bae.css">
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_collapse.js"></script>
+    <style>
+         /* 图片对应的css start*/
+        .icon{
+            height: 40px;
+            position:absolute;
+            right:5px;
+            width: 40px;
+        }
+        .bottom{
+            background: url('uiframe_1.1.0/images/bae_select_arrowB.png') center no-repeat; /*内容展开时，标题显示的图片*/
+        }
+        .left{
+            background: url('uiframe_1.1.0/images/bae_select_arrowL.png') center no-repeat;/*内容隐藏时，标题显示图片的*/
+        }
+        /* 图片对应的css end*/
+        /*自定义折叠栏样式 start*/
+        .head-background-border{ /*对标题的修改*/
+            border:1px solid white;
+            border-radius: 8px;
+            color:#ffffff;
+            background-image: none;
+            background-color: yellowgreen;
+        }
+        .body-border-fontsize{/*对内容的修改*/
+            border:1px solid #ffffff;
+            border-radius: 0px 0px 8px 8px;
+            border-top: none;
+            font-size: 16px;
+            background-color:lightgoldenrodyellow;
+        }
+        span{
+            padding: 10px;
+        }
+        section{
+            padding: 10px;
+        }
+        .gap{
+            height: 4px;
+        }
+       /*自定义折叠栏样式 end*/
+    </style>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">折叠栏</div>
+<div style="padding: 10px">
+    <!--在div标签中增加“data-role='bae_collapse'"标识后，该标签将自动被修改为bae_collapse样式；
+        在"data-role='bae_collapse'"的div中，
+        添加"data-role=‘bae-collapse-head'"的div来标识标题
+        添加"data-role=‘bae-collapse-body'"的div来标识标题对应的内容；
+        由此组成折叠栏。（标题div和内容的div是一组，两个div之间不要插入别的内容）；
+        "data-role=‘bae-collapse-body'"的div中，data-display="true"来标识此div显示时,是展开状态
+    -->
+    <!--
+        class对应的样式在上面的style中；js代码在下面的script中；
+        <div class="icon bottom"></div>此div显示的是折叠栏标题中的图片，不需要图片时，删除此标签，删除对应的css代码和js代码；
+        也可以自定义折叠栏的样式
+    -->
+    默认样式折叠栏:
+    <div data-role="bae-collapse">
+        <div data-role="bae-collapse-head">
+            <div class="icon bottom"></div><!--图片-->
+            <span>标题一</span>
+        </div>
+        <div data-role="bae-collapse-body" data-display="true">
+            <section>
+                内容一<br>
+                JavaScript 是属于网络的脚本语言！<br>
+                JavaScript 被数百万计的网页用来改进设计、验证表单、检测1浏览器、创建cookies，以及更多的应用。<br>
+                JavaScript 是因特网上最流行的脚本语言。<br>
+                JavaScript 很容易使用！你一定会喜欢它的！
+            </section>
+        </div>
+        <div class="gap"></div><!--填充的高度，可以去掉-->
+        <div data-role="bae-collapse-head">
+            <div class="icon left"></div><!--图片-->
+            <span>标题二</span>
+        </div>
+        <div data-role="bae-collapse-body" >
+            <section>
+                内容二<br>
+                JavaScript 是属于网络的脚本语言！<br>
+                JavaScript 被数百万计的网页用来改进设计、验证表单、检测1浏览器、创建cookies，以及更多的应用。<br>
+                JavaScript 是因特网上最流行的脚本语言。<br>
+                JavaScript 很容易使用！你一定会喜欢它的！
+            </section>
+        </div>
+        <div class="gap"></div> <!--填充的高度，可以去掉-->
+        <div data-role="bae-collapse-head">
+            <div class="icon bottom"></div><!--图片-->
+            <span>标题三</span>
+        </div>
+        <div data-role="bae-collapse-body" data-display="true">
+            <section>
+                内容三<br>
+                JavaScript 是属于网络的脚本语言！<br>
+                JavaScript 被数百万计的网页用来改进设计、验证表单、检测1浏览器、创建cookies，以及更多的应用。<br>
+                JavaScript 是因特网上最流行的脚本语言。<br>
+                JavaScript 很容易使用！你一定会喜欢它的！
+            </section>
+        </div>
+    </div>
+    <div class="gap"></div><!--填充的高度，可以去掉-->
+    自定义样式折叠栏:
+    <div data-role="bae-collapse">
+        <div data-role="bae-collapse-head" class="head-background-border">
+            <div class="icon bottom"></div><!--图片-->
+            <span>标题四</span>
+        </div>
+        <div data-role="bae-collapse-body" data-display="true" class="body-border-fontsize">
+            <section>
+                内容四<br>
+                JavaScript 是属于网络的脚本语言！<br>
+                JavaScript 被数百万计的网页用来改进设计、验证表单、检测1浏览器、创建cookies，以及更多的应用。<br>
+                JavaScript 是因特网上最流行的脚本语言。<br>
+                JavaScript 很容易使用！你一定会喜欢它的！
+            </section>
+        </div>
+        <div  class="gap"></div> <!--填充的高度，可以去掉-->
+        <div data-role="bae-collapse-head" class="head-background-border">
+            <div class="icon left"></div><!--图片-->
+            <span>标题五</span>
+        </div>
+        <div data-role="bae-collapse-body"  class="body-border-fontsize">
+            <section>
+                内容五<br>
+                JavaScript 是属于网络的脚本语言！<br>
+                JavaScript 被数百万计的网页用来改进设计、验证表单、检测1浏览器、创建cookies，以及更多的应用。<br>
+                JavaScript 是因特网上最流行的脚本语言。<br>
+                JavaScript 很容易使用！你一定会喜欢它的！
+            </section>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    /*为折叠栏绑定图片*/
+    $(document).ready(function(){
+        var baeC=$("[data-role='bae-collapse-head']");
+        $.each(baeC,function(index,element){
+            var baeCH=$(element);//标题
+            var baeCB=baeCH.next();//标题对应的内容
+            var divIcon= $(baeCH.children().get(0));//图片
+            //单击标题时，触发的事件（更换图片和边框）
+            baeCH.bind("click",function(){
+                if(baeCB.attr("data-role")=="bae-collapse-body")
+                {
+                    //标题处于展开的状态
+                    if(baeCB.attr("data-display")=="true")
+                    {
+                        divIcon.removeClass("left").addClass("bottom");//换成对应的图片
+                    }
+                    else  //标题处于隐藏的状态
+                    {
+                        divIcon.removeClass("bottom").addClass("left");//换成对应的图片
+                    }
+                }
+            })
+        })
+    })
+</script>
+<script type="text/javascript" src="common.js"></script>
+</body>
+</html>

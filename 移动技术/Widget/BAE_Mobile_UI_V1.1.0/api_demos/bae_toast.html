@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_toast.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">消息栏</div>
+<div style="padding:10px;text-align: center">
+    <a  data-role='bae_button' id="button01">显示提示消息</a>
+</div>
+<script type="text/javascript">
+    $("#button01").click(function(){
+        /**
+         * bae_toast(msg,delay)弹出toast提示
+         * msg: 消息内容
+         * delay: 消息显示的时长，单位为毫秒
+         */
+        $.bae_toast("你刚才点击了按钮！", 5000);
+    });
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

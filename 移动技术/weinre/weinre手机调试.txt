@@ -1,0 +1,27 @@
+一.作用
+手机端调试工具
+二.原理
+目标页面 -- （要调试的目标页面）将weinre 远程js放到目标页面
+客户端  -- 以webkit为核心的浏览器 如chrom safari
+服务端  -- 服务器运行目标页面，手机访问
+
+三.步骤
+1.下载weinre  weinre是以node.js的应用程序实现的，所以安装之前需搭配node环境，弄好node之后进入node npm模式进行插件安装
+
+打开cmd --  输入npm进入npm模式--- 输入npm -g install weinre进行安装 
+
+2.启动weinre
+打开cmd 输入weinre --httpPort 端口号（自己指定） --boundHost 本机ip address 启动
+
+3.打开客户端（chrom或safari）
+
+输入启动weinre时的地址和端口 进入weinre客户端
+
+4.在客户端找到weinre的远程js路径  导入到要调试的目标页面
+
+5.访问目标页面进行调试（跨域访问）
+
+
+调试小技巧
+1.看页面是否在调试中
+在console里输入alert() 看调试页面中会不会弹出内容

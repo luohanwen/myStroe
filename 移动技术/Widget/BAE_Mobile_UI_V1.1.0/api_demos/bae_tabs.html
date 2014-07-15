@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_tabs.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">Tabs选项卡</div>
+<!--在div标签中增加“data-role='bae_tabs'”标识后，该标签将自动被修改为bae_tabs样式-->
+<div data-role="bae_tabs">
+    <!--“data-role='bae_tab'”表示tabs的单个选项卡-->
+    <!--
+       data-event：自定义选项卡点击切换事件
+       data-tab-name：自定义选项卡名称
+       data-tab-selected：对应选项卡是否被选中
+    -->
+    <div data-role="bae_tab" data-event="choseTab" data-tab-name="选项卡0"><p style="text-align:center;font-size: 6em">0</p>
+    </div>
+    <div data-role="bae_tab" data-event="choseTab('one')" data-tab-name="选项卡1" data-tab-selected="true"><p
+            style="text-align:center;font-size: 6em">1</p>
+        <a data-role="bae_button" onclick="switchTab(3)" style="margin: 10px">切换至选项卡3</a>
+    </div>
+    <div data-role="bae_tab" data-event="choseTab" data-tab-name="选项卡2"><p style="text-align:center;font-size: 6em">2</p>
+    </div>
+    <div data-role="bae_tab" data-event="choseTab" data-tab-name="选项卡3"><p style="text-align:center;font-size: 6em">3</p>
+        <a data-role="bae_button" onclick="switchTab(1)" style="margin: 10px">切换至选项卡1</a>
+    </div>
+</div>
+<script type="text/javascript">
+    //Tab选项卡切换时该函数将会被调用
+    function choseTab(index) {
+        alert("当前Tab为：" + index);
+    }
+    //用来修改选项卡的选中状态，参数形式是{selected：index}；
+    // index为整数，代表第几个选项卡，第一个选项卡为0。
+    function switchTab(index){
+        $("[data-role='bae_tabs']").bae_tabs({selected:index});
+    }
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

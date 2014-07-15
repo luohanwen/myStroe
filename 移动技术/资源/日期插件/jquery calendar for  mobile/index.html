@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bae_calendar.js"></script>
+    <link rel="stylesheet" href="./css/bae.css">
+</head>
+
+<body>
+
+
+
+
+
+    <!--在div标签中增加“data-role='bae_calendar'”标识后，该标签将自动被修改为bae_calendar样式-->
+    <!-- data-event：自定义日期选择事件
+		data-default-date：设置默认日期，日期格式为yyyy-mm-dd。如果无该属性或者该属性设置为空则默认为今日
+		data-disable-condition：决定是否将某几日设为disable的判断函数 -->
+    <div id="mydate" data-role="bae_calendar" data-event="choseDate_1" data-default-date="" data-disable-condition="disableCondition()" />
+    <script type="text/javascript">
+    function choseDate_1(date) {
+        alert("选择的日期为：" + date);
+    };
+
+    function choseDate_2(date) {
+        alert("重新绑定事件后选择的日期为：" + date);
+    };
+    //通过JS方式修改控件为BAE WidgetUI样式，或修改BAE WidgetUI参数时，请保证在document.ready之后操作。
+    $(document).ready(function() {
+        //打开代码注释可以查看以下效果
+        //重新绑定选中日期的事件，修改默认选中的日期，将判断函数修改为disableCondition_update()。
+        //$("#mydate").bae_calendar({event:"choseDate_2",date:"2013-6-21", disableCondition:"disableCondition_update()"});
+    });
+
+    function disableCondition(date) {
+        var current = new Date(date);
+        var today = new Date();
+        var start = new Date(today.getFullYear(), today.getMonth(), parseInt(today.getDate()) - 1);
+        var end = new Date(today.getFullYear(), today.getMonth(), parseInt(today.getDate()) + 2);
+        if (current > start && current < end) {
+            //将今天之前1天和之后1天设为disable
+            return true;
+        } else if (0 == current.getDay()) {
+            //将所有周日设为disable
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    function disableCondition_update(date) {
+        var current = new Date(date);
+        if (6 == current.getDay()) {
+            //将所有周六设为disable
+            return true;
+        } else {
+            return false;
+        }
+    };
+    </script>
+</body>
+
+</html>

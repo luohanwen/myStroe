@@ -1,0 +1,41 @@
+footer{
+    bottom:0;
+    display: -webkit-box;
+    display: box;
+    border-top: 1px solid #C8C8C8;
+}
+footer > a{
+    -webkit-box-flex : 1;
+    box-flex : 1;
+    display: block;
+    text-align: center;
+    font-size: 0.85em;
+}
+footer > a > .icon{
+    float: none;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+footer > a.label-right{
+    text-align: left;
+    line-height: 51px;
+}
+footer > a.label-right .icon{
+    float: left;
+    line-height: 51px;
+    padding: 0 5px;
+    font-size: 2em;
+}
+.footer-secondary{
+    position: absolute;
+    bottom: 51px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 10px;
+    display: none;
+}

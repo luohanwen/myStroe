@@ -1,0 +1,21 @@
+body {
+	padding-top: 70px;
+}
+
+pre {
+	word-break: normal;
+	word-wrap: normal;
+}
+
+footer {
+	margin: 5em 0;
+}
+footer li {
+	float: left;
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+}
+footer p {
+	margin-bottom: 0;
+	clear: left;
+}

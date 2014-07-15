@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>BAE Mobile UI Demo</title>
+
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="application/javascript" src="uiframe_1.1.0/js/iscroll.js"></script>
+    <script type="application/javascript">
+        var data = [
+            {name:"标题栏", url:"bae_header.html"},
+            {name:"选项卡", url:"bae_tabs.html"},
+            {name:"底部选项卡", url:"bae_tabs_bottom.html"},
+            {name:"按钮", url:"bae_button.html"},
+            {name:"单选按钮", url:"bae_radio.html"},
+            {name:"多选按钮", url:"bae_checkbox.html"},
+            {name:"下拉框", url:"bae_select.html"},
+            {name:"对话框", url:"bae_dialog.html"},
+            {name:"搜索框", url:"bae_search.html"},
+            {name:"折叠栏", url:"bae_collapse.html"},
+            {name:"消息栏", url:"bae_toast.html"},
+            {name:"进度条", url:"bae_progressbar.html"},
+            {name:"日期", url:"bae_calendar.html"},
+            {name:"单行列表", url:"bae_list_template_1.html"},
+            {name:"多行列表", url:"bae_list_template_2.html"},
+            {name:"图文列表", url:"bae_list_template_3.html"},
+			{name:"页面切换", url:"bae_animation_template.html"},
+            {name:"广告轮播", url:"bae_banner_template.html"}
+        ]
+    </script>
+</head>
+<body>
+<div data-role="bae_header" data-event="Widget.close()">
+    BAE Mobile UI Demo
+</div>
+<!--定义iscroll列表-->
+<div id="wrapper">
+    <!--滚动面板-->
+    <div id="scroller">
+        <!--数据显示在ul标签内-->
+        <ul id="thelist">
+        </ul>
+
+        <!--上拉获取更多数据的提示条-->
+        <!--<div id="pullUp">-->
+            <!--<span class="pullUpIcon"></span><span class="pullUpLabel">点击获取更多</span>-->
+        <!--</div>-->
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    var myScroll;
+
+    /**
+     * 点击“获取更多”获取更多数据
+     */
+    function pullUpAction() {
+        //模拟网络数据请求
+    }
+
+    $(document).ready(function () {
+        pullUpEl = document.getElementById('pullUp');
+        myScroll = new iScroll('wrapper', {
+            //定义滚动条样式
+            scrollbarClass:'myScrollbar',
+            onRefresh:function () {
+            }
+        });
+
+        //禁用系统的触摸拖动事件
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+
+        var ulEle = $("#thelist");
+        for (var i = 0; i < data.length; i++) {
+            var liEle = document.createElement("li");
+            liEle.innerHTML = "" + data[i].name + "<img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>";
+            ulEle.append(liEle);
+            liEle.onclick = function (obj) {
+                return function () {
+                    //点击list中某一项的事件
+//                    alert("点击了第" + $(obj).index() + "项");
+                    window.location.href = data[$(obj).index()].url;
+                };
+            }(liEle);
+        }
+        //更改数据后 请务必调用该方法
+        myScroll.refresh();
+    });
+</script>
+<style type="text/css" media="all">
+    * {
+        vertical-align: middle;
+    }
+
+    body, ul, li {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    #wrapper {
+        position: absolute;
+        z-index: 1;
+        top: 74px;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        overflow: auto;
+        background: #e7e7e7;
+    }
+
+    #scroller {
+        position: relative;
+        float: left;
+        width: 100%;
+        padding: 0;
+    }
+
+    #scroller ul {
+        position: relative;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    #scroller li {
+        padding: 0 10px;
+        height: 73px;
+        line-height: 73px;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #fff;
+        background-color: #e7e7e7;
+        font-size: 24px;
+        vertical-align: middle;
+        -webkit-tap-highlight-color: #d1d1d1;
+    }
+
+    #scroller li:active {
+        background-color: #d1d1d1;
+    }
+
+    .icon_arrow_right {
+        position: absolute;
+        width: 11px;
+        height: 20px;
+        margin-top: 26px;
+        border: none;
+        right: 10px;
+    }
+
+    #pullDown, #pullUp {
+        background: #fff;
+        height: 40px;
+        line-height: 40px;
+        padding: 5px 10px;
+        border-bottom: 1px solid #ccc;
+        font-weight: bold;
+        color: #888;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-tap-highlight-color: #d1d1d1;
+    }
+
+    #pullDown:active, #pullUp:active {
+        background-color: #d1d1d1;
+    }
+
+    #pullDown .pullDownIcon, #pullUp .pullUpIcon {
+        display: none;
+        width: 40px;
+        height: 40px;
+        background: url(uiframe_1.1.0/images/bae_list_refresh.png) 0 0 no-repeat;
+        -webkit-background-size: 40px 80px;
+        background-size: 40px 80px;
+        -webkit-transition-property: -webkit-transform;
+        -webkit-transition-duration: 250ms;
+    }
+
+    #pullDown .pullDownIcon {
+        -webkit-transform: rotate(0deg) translateZ(0);
+    }
+
+    #pullUp .pullUpIcon {
+        -webkit-transform: rotate(-180deg) translateZ(0);
+    }
+
+    #pullDown.flip .pullDownIcon {
+        -webkit-transform: rotate(-180deg) translateZ(0);
+    }
+
+    #pullUp.flip .pullUpIcon {
+        -webkit-transform: rotate(0deg) translateZ(0);
+    }
+
+    #pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+        background-position: 0 100%;
+        -webkit-transform: rotate(0deg) translateZ(0);
+        -webkit-transition-duration: 0ms;
+
+        -webkit-animation-name: loading;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+
+    @-webkit-keyframes loading {
+            from {
+                -webkit-transform: rotate(0deg) translateZ(0);
+            }
+            to {
+                -webkit-transform: rotate(360deg) translateZ(0);
+            }
+        }
+
+        /**
+        *
+        * Horizontal Scrollbar
+        *
+        */
+    .myScrollbarH {
+        position: absolute;
+        z-index: 100;
+        height: 8px;
+        bottom: 1px;
+        left: 2px;
+        right: 6px
+    }
+
+    .myScrollbarH > div {
+        position: absolute;
+        z-index: 100;
+        height: 100%;
+
+        background: rgba(0, 0, 0, 0.4);
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding-box;
+        -o-background-clip: padding-box;
+        background-clip: padding-box;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+        /**
+        * Vertical Scrollbar
+        */
+    .myScrollbarV {
+        position: absolute;
+        z-index: 100;
+        width: 6px;
+        bottom: 7px;
+        top: 2px;
+        right: 1px
+    }
+
+    .myScrollbarV > div {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+
+        /* The following is probably what you want to customize */
+        background: rgba(0, 0, 0, 0.4);
+
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding-box;
+        -o-background-clip: padding-box;
+        background-clip: padding-box;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;
+    }
+</style>
+</html>

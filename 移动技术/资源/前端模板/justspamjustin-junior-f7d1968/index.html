@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Junior - A front-end framework for building HTML5 mobile apps with a native look and feel.</title>
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="lib/stylesheets/ratchet.css">
+    <link rel="stylesheet" href="src/stylesheets/junior.css">
+
+    <link rel="stylesheet" href="docs/stylesheets/lib/font-awesome.css">
+    <link rel="stylesheet" href="docs/stylesheets/lib/bootstrap.mod.css">
+    <link rel="stylesheet" href="docs/stylesheets/style.css">
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21007774-12']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</head>
+<body>
+    <div class="docs-content">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="#"><i class="icon-umbrella"></i> Jr.</a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#installation">Installation</a></li>
+                  <li><a href="#examples">Examples</a></li>
+                  <li><a href="#apps">Apps that use Junior</a></li>
+                  <li><a href="#sources-and-credits">Sources & Credits</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <div class="container main-docs-content">
+      <div class="hero-unit" style="position: relative;">
+        <h1><i class="icon-umbrella"></i> Junior</h1>
+        <p>A front-end framework for building HTML5 mobile apps with a native look and feel.</p>
+        <ul>
+            <li>CSS3 Transitions optimized for mobile performance.</li>
+            <li>Swipable carousels using flickable.js.</li>
+            <li>Integration with backbone.js views and routers.</li>
+            <li>Ratchet CSS UI components.</li>
+            <li>Try loading this page on a mobile phone or try our "simulator" to the right.</li>
+        </ul>
+        <a href="https://github.com/justspamjustin/junior/archive/master.zip" class="btn btn-success btn-large">Download <i class="icon-download-alt"></i></a>
+        <div class="ad-container">
+          <!-- AdPacks.com Zone Code -->
+          <script type="text/javascript" src="http://cdn.adpacks.com/adpacks.js?legacyid=1290633&zoneid=1386&key=3534745011bb5d1107f2a11e89d4eb58&serve=C6SD52Y&placement=justspamjustingithubio&circle=dev" id="_adpacks_js"></script>
+          <!-- End AdPacks.com Zone Code -->
+        </div>
+
+        <div class="social-media-btns">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="justspamjustin" data-lang="en">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <a href="https://twitter.com/justspamjustin" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @justspamjustin</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <iframe src="http://ghbtns.com/github-btn.html?user=justspamjustin&repo=junior&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+
+        </div>
+      </div>
+      <h2 id="installation">&zwnj;</h2>
+      <h2><i class="icon-folder-open"></i> Installation</h2>
+      <h4><i class="icon-file"></i> Javascript</h4>
+      <h5>Dependencies</h5>
+        <ul class="padded">
+            <li><a href="http://modernizr.com/">modernizr</a></li>
+            <li><a href="http://zeptojs.com/">zepto</a></li>
+            <li><a href="http://blog.kojo.com.au/flickable-zepto-plugin/">zepto flickable</a></li>
+            <li><a href="http://lodash.com/">lodash</a></li>
+            <li><a href="http://backbonejs.org/">backbone</a></li>
+        </ul>
+      <p>Each of these dependencies is included in the lib/javascripts directory.</p>
+      <h5>junior.js</h5>
+      <p>junior.js is included in the src/javascripts directory.  Include each of the dependencies and junior.js in the following order:</p>
+          <pre>&lt;script src="lib/javascripts/modernizr.custom.15848.js"&gt;&lt;/script&gt;
+&lt;script src="lib/javascripts/zepto.min.js"&gt;&lt;/script&gt;
+&lt;script src="lib/javascripts/zepto.flickable.min.js"&gt;&lt;/script&gt;
+&lt;script src="lib/javascripts/lodash.min.js"&gt;&lt;/script&gt;
+&lt;script src="lib/javascripts/backbone-min.js"&gt;&lt;/script&gt;
+&lt;script src="src/javascripts/junior.js"&gt;&lt;/script&gt;</pre>
+      <h4 class="icon-tint"> CSS</h4>
+      <h5>Dependencies</h5>
+      <ul class="padded">
+          <li><a href="http://maker.github.com/ratchet/">ratchet</a></li>
+      </ul>
+      <p>This dependency is included in the lib/stylesheets directory.</p>
+      <h5>junior.css</h5>
+      <p>junior.css is included in the src/stylesheets directory.  Include the css in the following order in the head of the document:</p>
+      <pre>&lt;link rel="stylesheet" href="lib/stylesheets/ratchet.css"/&gt;
+&lt;link rel="stylesheet" href="src/stylesheets/junior.css"/&gt;</pre>
+
+    <h4 class="icon-columns"> HTML</h4>
+    <p>junior.js expects you to have a #app-container and #app-main in your body like this.  This is where the animations and transitions happen. </p>
+    <pre>&lt;div id="app-container"&gt;
+    &lt;div id="app-main"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+
+      <h2 id="examples">&zwnj;</h2>
+      <h2><i class="icon-magic"></i> Examples</h2>
+      <h4><i class="icon-star"></i> Annoted example.js</h4>
+      <p>The best and most detailed example for how to get started is the <a href="docs/example.html">Annotated Example for example.js</a>.  That is the javascript behind the live demo on this page.  However, if you are pretty confident that you can catch on quickly, then just read the more brief explanations on this page.</p>
+
+      <h4><i class="icon-book"></i> Jr.Router</h4>
+      <p>Jr.Router is simply an extension of Backbone.Router.  It gives you a renderView method to automatically render your view with an animation. A typical router may look like this (assuming each view is defined elsewhere):</p>
+      <pre>var AppRouter = Jr.Router.extend({
+    routes: {
+      '': 'home',
+      'about': 'about',
+      'details': 'details'
+    },
+
+    home: function(){
+      var homeView = new HomeView();
+      this.renderView(homeView);
+    },
+
+    details: function() {
+      var detailsView = new DetailsView();
+      this.renderView(detailsView);
+    }
+
+});
+      </pre>
+
+        <h4><i class="icon-book"></i> Jr.View</h4>
+        <p>Jr.View is optional for you to use.  It extends from Backbone.View.  All it does is automatically bind a touchend event in place of a click event if it detects you are using a touch device.  A simple example is like this:</p>
+        <pre>var HomeView = Jr.View.extend({
+  render: function(){
+    this.$el.html("&lt;button class="some-element"&gt;Hi&lt;/button&gt;");
+    return this;
+  },
+
+  events: {
+    'click .some-element': 'onClickSomeElement'
+  },
+
+  onClickSomeElement: function() {
+    console.log('This event occurs on touchend on mobile or on click otherwise')
+  }
+
+});</pre>
+
+        <h4><i class="icon-book"></i> Jr.Navigator</h4>
+        <p>Jr.Navigator is how you trigger a navigation using an animation.  It works a lot like Backbone.history.navigate:</p>
+        <pre>Jr.Navigator.navigate('details',{
+  trigger: true,
+  animation: {
+    type: Jr.Navigator.animations.SLIDE_STACK,
+    direction: Jr.Navigator.directions.RIGHT
+  }
+});</pre>
+    <p>Currently the only animations that we have is SLIDE_STACK.  This slides from one view to the next.  Also the only directions that we have is RIGHT and LEFT.  In the future we would like to have many more animations.</p>
+
+
+      <h2 id="apps">&zwnj;</h2>
+      <h2><i class="icon-mobile-phone"></i> Apps that use Junior</h2>
+        <div class="media">
+            <a class="pull-left" href="http://www.kickstarter.com/projects/1159933420/planit-day-planning-so-simple-even-your-mom-will-u">
+                <div class="media-object" alt="Planit Planner iPhone app that uses Junior." style="width: 128px; height: 128px; background-image: url(docs/images/planit.jpg); background-size: contain; background-repeat: no-repeat;"></div>
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Planit Planner</h4>
+                <i>Planit</i> is a daily planner app for the iPhone with minimal design aesthetics.  It is shockingly simple, quick and easy to use.  You can download <i>Planit</i> in the <a href="https://itunes.apple.com/us/app/planit-planner/id649855494?ls=1&mt=8" title="Planit Planner in the Apple App Store">Apple App Store</a>.  <i>Planit</i> uses Junior to help handle navigation in the app.
+            </div>
+        </div>
+        <div class="media">
+          <a class="pull-left" href="https://itunes.apple.com/us/app/poutsch-have-question-for/id655808281">
+            <div class="media-object" alt="Poutsch - Have a question for the world? Get instant opinions." style="width: 128px; height: 128px; background-image: url(docs/images/poutch-ios-icon.jpg); background-size: contain;"></div>
+            <div class="ios-mask"></div>
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">Poutsch</h4>
+            <i>Poutsch</i> is a revolutionary app that lets you ask questions, express your opinions, and engage in debates with your friends and people all over the world. Instantly see how people feel about any range of topics and weigh in on the discussion! It is beautiful, safe and fun and anyone can sign up in one click.  You can download <i>Poutsch</i> free in the <a href="https://itunes.apple.com/us/app/poutsch-have-question-for/id655808281">Apple App Store</a>.
+          </div>
+        </div>
+        <div class="media">
+          <a class="pull-left" href="https://itunes.apple.com/us/app/price-that!/id600242199">
+            <div class="media-object" alt="Price That! IOS app that uses Junior." style="width: 128px; height: 128px; background-image: url(docs/images/price-that.jpeg); background-size: contain;"></div>
+            <div class="ios-mask"></div>
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">Price That!</h4>
+              <i>Price That!</i> is a simple and fun game for guessing the price of random items.  You can download <i>Price That!</i> free in the <a href="https://itunes.apple.com/us/app/price-that!/id600242199">Apple App Store</a>.
+          </div>
+        </div>
+
+      <h2 id="sources-and-credits">&zwnj;</h2>
+      <h2><i class="icon-edit"></i> Sources and Credits</h2>
+
+        <ul class="padded">
+            <li>Thanks to <a href="http://maker.github.com/ratchet/" target="_blank">Ratchet <i class="icon-external-link"></i></a> for the inspiration and the great mobile UI styles.</li>
+            <li>Thanks to <a href="http://modernizr.com/" target="_blank">modernizr.js <i class="icon-external-link"></i></a>.</li>
+            <li>Thanks to <a href="http://zeptojs.com/" target="_blank">zepto.js <i class="icon-external-link"></i></a>.</li>
+            <li>Thanks to <a href="http://blog.kojo.com.au/flickable-zepto-plugin/" target="_blank">the zepto flickable plugin <i class="icon-external-link"></i></a>.</li>
+            <li>Thanks to <a href="http://lodash.com/" target="_blank">lodash.js <i class="icon-external-link"></i></a>.</li>
+            <li>Thanks to <a href="http://backbonejs.org/" target="_blank">backbone.js <i class="icon-external-link"></i></a>.</li>
+            <li>Thanks to <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome <i class="icon-external-link"></i></a> which is used in these docs.</li>
+            <li>Thanks to <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap <i class="icon-external-link"></i></a> which is also used in these docs.</li>
+        </ul>
+
+      <footer></footer>
+
+    </div>
+    <a href="https://github.com/justspamjustin/junior"><img style="position: fixed;z-index: 10000; top: 0; right: 30px; border: 0;" src="https://github.com/jamesflorentino/fork-ribbons/raw/master/ribbons/blue-white.png" alt="Fork me on GitHub"></a>
+
+</div>
+
+<div id="iphone-image"></div>
+<div id="iphone-window">
+    <div id="app-container">
+        <div id="app-main"></div>
+    </div>
+</div>
+
+    <script src="lib/javascripts/modernizr.custom.15848.js"></script>
+    <script src="lib/javascripts/zepto.min.js"></script>
+    <script src="lib/javascripts/zepto.flickable.min.js"></script>
+    <script src="lib/javascripts/lodash.min.js"></script>
+    <script src="lib/javascripts/backbone-min.js"></script>
+    <script src="src/javascripts/junior.js"></script>
+
+    <script src="docs/javascripts/example.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-21007774-12', 'justspamjustin.github.io');
+      ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

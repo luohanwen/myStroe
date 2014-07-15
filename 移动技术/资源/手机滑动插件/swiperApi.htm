@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.idangero.us/sliders/swiper/ -->
+<html lang="en" style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./swiperApi_files/cb=gapi.loaded_1" async=""></script><script src="./swiperApi_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" src="./swiperApi_files/shares.json"></script><script type="text/javascript" src="./swiperApi_files/auth016.js"></script><script type="text/javascript" src="./swiperApi_files/counter017.js"></script><link rel="stylesheet" type="text/css" href="./swiperApi_files/counter013.css" media="all"><script type="text/javascript" src="./swiperApi_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><link rel="stylesheet" type="text/css" href="./swiperApi_files/widget118.css" media="all">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>iDangero.us Swiper - Mobile Touch Slider And Framework With Hardware Accelerated Transitions </title>
+<meta name="description" content="Swiper - is the free and ultra lightweight mobile touch slider with hardware accelerated transitions">
+<meta name="keywords" content="swiper, mobile slider, touch slider, ios slider, android slider, touch gallery, jquery slider, jquery mobile slider, web app slider, native app slider, free slider, swipe slider">
+<link rel="shortcut icon" href="http://www.idangero.us/sliders/swiper/img/favicon.png">
+<link rel="stylesheet" href="http://www.idangero.us/sliders/swiper/css/normalize.css">
+<link rel="stylesheet" href="http://www.idangero.us/api/menu/idangerous.menu.css">
+<link rel="stylesheet" href="http://www.idangero.us/sliders/swiper/css/idangerous.swiper.css">
+<link rel="stylesheet" href="http://www.idangero.us/sliders/swiper/css/main.css">
+<script src="./swiperApi_files/ga.js"></script><script src="./swiperApi_files/modernizr-2.6.2.min.js"></script>
+</head>
+<body style="">
+ 
+<div id="idangerous-menu">
+<div class="idangerous-menu-inner">
+<div class="idangerous-menu-responsive-pane">
+<a href="http://www.idangero.us/" class="idangerous-home-link"></a>
+<div class="opener">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<ul class="idangerous-menu">
+<li class="idangerous-menu-link">
+<a href="http://www.idangero.us/" class="idangerous-home-link"></a>
+<ul class="idangerous-submenu">
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=category&id=4">iDangero.us News</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=category&id=6">iDangero.us Offers</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=category&id=5">iDangero.us Wiki</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=support">Submit Support Ticket</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=contacts&id=1">Contacts</a></li>
+</ul>
+</li>
+<li class="idangerous-menu-link">
+<span class="idangerous-menu-label">Sliders</span>
+<ul class="idangerous-submenu">
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/sliders/">All Sliders</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/cs/">Chop Slider 3 - Ultimate Image Slider</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/sliders/s6/">S6 - Innovative 3D Touch Slider</a></li>
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/sliders/moover/">mOover - Ultimate Content Slider</a></li>
+<li class="idangerous-submenu-link"><a href="./swiperApi_files/swiperApi.htm">Swiper - Mobile Touch Slider</a></li>
+</ul>
+</li>
+<li class="idangerous-menu-link">
+<a href="http://www.idangero.us/?content=cat_category&id=5">Website Templates</a>
+<ul class="idangerous-submenu">
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=65">Colorisr App - Landing Page</a><span class="idangerous-item-price">$12</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=64">Wio App - Landing Page</a><span class="idangerous-item-price">$12</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=63">LauncherZ - Countdown Template</a><span class="idangerous-item-price">$10</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=62">Flip Card - Virtual Business Card</a><span class="idangerous-item-price">$12</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=55">LauncherY - Countdown Template</a><span class="idangerous-item-price">$12</span></li> <li class="idangerous-submenu-dots-link"><a href="http://www.idangero.us/?content=cat_category&id=5">...</a></li>
+</ul>
+</li>
+<li class="idangerous-menu-link">
+<a href="http://www.idangero.us/?content=cat_category&id=12">Apps</a>
+<ul class="idangerous-submenu">
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=56">Employees - Facebook HTML5 App</a><span class="idangerous-item-price">$10</span></li> <li class="idangerous-submenu-dots-link"><a href="http://www.idangero.us/?content=cat_category&id=12">...</a></li>
+</ul>
+</li>
+<li class="idangerous-menu-link">
+<a href="http://www.idangero.us/?content=cat_category&id=3">Plugins</a>
+<ul class="idangerous-submenu">
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=58">Chop Slider 3 - Single</a><span class="idangerous-item-price">$25</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=57">Chop Slider 3 - jQuery</a><span class="idangerous-item-price">$15</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=51">S6 - Pro-Single</a><span class="idangerous-item-price">$10</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=47">mOover Pro-Single</a><span class="idangerous-item-price">$12</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=cat_item&id=32">TypeWriter</a><span class="idangerous-item-price">$5</span></li> <li class="idangerous-submenu-dots-link"><a href="http://www.idangero.us/?content=cat_category&id=3">...</a></li>
+</ul>
+</li>
+<li class="idangerous-menu-link">
+<a href="http://www.idangero.us/?content=bundles">Bundles</a>
+<ul class="idangerous-submenu">
+<li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=bundle&id=11">Sliders Bundle</a><span class="idangerous-item-price">$30</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=bundle&id=10">IAAS Bundle</a><span class="idangerous-item-price">$38</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=bundle&id=8">Under Construction Bundle</a><span class="idangerous-item-price">$24</span></li><li class="idangerous-submenu-link"><a href="http://www.idangero.us/?content=bundle&id=7">Total Bundle</a><span class="idangerous-item-price">$75</span></li> </ul>
+</li>
+</ul>
+<ul class="idangerous-menu idangerous-menu-right">
+<li class="idangerous-menu-link">
+<span class="idangerous-menu-label">Sign In</span>
+<div class="idangerous-menu-login-pane">
+<form method="post" action="">
+<p>
+<input type="text" class="idangerous-menu-input" name="login_username" placeholder="Username">
+</p>
+<p>
+<input type="password" class="idangerous-menu-input" name="login_password" placeholder="Password">
+</p>
+<p>
+<input type="submit" name="login" class="idangerous-menu-button" value="Sign In">
+</p>
+<p class="idangerous-register-area">
+<a href="http://www.idangero.us/?content=register">Create Account</a>
+</p>
+</form>
+</div>
+</li>
+</ul>
+<div class="idangerous-menu-social">
+<a class="facebook-icon" href="http://facebook.com/idangero.us" target="_blank"></a>
+<a class="twitter-icon" href="http://twitter.com/idangerous" target="_blank"></a>
+</div>
+</div>
+</div> <style>#idangerous-menu{z-index:100;}#idangerous-menu .idangerous-menu-inner{max-width:960px;}</style>
+ 
+<header class="home-header">
+<div class="center">
+<div class="logo-big"><img src="./swiperApi_files/logo.png" width="356" height="185" alt="Swiper"></div>
+<div class="slogan hn"><span>Mobile touch slider &amp; framework with hardware accelerated transitions</span></div>
+<div class="logo-by">by iDangero.us</div>
+</div>
+<div class="showcase swiper-container initialized">
+<div class="left"></div>
+<div class="right"></div>
+<div class="swiper-wrapper" style="padding-left: 261.5px; padding-right: 274px; width: 5059px; height: 560px; transition: 0s; -webkit-transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);">
+<div class="swiper-slide swiper-slide-visible swiper-slide-active">
+<div class="inner">
+<div class="swiper-main-device">
+<div class="sm-free"></div>
+<div class="pagination"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span></div>
+<div class="arrow-left"></div>
+<div class="arrow-right"></div>
+<div class="swiper-container" style="cursor: -webkit-grab;">
+<div class="swiper-wrapper" style="width: 3200px; height: 300px; -webkit-transform: translate3d(-640px, 0px, 0px); transition: 0s; -webkit-transition: 0s;"><div class="swiper-slide" style="width: 640px; height: 300px;">
+<div class="sm-content-slide">
+<p class="title">Slide with HTML</p>
+<p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+</div>
+</div>
+<div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 640px; height: 300px;"><img src="./swiperApi_files/slider1-1.png"></div>
+<div class="swiper-slide" style="width: 640px; height: 300px;"><img src="./swiperApi_files/slider1-2.png"></div>
+<div class="swiper-slide" style="width: 640px; height: 300px;">
+<div class="sm-content-slide">
+<p class="title">Slide with HTML</p>
+<p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+</div>
+</div>
+<div class="swiper-slide" style="width: 640px; height: 300px;"><img src="./swiperApi_files/slider1-1.png"></div></div>
+</div>
+</div>
+<p class="centered more-examples"> <span>Check more apps and examples →</span></p>
+</div>
+</div>
+<div class="swiper-slide swiper-slide-visible">
+<div class="inner">
+<div class="phone">
+<iframe src="./swiperApi_files/index(3).htm" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
+</div>
+<div class="phone-right">
+<p class="title hn">Mobile Swiper App</p>
+<p>Check out this is device on the left with simple mobile full-screen Swiper app with the following features:</p>
+<ul>
+<li>
+<p>scrollable text pages (with Swiper scroll container) and scrollbar plugin</p>
+</li>
+<li>
+<p>fluid scrollable navigation on the top (with Swiper free mode)</p>
+</li>
+<li>
+<p>gallery page (with Swiper vertical mode)</p>
+</li>
+<li>
+<p>fully responsive</p>
+</li>
+</ul>
+<p>You can preview this app in new window: <a href="./swiperApi_files/index(3).htm" target="_blank">open app</a></p>
+<p> <strong class="try-app">← Try this app right here!</strong></p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="inner">
+<p class="title hn centered">Gallery App</p>
+<p class="centered">With new Swiper 2 features you can create awesome fullscreen touch galleries with beatiful animation.<br>You can preview this app in new window: <a href="./swiperApi_files/index(1).htm" target="_blank">open app</a> or <strong class="try-app">try it right here ↓</strong></p>
+<div class="phone-h">
+<iframe src="./swiperApi_files/index(1).htm" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="inner">
+<div class="phone movies-phone">
+<iframe src="./swiperApi_files/index(2).htm" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
+</div>
+<div class="phone-right">
+<p class="title hn">Movies App</p>
+<p>Movies App is an example of one of the most popular type of apps. It consists of two Swipers - one for the content and another one for bottom navigation bar with thumbnails. </p>
+<p>You may also note that top content Swiper controls navigation bar to make sure that "active" navigation thumb is alsways visible.</p>
+<p>You can preview this app in new window: <a href="./swiperApi_files/index(2).htm" target="_blank">open app</a></p>
+<p> <strong class="try-app">← Try this app right here!</strong></p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<div class="swiper-slide appstore-slide">
+<div class="inner">
+<p class="title hn centered">Build your own Appstore! Right from the box!</p>
+<p class="centered">You can preview this app in new window: <a href="./swiperApi_files/index.htm" target="_blank">open app</a> or <strong class="try-app">try it right here ↓</strong></p>
+<div class="phone-pad">
+<iframe src="./swiperApi_files/index.htm" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="inner centered">
+<p class="title centered hn">Real-world Apps</p>
+<p>Checkout these amazing real apps that was made with Swiper and take prize places in our 1 year Swiper contest </p><a href="https://itunes.apple.com/us/app/fit-n-fly/id602838367?mt=8" target="_blank" class="example-app"><img src="./swiperApi_files/cobra.jpg"><span class="title">Cobra Fit N Fly</span></a><a href="http://www.casainternationalmag.com/" target="_blank" class="example-app"><img src="./swiperApi_files/casa.jpg"><span class="title">CASA Magazine</span></a><a href="http://app.tineretpc.net/" target="_blank" class="example-app"><img src="./swiperApi_files/route.jpg"><span class="title">Routenstein</span></a>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div role="main" class="main">
+<div class="social-share top-share"><div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><div class="fb-like" data-ref=".Uud8cPEpTiA.like" data-layout="button_count" data-show_faces="false" data-action="like" data-width="90" data-font="arial" data-href="http://www.idangero.us/sliders/swiper/" data-send="false"></div></a> <a class="addthis_button_tweet at300b"><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.idangero.us/sliders/swiper/#.Uud8cA09y-M.twitter" data-counturl="http://www.idangero.us/sliders/swiper/" data-count="horizontal" data-text="iDangero.us Swiper - Mobile Touch Slider And Framework With Hardware Accelerated Transitions:" data-related="" data-hashtags="" data-width="110">Tweet</a></a> <a class="addthis_button_google_plusone at300b" g:plusone:size="medium"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1390902385874" name="I0_1390902385874" src="./swiperApi_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></a> <a class="addthis_counter addthis_pill_style addthis_nonzero" href="http://www.idangero.us/sliders/swiper/#" style="display: inline-block;"><a class="atc_s addthis_button_compact"><span></span></a><a class="addthis_button_expanded" target="_blank" title="View more services" href="http://www.idangero.us/sliders/swiper/#">702</a></a> <div class="atclear"></div></div></div>
+<nav>
+<div>
+<a href="http://www.idangero.us/sliders/swiper/index.php" class="active">Overview</a>
+<a href="http://www.idangero.us/sliders/swiper/demos.php">Demos</a>
+<a href="http://www.idangero.us/sliders/swiper/apps/index.php">Swiper Apps</a>
+<a href="http://www.idangero.us/sliders/swiper/plugins/index.php">Swiper Plugins</a>
+<a href="http://www.idangero.us/sliders/swiper/api.php">Usage &amp; API</a>
+<a href="https://github.com/nolimits4web/Swiper" target="_blank">Download</a>
+<a href="http://www.idangero.us/sliders/swiper/contest.php">Contest Winners</a>
+</div>
+</nav>
+<div class="half">
+<h2 style="margin-top: 0;" class="sw-title">About</h2>
+<p style="margin-top: 0;"><strong>Swiper </strong>- is the <strong>free and ultra lightweight </strong>mobile touch slider with hardware accelerated transitions (where supported) and amazing native behavior. It is intended to use in mobile websites, mobile web apps, and mobile native apps. Designed mostly for iOS, but also works great on Android, Windows Phone 8 and modern Desktop browsers. <strong>Swiper </strong>is created by <a href="http://www.idangero.us/">iDangero.us</a></p>
+</div>
+<div class="half last">
+<div class="release">
+<h2 style="margin-top: 0;" class="sw-title">Latest Stable Version</h2>
+<div class="version hn"> 2.4.2</div>
+<ul>
+<li>Released on January 19, 2014</li>
+<li><a href="https://github.com/nolimits4web/Swiper" target="_blank">Download on GitHub</a></li>
+<li><a href="http://www.idangero.us/sliders/swiper/#" class="changelog">View change log</a></li>
+</ul>
+<div class="clearfix"></div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="changelog">
+<h2 class="sw-title">Change log</h2>
+<h3>Swiper 2.4.2 - Updated on January 19, 2014</h3>
+<ul>
+<li>New <a href="http://www.idangero.us/sliders/swiper/api.php">api</a> parameters: autoplayStopOnLast, longSwipesRatio, eventTarger, preventLinksPropagation</li>
+<li>Now "looped" slides have additional "swiper-slide-duplicate" class</li>
+<li>Updated onProgressChange callback to work with new Callbacks API</li>
+<li>Minor fixes</li>
+</ul>
+<h3>Swiper 2.4.1 - Updated on December 15, 2013</h3>
+<ul>
+<li>Mousewheel fixes, new <b>mousewheelForceToAxis</b> parameter</li>
+<li>Improved old IE animation timings</li>
+<li>Updated Swiper's CSS with content-box property on .swiper-wrapper</li>
+</ul>
+<h3>Swiper 2.4.0 - Updated on December 6, 2013</h3>
+<ul>
+<li>New callbacks onSlideNext, onSlidePrev</li>
+<li>onSlideChangeStart and onSlideChangeEnd callbacks return swipe direction as a second argument</li>
+<li>New additive callbacks API</li>
+<li>Highly improved mouse wheel behavior, especially for OSX inertia scrolling in usual mode, and now it returns page scrolling for edge positions in scrollContainer mode</li>
+<li>Fully reworked autoplay with new ability to restart it using new autoplayDisableOnInteraction parameter</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin, fix for centeredSlides mode</li>
+<li>A bit of IE fixes</li>
+</ul>
+<h3>Swiper 2.3.0 - Updated on November 2, 2013</h3>
+<ul>
+<li>Small fixes and code improvements</li>
+<li>New callbacks onSetWrapperTransition, onSetWrapperTransform, onSwiperCreated</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin, now scrollbar will be invisible when it is not required </li>
+<li>New amazing <a href="http://www.idangero.us/sliders/swiper/plugins/progress.php">Smooth Progress</a> plugin.</li>
+<li>New <a href="http://www.idangero.us/sliders/swiper/plugins/hashnav.php">Hash Navigation</a> plugin.</li>
+</ul>
+<h3>Swiper 2.2.0 - Updated on September 15, 2013</h3>
+<ul>
+<li>Many fixes and code improvements</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin </li>
+<li>Fixed links and events in loop mode</li>
+<li>A bit improved freeMode logic</li>
+<li>Improved "noSwiping" logic</li>
+<li>Other minor fixes</li>
+</ul>
+<h3>Swiper 2.1.0 - Updated on August 22, 2013</h3>
+<ul>
+<li>Many fixes and improvements</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin with new onScrollbarDrag callback</li>
+<li>New <a href="http://www.idangero.us/sliders/swiper/api.php">API</a> inFirstInit and onInit callbacks</li>
+<li>New <a href="http://www.idangero.us/sliders/swiper/demos.php">Pull To Refresh</a> demo</li>
+<li>Improved "noSwiping" logic</li>
+<li>Fixed clickedSlideIndex for IE7-8</li>
+<li>Fixed "calculateHeight" logic</li>
+<li>Other minor fixes</li>
+</ul>
+<h3>Swiper 2.0.0 - Updated on June 22, 2013</h3>
+<ul>
+<li>Many new features, new functionality, new core, new API</li>
+<li>Better old IE support, now it supports even IE 7 (jQuery required)</li>
+<li>Lot of major and minor fixes</li>
+</ul>
+<h3>Swiper 1.9.4 - Updated on May 23, 2013</h3>
+<ul>
+<li>Fixed Autoplay in non loop mode with slidesPerSlide more than 1</li>
+<li>Ability to enable/disable callback queues to get more control over the callbacks</li>
+<li>Minor Fixes</li>
+</ul>
+<h3>Swiper 1.9.3 - Updated on April 30, 2013</h3>
+<ul>
+<li>Few important fixes including IE8 improvements</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin to be compatible with IE8</li>
+</ul>
+<h3>Swiper 1.9.2 - Updated on April 19, 2013</h3>
+<ul>
+<li>New <a href="http://www.idangero.us/sliders/swiper/api.php">API</a> features:
+<ul>
+<li>New feature to enable 100% resitance with <code>nopeek</code> parameter</li>
+<li>New feature to disable "swiping" on some slide with additional <code>NoSwiping</code> element's class</li>
+<li><code>.activeSlide</code> became <code>.activeIndex</code></li>
+<li><code>.previousSlide</code> became <code>.previousIndex</code></li>
+</ul>
+</li>
+<li>IE9 fix for with in percents</li>
+<li>Other minor fixes and improvements</li>
+</ul>
+<h3>Swiper 1.9.1 - Updated on April 6, 2013</h3>
+<ul>
+<li>New <a href="http://www.idangero.us/sliders/swiper/api.php">API</a> features:
+<ul>
+<li>New feature to disable short swipes with <code>shortSwipes</code> parameter</li>
+<li>New feature to add "start" threshold <code>moveStartThreshold</code> parameter</li>
+<li>New feature to use left/top wrapper position offset instead of use of css3 transforms <code>useCSS3Transforms</code> parameter</li>
+<li>New option to specify slide's element with <code>slideElement</code> parameter</li>
+</ul>
+</li>
+<li>Updates CSS file</li>
+<li>Minor fixes and improvements</li>
+</ul>
+<h3>Swiper 1.9 - Updated on March 16, 2013</h3>
+<ul>
+<li>Added support for devices that can use both mouse and touch "pointers" at the same time, like many of Windows 8 tablets and notebooks</li>
+<li>New <a href="http://www.idangero.us/sliders/swiper/api.php">API</a> features:
+<ul>
+<li>New feature to set "group sliding" with <code>slidesPerGroup</code> parameter</li>
+<li>Now you can hardcode resize event (for example "resize" instead of "orientationchange" for mobiles) with <code>resizeEvent</code> parameter</li>
+</ul>
+</li>
+<li>Fixes:
+<ul>
+<li>Fixed situation when slider can get stuck between slides when tapped during transition</li>
+<li>Now clickedSlide will return correct slide in loop mode</li>
+</ul>
+</li>
+<li>Minor fixes</li>
+</ul>
+<h3>Swiper 1.8.8 - Updated on March 4, 2013</h3>
+<ul>
+<li>Improved cursors usablity with autmatic grab cursors for container and drag cursor for scrollbar</li>
+<li>Improved mousewheel control for scroll container/free mode to have more native scrolling behavior</li>
+<li>Snap functionality for scrollbar</li>
+<li><a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin updated to version 1.2</li>
+<li>Minor fixes</li>
+</ul>
+<h3>Swiper 1.8.7 - Updated on February 22, 2013</h3>
+<ul>
+<li>Fixed initialSlide/resize issue</li>
+<li>New ability to use slides with fixed width in fluid container with a <code>slidesPerSlide:'auto'</code></li>
+<li>Pagination switch that appropriate to active slide index has additional "swiper-activeslide-switch"</li>
+<li>Other minor fixes</li>
+</ul>
+<h3>Swiper 1.8.5 - Updated on February 5, 2013</h3>
+<ul>
+<li>New <a href="http://www.idangero.us/sliders/swiper/api.php">API</a> features:
+<ul>
+<li>New keyboard arrows navigation with "keyboardControl" option</li>
+<li>New mousewheel navigation with "mousewheelControl" option</li>
+</ul>
+</li>
+<li>Now it is possible to pass HTMLElement on initialization, not only css selector like before</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/3dflow.php">3D Flow</a> plugin</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> plugin</li>
+<li>Fixed small Android and IE8 bugs</li>
+<li>Improved "scrollContainer" to be more responsive</li>
+<li>Other minor core fixes</li>
+</ul>
+<h3>Swiper 1.8 - Updated on January 18, 2013</h3>
+<ul>
+<li>New huge and awesome <a href="http://www.idangero.us/sliders/swiper/api.php#slidesapi">Slides API</a></li>
+<li>
+New <a href="http://www.idangero.us/sliders/swiper/api.php">API</a> features:
+<ul>
+<li>New initialization option "initialSlide"</li>
+<li>New methods: ".reInit()", ".currentSlide()", ".clickedSlide"</li>
+<li>New callbacks: "onSlideClick" and "onSlideTouch"</li>
+</ul>
+</li>
+<li>Updated <a href="http://www.idangero.us/sliders/swiper/plugins/3dflow.php">3D Flow</a> plugin to work with new features</li>
+<li>Lot of minor and few major core fixes</li>
+</ul>
+<h3>Swiper 1.7 - Updated on December 22, 2012</h3>
+<ul>
+<li>New API features</li>
+<li>New amazing Plugins - <a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">Scrollbar</a> and <a href="http://www.idangero.us/sliders/swiper/plugins/3dflow.php">3D Flow</a></li>
+<li>Scroll Container Improvements</li>
+<li>Reworked internal plugins API</li>
+<li>Windows Phone 8 Support</li>
+<li>Prevention of links clicks during the swiping</li>
+<li>Support "padding" for container</li>
+<li>Minor fixes</li>
+</ul>
+<h3>Swiper 1.6 - Updated on December 11, 2012</h3>
+<ul>
+<li>New Scroll Container mode to use like simple scrollable area!</li>
+<li>New API features</li>
+<li>Highly improved nested behavior to create multi dimensional apps</li>
+<li>Fixed auto play in loop mode</li>
+<li>Fixed initialization "delay" in loop mode</li>
+<li>New internal plugins API (beta). It allows to create own Swiper plugins. More demos soon.</li>
+<li>Improved Internet Explorer 8 support</li>
+<li>Minor fixes</li>
+</ul>
+<h3>Swiper 1.5.5 - Updated on October 20, 2012</h3>
+<ul>
+<li>Internet Explorer 8 support (without animation)</li>
+<li>FireFox (below version 11) support</li>
+</ul>
+<h3>Swiper 1.5 - Updated on October 6, 2012</h3>
+<ul>
+<li>A lot of major and minor fixes, core optimization</li>
+<li>Now it works in Internet Explorer 9 (without animation) and Internet Explorer 10</li>
+<li>Improved perfomance</li>
+<li>New "loop" mode with infinite scroll (see demo below)</li>
+<li>New carousel mode, now you can show few slides per slider container (see demo below)</li>
+<li>New "smart" pagination, looks fun with loop and carousel modes</li>
+<li>Now Swipers can be easily nested one into another (see demo below)</li>
+<li>Added ability to disable automatic slider resize on windows resize</li>
+<li>Updated CSS</li>
+</ul>
+<h3>Swiper 1.3 - Updated on April 2, 2012</h3>
+<ul>
+<li>New and Reworked callbacks:
+<ul>
+<li>Added <strong>onSlideChangeStart</strong> callback</li>
+<li>Added <strong>onSlideReset</strong> callback</li>
+<li><strong>onSlideChange</strong> is renamed to <strong>onSlideChangeEnd</strong></li>
+</ul>
+</li>
+<li>Updated <strong>mySwiper.swipeTo()</strong> method:
+<ul>
+<li>Now it accepts 3 parameters - index <em>(number)</em>, speed <em>(number)</em> and runCallbacks <em>(boolean)</em></li>
+<li>Now it will produce 'onSlideChangeStart' and 'onSlideChangeEnd' callback functions (if "runCallbacks" is not equal to "false")</li>
+</ul>
+</li>
+<li>New <strong>mySwiper.destroy()</strong> method to release all events assigned by Swiper</li>
+<li>Fixed serious bug when using fluid (responsive) Swiper to re-calculate slides' position on window resize</li>
+</ul>
+<h3>Swiper 1.2 - Updated on March 31, 2012</h3>
+<ul>
+<li>Improved mouse events to get the same behavior as on touch devices</li>
+</ul>
+<h3>Swiper 1.1 - Updated on March 18, 2012</h3>
+<ul>
+<li>Added <strong>autoPlay</strong> parameter to enable auto play</li>
+<li><strong>mySwiper.startAutoPlay()</strong> - external function to start auto play</li>
+<li><strong>mySwiper.stopAutoPlay()</strong> - external function to stop auto play</li>
+<li>Optimized for usage as a fallback for upcoming <strong>"iDangero.us S6"</strong> 3D slider</li>
+<li>Added small plugin to use Swiper with <a href="http://zeptojs.com/" target="_blank">Zepto.js</a></li>
+</ul>
+<h3>Swiper 1.0 - Initial release on March 15, 2012</h3> </div>
+<h2 class="sw-title">Features</h2>
+<ul style="margin: 0;" class="features">
+<li>
+<p><strong>1:1 Touch movement</strong>By defaut Swiper provides 1:1 touch movement interraction, but this ration could be configured through Swiper settings.</p>
+</li>
+<li>
+<p><strong>Touch emulation</strong>This function will be useful if you are going to use Swiper on desktop sites. In this case Swiper will accept mouse events like touch events (click and drag to change slides)</p>
+</li>
+<li>
+<p><strong>Vertical/Horizontal</strong>Swiper comes with 2 main modes - horizontal (for horizontal animation and horizontal swipes) and vertical (for vertical animation and vertical swipes)</p>
+</li>
+<li>
+<p><strong>Free Mode</strong>When this mode enabled slides will not have fixed positions, like usual scroller (see demos bellow)</p>
+</li>
+<li>
+<p><strong>Rotation/resize adjustment</strong>Swiper will be reinitialized after rotation of device</p>
+</li>
+<li>
+<p><strong>Responsive</strong>Can be used with a width or/and height defined in percents, not fixed. Useful for usage on devices with a different resolutions</p>
+</li>
+<li>
+<p><strong>Scroll prevention</strong>Swiper will prevent vertical scroll when you touch it in "horizontal" mode, and horizontal scroll in "vertical" mode</p>
+</li>
+<li>
+<p><strong>Resistant bounds</strong>Swiper will increase resistance when you try to swipe it over than most left and most right positions (most top and most bottom for "vertical" mode)</p>
+</li>
+<li>
+<p><strong>Native momentum</strong>Now Swiper comes with almost native momentum (in free mode) with great looking momentum bounce</p>
+</li>
+<li>
+<p><strong>Built-in pagination control</strong>Swiper powered with built-in pagination control and bullets creation. Just specify element with pagination and Swiper will do everything for you</p>
+</li>
+<li>
+<p><strong>Auto Play</strong>Just set the delay and Swiper will change the slides automatically untill you touch it.</p>
+</li>
+<li>
+<p><strong>Loop mode</strong>In this mode you will get infinite scrolling and first slides will repeat after last ones.</p>
+</li>
+<li>
+<p><strong>Carousel mode</strong>Swiper allows you to set numbers of slides you want to display at the same time on slider's container.</p>
+</li>
+<li>
+<p><strong>Scroll Container</strong>With this feature you may use Swiper like simple single scrollable area, without slides. Pretty useful for using in apps.</p>
+</li>
+<li>
+<p><strong>Nested Swipers</strong>You can insert one Swiper into slide of different Swiper, for example vertical into horizontal.</p>
+</li>
+<li>
+<p><strong>Any HTML</strong>You can put any HTML content inside of slide, not only images</p>
+</li>
+<li>
+<p><strong>Hardware accelerated</strong>Swiper uses hardware accelerated technics (where supported) to achive ultra smooth animation and perfomance, especially on iOS devices.</p>
+</li>
+<li>
+<p><strong>Rich API</strong>Swiper comes with very rich API. It allows to create your own pagination, "next" and "previous" buttons and comes with 4 callbacks - onTouchStart, onTouchMove, onTouchEnd, onSlideSwitch</p>
+</li>
+<li>
+<p><strong>Flexible configuration</strong>Swiper accepts a lot of parameters on initialization to make it much flexible as possible. You can configure animation speed, mode (vertical or horizontal), free mode, enable/disable pagination, touch ratio, etc.</p>
+</li>
+<li>
+<p><strong>Plugins API </strong>From 1.7 Swiper is powered with rich and simple plugins API that allows you to create your own <a href="http://www.idangero.us/sliders/swiper/plugins/index.php">plugins </a>for Swiper or to create hooks fore Swiper's core actions.</p>
+</li>
+<li>
+<p><strong>Awesome compatibility </strong>Swiper compatible and tested with: Mobile Safari (tested on iOS5), Android 2.1+, Windows Phone 8, latest desktop versions of Google Chrome, Safari, Firefox, Internet Explorer 10 and Opera.</p>
+</li>
+<li>
+<p><strong>Old IE Support</strong>From version 2 Swiper compatible with Internet Explorer 7+ (required included jQuery) with custom DOM animation where css transitions are not supported.</p>
+</li>
+<li>
+<p><strong>Standalone </strong>Swiper doesn't require any JavaScript libraries like jQuery, it makes Swiper much more smaller and faster. So it can be safely used with such libraries as jQuery, jQuery Mobile, jQTouch, etc.</p>
+</li>
+<li>
+<p><strong>Ultra lightweight </strong>Only 10 KB minified and gzipped</p>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p class="hn feat-end">With all these features you can build amazing touch interfaces and apps with awesome native behavior.</p>
+<h2 class="sw-title">Install With Bower</h2>
+<pre>$ bower install swiper</pre>
+<h2 class="sw-title">Recent Swiper Plugins</h2>
+<div class="plugins">
+<div class="plugin">
+<a href="http://www.idangero.us/sliders/swiper/plugins/progress.php">
+<span class="plugin-pic" style="background-image:url(img/plugin-progress.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">Smooth Progress</span>
+</a>
+</div>
+<div class="plugin">
+<a href="http://www.idangero.us/sliders/swiper/plugins/3dflow.php">
+<span class="plugin-pic" style="background-image:url(img/plugin-3dflow.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">3D Flow</span>
+</a>
+</div>
+<div class="plugin">
+<a href="http://www.idangero.us/sliders/swiper/plugins/scrollbar.php">
+<span class="plugin-pic" style="background-image:url(img/plugin-scrollbar.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">Scrollbar</span>
+</a>
+</div>
+<div class="plugin">
+<a href="http://www.idangero.us/sliders/swiper/plugins/hashnav.php">
+<span class="plugin-pic" style="background-image:url(img/plugin-hashnav.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">Hash Navigation</span>
+</a>
+</div>
+<div class="clearfix"></div>
+</div>
+<h2 class="sw-title">Premuim iDangero.us Plugins</h2>
+<p>Don't forget to check out our awesome top-notch premuim sliders:</p>
+<div class="plugins">
+<div class="plugin">
+<a href="http://www.idangero.us/sliders/moover/" target="_blank">
+<span class="plugin-pic" style="background-image:url(img/plugin-moover.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">mOover</span>
+</a>
+</div>
+<div class="plugin">
+<a href="http://www.idangero.us/cs/" target="_blank">
+<span class="plugin-pic" style="background-image:url(img/plugin-cs3.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">Chop Slider 3</span>
+</a>
+</div>
+<div class="plugin">
+<a href="http://www.idangero.us/sliders/s6/" target="_blank">
+<span class="plugin-pic" style="background-image:url(img/plugin-s6.jpg)">
+<span class="overlay"></span>
+</span>
+<span class="plugin-name">S6 - 3D Touch Slider</span>
+</a>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<h2 class="sw-title">Who Use Swiper</h2>
+<div class="whouse"><img src="./swiperApi_files/adobe.jpg"><b>Adobe</b><i>For presentations </i></div>
+<div class="whouse"><img src="./swiperApi_files/disney.jpg"><b>Disney</b><i>On mobile websites </i></div>
+<div class="whouse"><img src="./swiperApi_files/cisco.jpg"><b>Cisco</b><i>For presentations </i></div>
+<div class="whouse"><span>1000+</span><b>Developers</b><i>For their apps and websites </i></div>
+<div class="clearfix"></div>
+<div class="half">
+<h2 class="sw-title">Download and Share</h2><p style="text-align: center; margin-top:0"><a class="gh-button lato" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Download Swiper&#39;, &#39;Clicked&#39;])" href="https://github.com/nolimits4web/Swiper">Download Swiper on GitHub</a></p>
+<div class="social-share"><div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><div class="fb-like" data-ref=".Uud8cH_oxGE.like" data-layout="button_count" data-show_faces="false" data-action="like" data-width="90" data-font="arial" data-href="http://www.idangero.us/sliders/swiper/" data-send="false"></div></a> <a class="addthis_button_tweet at300b"><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.idangero.us/sliders/swiper/#.Uud8cF0QqrI.twitter" data-counturl="http://www.idangero.us/sliders/swiper/" data-count="horizontal" data-text="iDangero.us Swiper - Mobile Touch Slider And Framework With Hardware Accelerated Transitions:" data-related="" data-hashtags="" data-width="110">Tweet</a></a> <a class="addthis_button_google_plusone at300b" g:plusone:size="medium"><div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I1_1390902385878" name="I1_1390902385878" src="./swiperApi_files/fastbutton(1).htm" data-gapiattached="true" title="+1"></iframe></div></a> <a class="addthis_counter addthis_pill_style addthis_nonzero" href="http://www.idangero.us/sliders/swiper/#" style="display: inline-block;"><a class="atc_s addthis_button_compact"><span></span></a><a class="addthis_button_expanded" target="_blank" title="View more services" href="http://www.idangero.us/sliders/swiper/#">702</a></a> <div class="atclear"></div></div></div>
+<script>
+          var addthis_share =
+          {
+             url:"http://www.idangero.us/sliders/swiper/"
+          }
+        </script>
+</div>
+<div class="half last">
+<h2 class="sw-title">Buy Us A Beer</h2>
+<p>If you like Swiper you can always buy us a bottle of a nice beer so we can continue developement of such amazing product and to keep it always free</p>
+<a class="button" href="http://www.idangero.us/buy/donate-swiper.php" target="_blank">Donate</a>
+</div>
+<div class="clearfix"></div>
+</div>
+<footer>
+<p class="centered">2012-2013 © Swiper by <a href="http://www.idangero.us/">iDangero.us</a></p>
+</footer>
+<script type="text/javascript" src="./swiperApi_files/addthis_widget.js"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe id="_atssh582" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px; left: 0px; top: 0px;" src="./swiperApi_files/sh147.htm"></iframe></div><script type="text/javascript" src="./swiperApi_files/core118.js"></script>
+<script src="./swiperApi_files/jquery-1.10.1.min.js"></script>
+<script src="./swiperApi_files/idangerous.swiper.js"></script>
+<script src="./swiperApi_files/main.js"></script>
+<script>
+      var _gaq=[['_setAccount','UA-13289120-5'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+<div id="fb-root"><script src="http://connect.facebook.net/zh_CN/all.js" async=""></script></div><iframe name="oauth2relay1321516377" id="oauth2relay1321516377" src="./swiperApi_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

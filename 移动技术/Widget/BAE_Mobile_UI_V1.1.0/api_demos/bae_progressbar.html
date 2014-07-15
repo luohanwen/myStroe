@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_progressbar.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">进度条</div>
+<div style="padding:10px;text-align: center">
+    <a data-role='bae_button' id="button01">显示进度条</a>
+</div>
+<script type="text/javascript">
+    $("#button01").click(function () {
+        /**
+         * bae_progressbar({message:"",...})弹出进度条提示
+         * message: 进度加载提示内容
+         * modal: 是否为模态进度条。true：默认值，带有灰色蒙版。false：没有灰色蒙版
+         * canCancel: 是否允许点击进度条取消进度，默认为false。
+         * beforeShow: 显示进度条之前要调用函数
+         * afterClose: 关闭进度条要调用的函数
+         */
+        var handle = $.bae_progressbar({message:"<p>正在努力加载数据...</p><p>Loading...</p>",
+            //是否为模态进度条。true：带有灰色蒙版，蒙版之后内容不可点击。false：没有灰色蒙版，内容可以点击。
+            modal:true,
+            //是否允许点击进度条取消进度。
+            canCancel:true,
+            beforeShow:function () {/*alert("将显示进度条")*/
+            },
+            afterClose:function () {/*alert("已隐藏进度条")*/
+            }});
+        //通过调用bae_progressbar对象的close()关闭当前正在显示的进度条。
+        //setTimeout(function(){handle.close()},1000);
+    });
+
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

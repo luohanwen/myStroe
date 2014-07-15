@@ -1,0 +1,234 @@
+/*** aside  ****/
+aside{
+    background: #393939;
+    color: #fff;
+}
+.aside-close{
+    color: #ECF0F1;
+}
+aside>.header{
+    border-bottom: 1px solid #000;
+    background-color: #393939;
+    background-image: -webkit-linear-gradient(top, #393939 0, #2b2b2b 100%);
+    color: #fff;
+}
+aside ul.menu li a {
+    color: #fff;
+}
+aside ul.menu li.anchor{
+    color: #8b9195;
+}
+/*** background mask **/
+.back-mask{
+    color: #7F8C8D
+}
+/**** button ****/
+.button, button {
+    color: #fff;
+    background-color: #46CA5E;
+}
+.button.light,button.light{
+    border: 1px solid #46CA5E;
+    color: #46CA5E;
+    background: none;
+}
+/**** control group **/
+.control-group li{
+    border-color:#46CA5E;
+}
+.control-group li > a {
+    color: #46CA5E;
+}
+.control-group li.active {
+    background: #46CA5E;
+    color:#fff;
+}
+.control-group .icon{
+    color: #46CA5E;
+}
+header .control-group {
+    margin: 0 auto;
+    width: 140px;
+    height: 30px;
+    margin-top: 8px;
+    line-height: 30px;
+}
+header .control-group li{
+    border-color: #fff;
+    padding: 0;
+}
+header .control-group li.active{
+    background: #fff;
+    color: #158f75;
+}
+.control-group li.active a,.control-group li.active .icon{
+    color: #fff;
+}
+.control-group .icon{
+    color: #46CA5E;
+}
+
+/**** counts ****/
+.count{
+    background-color: #E74C3C;
+}
+/**** dots ****/
+.dots ul li a{
+    background: #b9b4b6;
+}
+.dots ul li.active a{
+    background-color: #4c4d4c;
+}
+/**** footer ****/
+footer{
+    background-color: #262F3D;
+}
+footer > a{
+    color: #fff;
+}
+footer > a.active{
+    color: #46CA5E;
+}
+footer .active .icon{
+    color: #46CA5E;
+}
+.footer-secondary{
+    background-color: #262F3D;
+    color: #fff;
+}
+/**** header ****/
+header{
+    background-color: #46CA5E;
+    border-bottom: 1px solid #c8c8c8;
+    color: #fff;
+}
+header .title{
+    color: #fff;
+}
+header .button,header button{
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+}
+header nav a:not(.button){
+    color: #fff;
+}
+.header-secondary{
+    background-color: #6A7991;
+    color: #fff;
+}
+/**** list ****/
+ul.list {
+    background-color: #fff;
+}
+.list>li.active{
+    background-color: rgba(231, 238, 229, 0.75) !important;
+}
+.list>li.active>.icon{
+    color: #46CA5E;
+}
+.list>li .tag{
+    background-color: #3498DB;
+    color: #fff;
+}
+/**** popup ****/
+#jingle_popup_mask{
+    background-color: #222;
+}
+#jingle_popup{
+    background-color: #eef3f3;
+    color: #222;
+    -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+}
+#jingle_popup.arrow.top:after{
+    border-bottom-color: #CAD1DA;
+}
+#jingle_popup.arrow.right:after{
+    border-left-color: #CAD1DA;
+}
+#jingle_popup.arrow.bottom:after{
+    border-top-color: #CAD1DA;
+}
+#jingle_popup.arrow.left:after{
+    border-right-color: #CAD1DA;
+}
+#popup_btn_container{
+}
+.popup-title{
+    color: #33b4db;
+}
+#tag_close_popup{
+    color: #BDC3C7;
+}
+#jingle_popup .nav{
+    color: #000;
+}
+#jingle_popup .nav.active,#jingle_popup .nav:active{
+    background-color: #79db8d !important;
+    color: #fff;
+}
+#jingle_popup.loading{
+    background-color: #2C3E50;
+}
+#jingle_popup.loading p{
+    color: #BDC3C7;
+}
+#jingle_popup.loading i.icon{
+    color: #fff;
+}
+/**** progress ****/
+[data-progress]{
+    background: #fff;
+    border: 1px solid #46CA5E;
+}
+[data-progress] .bar{
+    background: #46CA5E;
+    color: #fff;
+}
+/**** range ****/
+input[type="range"]{
+    border:1px solid #46CA5E;
+}
+input[type="range"]::-webkit-slider-thumb{
+    background: #46CA5E;
+}
+/**** toggles ****/
+.toggle {
+    background-color: #656968;
+}
+.toggle-handle{
+    background-color: #fff;
+    border: 1px solid #656968;
+}
+.toggle.active {
+    background-color: #46CA5E;
+}
+.toggle.active .toggle-handle{
+    background-color: #fff;
+    border:1px solid #46CA5E;
+}
+/**** selected ****/
+.selected{
+    background-color: #46CA5E !important;
+    color: #fff;
+}
+/**** calendar ****/
+.jingle-calendar{
+    background-color: #eee;
+}
+.jingle-calendar-nav{
+    background-color: #262F3D;
+    color: #fff;
+}
+.jingle-calendar table thead{
+    background: #eee;
+}
+.jingle-calendar table tbody{
+    background: #f5f5f5;
+}
+.jingle-calendar table td{
+    border: 1px solid #fff;
+}
+.jingle-calendar table td.active{
+    background-color: #46CA5E;
+}

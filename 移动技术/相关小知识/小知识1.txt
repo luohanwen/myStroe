@@ -1,0 +1,5 @@
+1.chrom浏览器跨越设置
+在浏览器属性的目标后面加上--disable-web-security 如："C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security
+
+2.手机浏览器跨越访问不了数据问题
+将请求方式改为jsonp格式

@@ -1,0 +1,5 @@
+.DS_Store
+builds
+app.zip
+appjs/
+_site/

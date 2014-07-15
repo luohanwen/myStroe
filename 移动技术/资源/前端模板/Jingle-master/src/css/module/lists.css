@@ -1,0 +1,97 @@
+/* Lists
+-------------------------------------------------- */
+ul.list {
+    list-style: none;
+}
+
+.list>li {
+    position: relative;
+    padding: 15px 20px 15px 10px;;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.list>li:first-child {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.list>li > a:not([class*="button"]) {
+    position: relative;
+    display: block;
+    padding: inherit;
+    margin:-15px -20px -15px -10px;;
+    color: inherit;
+}
+.list>li strong{
+    color: #333;
+    font-size: 1.2em;
+}
+.list>li p{
+    color:#7a7a7a;
+    font-size: 0.9em;
+    padding-top: 5px;
+}
+.list>li > .icon{
+    position: absolute;
+    right: 5px;
+    top:50%;
+    font-size: 18px;
+    margin-top: -9px;
+    color: #BDC3C7;
+}
+
+.list>li .tag{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+.icon ~ .tag{
+    right: 30px !important;
+}
+
+
+/* Inset list
+-------------------------------------------------- */
+
+.list.inset {
+    width: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.list.inset>li:first-child {
+    border-top-width: 0;
+}
+.list.inset>li:last-child {
+    border-bottom-width: 0;
+}
+
+
+.list .divider {
+    position: relative;
+    top: -1px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 18px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    background-color: #f8f8f8;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.list.inset .divider:first-child {
+    top: 0;
+    border-top-width: 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.list.inset .divider:last-child {
+    border-radius: 0 0 6px 6px;
+}

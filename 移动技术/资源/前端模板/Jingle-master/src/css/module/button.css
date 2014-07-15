@@ -1,0 +1,31 @@
+.button, button {
+    display: inline-block;
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.button:disabled, button:disabled, .button.disabled, button.disabled {
+    background: rgba(185, 180, 182, 0.20);
+    color: #999 !important
+}
+
+.button.small, button.small {
+    height: 30px;
+    padding: 0 8px;
+    font-size: 1em;
+    line-height: 28px
+}
+.button:active,button:active {
+    opacity: .6;
+}
+.button.block,button.block{
+    width:100%;
+}
+.button .icon, button .icon{
+    float:left;
+}

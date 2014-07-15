@@ -1,0 +1,398 @@
+/* Syntax highlighting */
+
+.com { color: #93a1a1; }
+.lit { color: #195f91; }
+.pun, .opn, .clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+.str, .atv { color: #D14; }
+.kwd, .prettyprint .tag { color: #1e347b; }
+.typ, .atn, .dec, .var { color: teal; }
+.pln { color: #48484c; }
+
+.prettyprint {
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+ol.linenums {
+  margin: 0;
+}
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 20px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+
+
+html, body, div, span, img, ul, li, p {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: none;
+}
+body {
+	min-width: 960px;
+	background: #FFF;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	user-drag: none;
+}
+.clear {
+	clear: both;
+}
+
+
+
+/* Header */
+
+#header {
+	position: relative;
+	margin: 24px auto 0;
+	width: 960px;
+	height: 688px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#info {
+	float: left;
+	margin: 16px 12px 0;
+	width: 388px;
+}
+#info .title {
+	font-size: 72px;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+#info .subtitle {
+	padding: 4px 0 0 4px;
+	font-size: 24px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+#info .description {
+	padding: 32px 8px 48px 5px;
+	color: #666;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+#info .description p {
+	margin: 0 0 12px;
+}
+#info .description ul {
+	margin: 0 0 12px;
+	padding-left: 24px;
+}
+#info .description ul li {
+	padding: 4px 0;
+}
+#info .description .buttons {
+	margin-top: 38px;
+}
+#info .description .buttons .download,
+#info .description .buttons .github {
+	float: left;
+	display: block;
+	height: 48px;
+	width: 172px;
+	background: #3072B3;
+	border-bottom: 2px solid #195794;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #FFF;
+	font-size: 16px;
+	line-height: 48px;
+	text-align: center;
+	text-decoration: none;
+}
+#info .description .buttons .download:hover,
+#info .description .buttons .github:hover {
+	background: #4082C3;
+}
+#info .description .buttons .download:hover:active,
+#info .description .buttons .github:hover:active {
+	background: #195794;
+	border-top: 1px solid #195794;
+	border-bottom: 1px solid #195794;
+	color: #EEE;
+}
+#info .description .buttons .download {}
+#info .description .buttons .github {
+	margin-left: 24px;
+}
+iframe {
+	border: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
+#nexus {
+	z-index: 2000;
+	position: absolute;
+	right: 0;
+	width: 295px;
+	height: 463px;
+	padding: 108px 25px 115px 29px;
+	background: url(nexus.png);
+}
+#nexus #back {
+	position: absolute;
+	bottom: 80px;
+	left: 38px;
+	width: 115px;
+	height: 35px;
+}
+#iphone {
+	z-index: 2000;
+	position: absolute;
+	right: 172px;
+	padding: 119px 25px 108px 31px;
+	width: 320px;
+	height: 460px;
+	background: url(iphone.png);
+}
+#iphone iframe {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#nexus.active,
+#iphone.active {
+	z-index: 2001;
+}
+#iframe-blocker {
+	z-index: 2002;
+	position: absolute;
+	display: none;
+	right: 0;
+	height: 690px;
+	width: 546px;
+}
+#iframe-blocker .notification {
+	position: relative;
+	margin: 292px auto 0;
+	width: 300px;
+	-webkit-box-shadow: 0 0 12px #000;
+	-moz-box-shadow: 0 0 12px #000;
+	box-shadow: 0 0 12px #000;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+#iframe-blocker .notification .title {
+	padding: 10px 0;
+	background: #5C5C5C;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
+	background-image: -webkit-linear-gradient(top, #666, #555);
+	background-image: -moz-linear-gradient(top, #666, #555);
+	background-image: -ms-linear-gradient(top, #666, #555);
+	background-image: -o-linear-gradient(top, #666, #555);
+	background-image: linear-gradient(top, #666, #555);
+	border-bottom: 1px solid #CCC;
+	color: #FFF;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+	text-shadow: 0 1px 0 #000;
+}
+#iframe-blocker .notification .description {
+	padding: 12px 20px 16px;
+	background: #F7F7F7;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#FFF));
+	background-image: -webkit-linear-gradient(top, #EEE, #FFF);
+	background-image: -moz-linear-gradient(top, #EEE, #FFF);
+	background-image: -ms-linear-gradient(top, #EEE, #FFF);
+	background-image: -o-linear-gradient(top, #EEE, #FFF);
+	background-image: linear-gradient(top, #EEE, #FFF);
+	color: #222;
+	text-align: center;
+}
+
+
+
+/* Showcase */
+
+#showcase {
+	margin: 38px auto 0;
+	padding: 0 8px;
+	width: 946px;
+}
+#showcase .title {
+	font-size: 48px;
+	text-align: center;
+	line-height: 48px;
+}
+#showcase .subtitle {
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+}
+#showcase .apps {
+	margin-top: 12px;
+}
+#showcase .apps .app {
+	float: left;
+	margin-left: 14px;
+	cursor: pointer;
+}
+#showcase .apps .app:first-child {
+	margin-left: 0;
+}
+#showcase .apps .app:hover {
+	opacity: 0.7;
+}
+#showcase .apps .app .pic {
+	height: 110px;
+	width: 176px;
+	background: #CCC;
+	border: 1px solid;
+	-webkit-background-size: 176px 110px;
+	-moz-background-size: 176px 110px;
+	background-size: 176px 110px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#showcase .apps .app[data-app="youtube"] .pic {
+	background-image: url(apps/youtube.png);
+	border-color: #C2C2C2;
+}
+#showcase .apps .app[data-app="sketch"] .pic {
+	background-image: url(apps/sketch.png);
+	border-color: #3B7B51;
+}
+#showcase .apps .app[data-app="image-search"] .pic {
+	background-image: url(apps/image-search.png);
+	border-color: #2760BD;
+}
+#showcase .apps .app[data-app="meme"] .pic {
+	background-image: url(apps/meme.png);
+	border-color: #2951B7;
+}
+#showcase .apps .app[data-app="reddit"] .pic {
+	background-image: url(apps/reddit.png);
+	border-color: #5193BC;
+}
+#showcase .apps .app .text {
+	margin-top: 4px;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+}
+
+
+
+/* Documentation */
+
+#documentation {
+	margin: 48px auto 0;
+	padding: 0 8px;
+	width: 946px;
+}
+#documentation .menu {
+	float: left;
+	top: 0;
+	margin: 16px 0 0 8px;
+	padding: 32px 0 48px;
+	width: 250px;
+	border-right: 2px solid #CCC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#documentation .menu .header {
+	font-size: 22px;
+	font-weight: 600;
+	text-align: center;
+}
+#documentation .menu .menu-section {
+	display: block;
+	margin-top: 12px;
+	padding: 4px 0;
+	color: inherit;
+	font-size: 19px;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#documentation .menu .menu-section-title {
+	display: block;
+	padding: 4px 0;
+	color: inherit;
+	font-size: 16px;
+	font-weight: 300;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#documentation .menu .menu-section[disabled],
+#documentation .menu .menu-section-title[disabled],
+#documentation .menu .menu-section:hover,
+#documentation .menu .menu-section-title:hover,
+#documentation .menu .menu-section:active,
+#documentation .menu .menu-section-title:active {
+	background: #EEE;
+}
+#documentation .menu .menu-section-title:hover:active,
+#documentation .menu .menu-section:hover:active {
+	background: #DDD;
+}
+#documentation .section {
+	margin: 0 0 54px 306px;
+	width: 640px;
+}
+#documentation .section .title {
+	font-size: 48px;
+}
+#documentation .section .subtitle {
+	margin: 24px 0 12px;
+	font-size: 32px;
+	font-weight: 300;
+}
+#documentation .section p {
+	margin: 12px 0;
+	color: #555;
+}
+#documentation .section ul {
+	margin-left: 32px;
+	color: #555;
+}
+#documentation .section ul li {
+	margin: 4px 0;
+}
+
+
+
+/* Footer */
+
+#footer {
+	margin: 72px auto 24px;
+	width: 960px;
+	color: #999;
+	text-align: right;
+}

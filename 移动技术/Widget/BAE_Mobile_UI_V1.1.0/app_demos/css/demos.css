@@ -1,0 +1,349 @@
+* {
+    vertical-align: middle;
+}
+
+body, ul, li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/*iscroll css start*/
+.wrapper {
+    position: absolute;
+    top: 76px;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+    background: #e7e7e7;
+}
+
+.scroller {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+
+.scroller ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.scroller li {
+    padding: 0 10px;
+    height: 88px;
+    line-height: 88px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    background-color: #e7e7e7;
+    font-size: 24px;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: #d1d1d1;
+}
+
+.scroller li:active {
+    background-color: #d1d1d1;
+}
+
+.icon_arrow_right {
+    position: absolute;
+    width: 11px;
+    height: 20px;
+    margin-top: 35px;
+    border: none;
+    right: 10px;
+}
+
+.pullDown, .pullUp {
+    background: #fff;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    color: #888;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: #d1d1d1;
+}
+
+.pullDown:active, .pullUp:active {
+    background-color: #d1d1d1;
+}
+
+.pullDownIcon, .pullUpIcon {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: url(../uiframe_1.1.0/images/bae_list_refresh.png) 0 0 no-repeat;
+    -webkit-background-size: 40px 80px;
+    background-size: 40px 80px;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+}
+
+.pullDownIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+.pullUpIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+.flip .pullDownIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+.flip .pullUpIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+.loading .pullDownIcon, .loading .pullUpIcon {
+    background-position: 0 100%;
+    -webkit-transform: rotate(0deg) translateZ(0);
+    -webkit-transition-duration: 0ms;
+
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.pullUpLabel {
+    vertical-align: top;
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0deg) translateZ(0);
+    }
+    to {
+        -webkit-transform: rotate(360deg) translateZ(0);
+    }
+}
+
+.list_item_content {
+    display: inline-block;
+}
+
+.list_item_title {
+    font-size: 24px;
+    color: #3a3a3a;
+    height: 34px;
+    line-height: 34px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+.list_item_subtitle {
+    font-size: 18px;
+    color: #777777;
+    height: 34px;
+    line-height: 34px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+/**
+*
+* Horizontal Scrollbar
+*
+*/
+.myScrollbarH {
+    position: absolute;
+    z-index: 100;
+    height: 8px;
+    bottom: 1px;
+    left: 2px;
+    right: 6px
+}
+
+.myScrollbarH > div {
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -o-background-clip: padding-box;
+    background-clip: padding-box;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/**
+* Vertical Scrollbar
+*/
+.myScrollbarV {
+    position: absolute;
+    z-index: 100;
+    width: 6px;
+    bottom: 7px;
+    top: 2px;
+    right: 1px
+}
+
+.myScrollbarV > div {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+
+    /* The following is probably what you want to customize */
+    background: rgba(0, 0, 0, 0.4);
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -o-background-clip: padding-box;
+    background-clip: padding-box;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.details {
+    bottom: 0px;
+}
+
+/*iscroll css end*/
+
+/*圆角表格 start*/
+.rounded_rectangle_ul {
+    border: solid 2px #b0b0b0;
+    border-bottom: solid 3px #b0b0b0;
+    border-radius: 10px;
+    box-shadow: 0px 3px 2px #ccc inset;
+    margin: 0px;
+}
+
+.rounded_rectangle_ul li {
+    border-bottom: 1px solid #b0b0b0;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 20px;
+    list-style: none;
+}
+
+.rounded_rectangle_ul li:last-child {
+    border: 0;
+}
+
+/*圆角表格 end*/
+/*页面切换动画 css start*/
+.page {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #e7e7e7;
+}
+
+.current {
+    display: block;
+}
+
+.slideLeft.in {
+    -webkit-animation-name: slideLeftIn;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.slideLeft.out {
+    -webkit-animation-name: slideLeftOut;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes slideLeftIn { 0% {-webkit-transform: translateX(100%);} 100% {-webkit-transform: translateX(0);}}
+@-webkit-keyframes slideLeftOut { 0% {-webkit-transform: translateX(0px);} 100% {-webkit-transform: translateX(-100%);}}
+.slideRight.in {
+    -webkit-animation-name: slideRightIn;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.slideRight.out {
+    -webkit-animation-name: slideRightOut;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes slideRightIn { 0% {-webkit-transform: translateX(-100%);} 100% {-webkit-transform: translateX(0);}}
+@-webkit-keyframes slideRightOut { 0% {-webkit-transform: translateX(0);} 100% {-webkit-transform: translateX(100%);}}
+/*页面切换动画 css end*/
+
+span.pay_row_right_padding {
+    margin-right: 10px;
+}
+
+span.highlight {
+    color: red;
+}
+
+span.blue {
+    color: #4397d4;
+}
+
+.ui-date-select-icon {
+    background: url(../res/arrow_right.png) no-repeat !important;
+}
+
+a.common_btn {
+    line-height: normal;
+    margin: 30px 0px 0px 0px;
+    width: 100%
+}
+
+.header_icon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    width: 64px;
+    height: 40px;
+    border: 2px solid #606060;
+    border-radius: 9px;
+    box-shadow: 1px 1px 0px #fff inset, 1px 1px 0px #fff;
+}
+
+a.header_icon:active, a.header_icon.active {
+    background-color: rgba(78, 137, 255, 0.7);
+}
+
+.map_center {
+    background: url(../res/center.png) center no-repeat;
+}
+
+p.title {
+    margin: 40px 0px 15px 0px;
+}
+
+p.title:first-child {
+    margin-top: 0px;
+}
+
+#water_wrapper input {
+    margin-top: 10px;
+}

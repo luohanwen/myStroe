@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_select.js"></script>
+    <style type="text/css">
+        .custom_select_size {
+            width: 300px;
+            height: 60px;
+        }
+        .row_padding{
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">下拉框</div>
+<div style="padding:10px;">
+    <!--在select标签中增加“data-role='bae_select'”标识后，该select标签将被修改为bae_select样式-->
+	<!--select的宽度必须设置，且必须为px, 不推荐使用百分比，因为在使用百分比时，元素处于不见时，无法准确得到宽度值。-->
+    <div class="row_padding"></div>
+    <select data-role="bae_select" id="select1" style="width: 460px">
+        <option value="01">01-大型汽车</option>
+        <option value="02" selected>02-小型汽车</option>
+        <option value="03">03-外籍汽车</option>
+    </select>
+    <div class="row_padding"></div>
+    <select data-role="bae_select" data-inline="true" id="select2" style="width: 300px">
+        <option value="01">01-大型汽车</option>
+        <option value="02" selected>02-小型汽车</option>
+        <option value="03">03-外籍汽车</option>
+    </select>
+    <select data-role="bae_select" data-inline="true" id="select3" style="width: 150px">
+        <option value="赣" id="赣">赣</option>
+        <option value="鲁" id="鲁">鲁</option>
+    </select>
+    <div class="row_padding"></div>
+    自定义宽高下拉框
+    <div class="row_padding"></div>
+    <!--通过定义外链的样式custom_select_size，该在class中定义了width和height属性，从而自定义下拉框的宽高-->
+    <select data-role="bae_select" class="custom_select_size" id="select4">
+        <option value="01">01-大型汽车</option>
+        <option value="02" selected>02-小型汽车</option>
+        <option value="03">03-外籍汽车</option>
+    </select>
+    <!--通过inline样式直接定义select的宽高，从而自定义下拉框的宽高-->
+    <div class="row_padding"></div>
+    <select data-role="bae_select" style="width:300px;height:60px" id="select5">
+        <option value="01">01-大型汽车</option>
+        <option value="02" selected>02-小型汽车</option>
+        <option value="03">03-外籍汽车</option>
+    </select>
+    <div class="row_padding"></div>
+    <select id="select6" style="width: 300px">
+        <option value="01">01-大型汽车</option>
+        <option value="02" selected>02-小型汽车</option>
+        <option value="03">03-外籍汽车</option>
+    </select>
+    <div class="row_padding"></div>
+    <a data-role="bae_button" onclick="changeSelect()" data-inline="true" style="width:45%">改变下拉框</a>
+    <a data-role="bae_button" onclick="appendOption()" data-inline="true" style="width:45%">增加下拉选项</a>
+</div>
+<script type="text/javascript">
+    function changeSelect() {
+        /**
+         * bae_select()按钮属性修改方法。提供如下属性：
+         * disable：select控件可用状态
+         * inline：是否为独占行显示。true：一行显示多个控件。false：独占行显示。
+         * width：宽度
+         * height：高度
+         */
+            //修改bae_select的参数.
+        $("#select6").bae_select({disable:true, inline:false, width:300, height:60});
+    }
+    ;
+    function appendOption() {
+        //为select中增加新的option
+        $("select").append($("<option value='04' selected> 04-运输货车 </option>"));
+        /**
+         * bae_select().refresh()：修改select的DOM结构后，必须需要调用该refresh函数更新样式
+         */
+        $("select").bae_select().refresh();
+    }
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

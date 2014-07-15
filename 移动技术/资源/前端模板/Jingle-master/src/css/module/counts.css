@@ -1,0 +1,22 @@
+[data-count]{
+    position: relative;
+}
+.count{
+    position:absolute;
+    border-radius: 30px;
+    color: #fff;
+    line-height: 18px;
+    padding: 0 5px;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 8px;
+    text-align: center;
+    right: 7px;
+    left: auto;
+    top:0;
+    opacity: .8;
+}
+.count.left{
+    left:7px;
+    right:auto;
+}

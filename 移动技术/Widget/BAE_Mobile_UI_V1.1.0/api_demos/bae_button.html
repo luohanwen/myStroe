@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js">
+    </script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js">
+    </script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js">
+    </script>
+    <style type="text/css">
+        .row_padding{
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div data-role="bae_header" data-event="back()">
+    按 钮
+</div>
+<div style="padding:10px;text-align: center">
+    标准按钮：
+    <!--在a标签中增加“data-role='bae_button'”标识后，该a标签将自动被修改为bae_button样式的按钮-->
+    <a id="button00" data-role='bae_button'>
+        全屏宽度按钮
+    </a>
+    <br>
+    通过参数自定义的按钮：
+    <br>
+    <!--在a标签中增加“data-inline='true'”标识后，多个按钮将在同一行中显示-->
+    <a id="button02" data-role='bae_button' data-inline="true">
+        非独占行按钮A
+    </a>
+    <a id="button03" data-role='bae_button' data-inline="true">
+        非独占行按钮B
+    </a>
+    <br>
+    <br>
+    <!--通过为a标签增加css样式，可以设定按钮的宽高-->
+    <a id="button04" data-role='bae_button' data-inline="true" style="width:400px;height: 100px;line-height: 100px">
+        用户自定义宽高按钮
+    </a>
+    <!--没有“data-role='bae_button'”标识的a标签，可以在doument ready中，主动调用初始化，将其变为bae_button的按钮-->
+    <div class="row_padding"></div>
+    <a id="button05">
+        按钮5
+    </a>
+    <br>
+    <input type="button" onclick="modifyButtons()" value="修改按钮5的样式">
+</div>
+<script type="text/javascript">
+    //通过JS方式修改控件为BAE WidgetUI样式
+    function modifyButtons() {
+        //将id=button05的element，通过js方式修改为BAE WidgetUI Button样式
+        /**
+         * bae_button()按钮属性修改方法。提供如下属性：
+         * inline：
+         * width：
+         * height：
+         * disable：
+         */
+        $("#button05").bae_button({
+            inline:true
+        });
+        //修改id=button05的element的宽高，并置为disable
+        $("#button05").bae_button({
+            width:400,
+            height:100,
+            disable:true
+        });
+    }
+    ;
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

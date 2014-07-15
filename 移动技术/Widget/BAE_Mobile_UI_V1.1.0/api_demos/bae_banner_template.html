@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_banner.js"></script>
+    <style type="text/css">
+        /*定义轮播展示的区域*/
+        .viewport {
+            position: relative;
+            width: 480px;
+            height: 155px;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 0px 0;
+            /*-webkit-transform: translateZ(0); */
+        }
+        /*定义展示内容的宽度，宽度值为：子内容宽度*字内容个数*/
+        .flipsnap {
+            width: 1920px; /* 480px(item width) * 4(item count) */
+            padding-left: 0px;
+        }
+        /*定义展示内容的每个子内容*/
+        .item {
+            width: 480px;
+            height: 155px;
+            margin: 0 0px;
+            text-align: center;
+            padding: 0px 0;
+            color:#fff;
+            float: left;
+        }
+        /*定义导航指示器的位置*/
+        .pointer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        /*定义导航指示器默认样式*/
+        .pointer span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background: #ddd;
+            -webkit-box-shadow: 0 0 3px #aaa;
+            box-shadow: 0 0 3px #aaa;
+        }
+        /*定义被设为当前项时的样式*/
+        .pointer span.current {
+            background: #388cd7;
+            -webkit-box-shadow: 0 0 3px #388cd7;
+            box-shadow: 0 0 3px #388cd7;
+        }
+        .red {
+            background: url("res/banner_red.jpg");
+        }
+        .orange {
+            background: url("res/banner_orange.jpg");
+        }
+        .blue {
+            background: url("res/banner_blue.jpg");
+        }
+        .green {
+            background: url("res/banner_green.jpg");
+        }
+    </style>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">广告轮播</div>
+<div style="text-align: center">
+    <div class="viewport">
+        <div id="flipsnap" class="flipsnap">
+            <div class="item red">栏目一</div>
+            <div class="item blue">栏目二</div>
+            <div class="item green">栏目三</div>
+            <div class="item orange">栏目四</div>
+        </div>
+        <div id="indicator" class="pointer">
+            <span class="current"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <br>
+    <a data-role="bae_button" data-inline="true" onclick="bae_banner.prev()">上一帧</a>
+    <a data-role="bae_button" data-inline="true" onclick="bae_banner.next()">下一帧</a>
+    <a data-role="bae_button" data-inline="true" onclick="bae_banner.start(3000)">开始</a>
+    <a data-role="bae_button" data-inline="true" onclick="bae_banner.stop()">停止</a>
+</div>
+<script type="text/javascript">
+    var bae_banner = null;
+    $(document).ready(function () {
+        /*函数var bae_banner = $.bae_banner(selector, indicator, interval);
+         *将指定内容变为轮播展示，支持触摸操作。
+         * selector: 获取展示内容的选择器，支持id（"#id"）、class(".class")以及元素（"element"）。
+         * indicator: 导航指示内容的选择器，支持id（"#id"）、class(".class")以及元素（"element"）。
+         * interval:轮播时的时间间隔，值为0时表示不自动切换
+         * 返回值bae_banner：该bae_banner的句柄，通过该句柄可以控制展示内容的切换等。
+         * bae_banner.prev():切换到上一帧
+         * bae_banner.next():切换到下一帧
+         * bae_banner.start(interval):开始自动轮播展示，interval为轮播时的时间间隔。
+         * bae_banner.stop():停止自动轮播展示
+         */
+        bae_banner = $.bae_banner("#flipsnap", "#indicator span", 3000);
+    });
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

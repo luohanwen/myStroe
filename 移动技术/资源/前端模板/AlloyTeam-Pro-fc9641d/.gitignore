@@ -1,0 +1,15 @@
+# Files to ignore
+.DS_Store
+.localized
+Thumbs.db
+*.log
+*.sass-cache
+
+# Folders to ignore
+.idea
+.hg
+.svn
+.CVS
+.cache
+tmp
+node_modules

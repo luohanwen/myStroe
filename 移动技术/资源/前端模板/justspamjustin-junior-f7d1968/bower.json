@@ -1,0 +1,19 @@
+{
+  "name": "justspamjustin/junior",
+  "version": "1.0.0",
+  "main": "src/javascripts/junior.js",
+  "description": "A front-end framework for building HTML5 mobile apps with a native look and feel.",
+  "license": "MIT",
+  "ignore": [
+    "*.iml",
+    ".idea"
+  ],
+  "dependencies": {
+    "ratchet": "2.0.2",
+    "underscore": "lodash/lodash#2.4.1",
+    "backbone": "1.1.2",
+    "zepto": "1.1.3",
+    "modernizr": "2.8.2",
+    "flickable": "https://raw.githubusercontent.com/tomlongo/Flickable.js/master/src/zepto.flickable.js"
+  }
+}

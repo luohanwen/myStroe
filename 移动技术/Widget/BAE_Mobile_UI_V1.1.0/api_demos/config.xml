@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.jil.org/ns/widgets"
+        id="e87dde57-5ea4-45e8-8896-03977751ae37baemobileui"
+        version="01.00.beta"
+        versioncode="1"
+        width="480">
+    <name>BAE Mobile UI Demo</name>
+    <description>BAE Mobile UI Demo</description>
+    <content src="index.html"/>
+    <icon src="Icon.png"/>
+    <feature name="http://jil.org/jil/api/1.1/widget" required="true"/>
+    <feature name="http://jil.org/jil/api/1.1.5/exception" required="true"/>
+    <feature name="http://jil.org/jil/api/1.1.5/exceptiontypes" required="true"/>
+    <author email="">研究院互联网应用系统部</author>
+    <license href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache v2</license>
+</widget>

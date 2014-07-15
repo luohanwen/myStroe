@@ -1,0 +1,126 @@
+/**
+     ******************************
+     *       *        header      *
+     *       **********************
+     *       *                    *
+     * aside *                    *
+     *       *      article       *
+     *       *                    *
+     *       *                    *
+     *       **********************
+     *       *       footer       *
+     ******************************
+
+**/
+aside{
+    position: absolute;
+    width: 264px;
+    top:0;
+    bottom:0;
+    -webkit-transform : translateX(-100%);
+    transform : translateX(-100%);
+    z-index: 3;
+}
+
+#section_container{
+    position: absolute;
+    overflow: hidden;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    z-index: 3;
+    background: #64A4E1;
+    background-image: -webkit-linear-gradient(top left, #64A4E1, #2CCD8A);
+    background-image: -moz-linear-gradient(top left, #64A4E1, #2CCD8A);
+    background-image: -o-linear-gradient(top left, #64A4E1, #2CCD8A);
+    background-image: linear-gradient(to bottom right, #64A4E1, #2CCD8A);
+}
+#section_container_mask{
+    position: absolute;
+    overflow: hidden;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+}
+
+section{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 4;
+    overflow:hidden;
+    display: none;
+}
+section.anim:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+}
+section.active{
+    z-index: 6 ;
+    display: block;
+}
+section.animating{
+    z-index: 5 ;
+    display: block;
+}
+article{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    visibility: hidden;
+    display: none;
+    overflow:hidden;
+    z-index: 0;
+    background-color: #fff;
+}
+article.active{
+    visibility: visible;
+    display: block;
+    z-index: 1;
+}
+header,footer,.header-secondary{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 10
+}
+header{
+    top:0;
+    height: 44px;
+    line-height: 44px;
+}
+.header-secondary{
+    top:44px;
+    height: 30px;
+    line-height: 30px;
+    font-size: .9em;
+}
+footer{
+    bottom: 0;
+    height: 51px;
+}
+footer ~ article {
+    bottom: 51px;
+}
+header ~ article{
+    top:44px;
+}
+.header-secondary{
+    top:44px;
+}
+.header-secondary ~ article{
+    top:74px;
+}

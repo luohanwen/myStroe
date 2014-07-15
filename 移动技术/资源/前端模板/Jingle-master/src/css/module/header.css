@@ -1,0 +1,80 @@
+header {
+    top: 0;
+    display: -webkit-box;
+    display: box;
+}
+header > *{
+    -webkit-box-flex : 0;
+    box-flex : 0;
+}
+header nav.left{
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 2;
+}
+header nav.right{
+    position: absolute;
+    right:0;
+    top:0;
+    z-index: 2;
+}
+header .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-size: 1.2em;
+    line-height: 44px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+header .button,header button{
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    padding: 0 5px;
+}
+header .button:active,
+header button:active {
+    opacity: .6;
+}
+header nav{
+    padding: 0 5px;
+}
+header nav a{
+    float: left;
+}
+header nav a:not(.button) {
+    height: 44px;
+}
+header nav a:not(.button):active {
+    opacity: .6;
+}
+
+header nav a:not(.button) > .icon {
+    font-size: 1.5em;
+    float:left;
+}
+
+header .control-group{
+    margin: 0 auto;
+    width:140px;
+    height: 30px;
+    margin-top: 8px;
+}
+
+.header-secondary{
+    display: -webkit-box;
+    display: box;
+    text-align: center;
+}
+.header-secondary > a{
+    -webkit-box-flex : 1;
+    box-flex : 1;
+    display: block;
+}

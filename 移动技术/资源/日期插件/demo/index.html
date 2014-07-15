@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="./zepto.js"></script>
+		<style>
+			.datapicker{background:url(../img/datapicker.gif) no-repeat 230px center #FFF;}
+			.datepicker-box{position:relative;top:-36px;left:0;margin-bottom:-36px;border:1px solid #d9d9d9;}
+
+			.datepicker-header{background:#F8F8F8;border-bottom:1px solid #EEE;}
+			.datepicker-header span{text-align:center;padding:12px 15px 10px;}
+			.datepicker-header span.hover{background:#EEE;}
+			.datepicker-header span b{display:block;width:0;height:0;font-size:0;border:8px solid #F8F8F8;}
+			.datepicker-pre{float:left;}
+			.datepicker-next{float:right;}
+
+			.datepicker-header span.datepicker-pre b{border-left:0;border-right:8px solid #444;}
+			.datepicker-header span.datepicker-next b{border-right:0;border-left:8px solid #444;}
+			.datepicker-header h4{padding:10px 0;height:20px;line-height:20px;text-align:center;font-size:16px;font-weight:normal;}
+
+			.datepicker-body{width:100%;border:0;border-collapse:collapse;border-spacing:0;}
+			.datepicker-body th, .datepicker-body td{height:20px;line-height:20px;text-align:center;font-size:14px;}
+			.datepicker-body th.datepicker-weekend, .datepicker-body td.datepicker-weekend{color:#FF0000;}
+			.datepicker-body th{padding:6px 0;font-weight:normal;color:#333;}
+			.datepicker-body td{padding:4px 0;}
+			.datepicker-body td.cur{background:#DDD;border:1px solid #CCC;color:#FFF;}
+		</style>
+		<script>
+			Zepto.datepicker = function(target){	
+			var datepicker = {
+				init : function(){
+					this._target = target;			
+					this._date = new Date();
+					this._formatDate();
+				},
+				bind: function(){
+					this._picker = (function(){
+						var arr = [];
+						arr.push('<div class="datepicker-box">');
+						arr.push('	<div class="datepicker-header">');
+						arr.push('		<span class="datepicker-pre"><b></b></span>');
+						arr.push('		<span class="datepicker-next"><b></b></span>');
+						arr.push('		<h4></h4>');
+						arr.push('	</div>');
+						arr.push('	<table class="datepicker-body">');
+						arr.push('		<thead>');
+						arr.push('			<tr>');
+						arr.push('				<th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th class="datepicker-weekend">六</th><th class="datepicker-weekend">日</th>');
+						arr.push('			</tr>');
+						arr.push('		</thead>');
+						arr.push('		<tbody>');
+						arr.push('		</tbody>');
+						arr.push('	</table>');
+						arr.push('</div>');
+						return $(arr.join(''));
+					})();
+					this._generateDays();
+			
+					var p = this;
+					this._picker.find('span').on('touchstart', function(){
+						$(this).addClass('hover');
+					}).on('touchend', function(){
+						$(this).removeClass('hover');
+					}).click(function(){
+						if($(this).hasClass('datepicker-pre')){
+							p._date.setMonth(p._date.getMonth() - 1);
+						} else {
+							p._date.setMonth(p._date.getMonth() + 1);
+						}				
+						p._generateDays();
+					});			
+					
+					this._picker.click(function(e){
+						e.preventDefault();
+						e.stopPropagation();
+					});
+					
+					$(document).click(function(e){
+						if(e.target != p._picker[0] && e.target != p._target[0]){
+							p._picker.hide();
+						}
+					});
+					return this;
+				},
+				insert : function(){
+					this._picker.insertAfter(this._target);
+				},
+				show : function(){
+					this._picker.show();
+				},
+				hide : function(){
+					this._picker.hide();
+				},
+				_generateDays : function(){
+					var year = this._date.getFullYear()
+						, month = this._date.getMonth() + 1
+						, day = this._date.getDate()
+						, days = new Date(new Date(year, month, 1) - 24*60*60*1000).getDate()
+						, week = (function(){
+								var tDate = new Date(year, month-1, 1);
+								var week = tDate.getDay();
+								if(week == 0){
+									week = 7;
+								}
+								return week;
+							})();
+							
+					this._picker.find('h4').html(year + ' 年 ' + month + ' 月');
+			
+					var arr = []
+						, d = 1;
+						
+					arr.push('<tr>');
+					for(var j = 1; j < week; j ++){
+						arr.push('<td>&nbsp;</td>');
+					}
+					for(var j = week; j < 8; j ++, d ++){
+						arr.push('<td class="datepicker-td');
+						if(d == day){
+							arr.push(' cur');
+						}
+						if(j >= 6){
+							arr.push(' datepicker-weekend');
+						}
+						arr.push('">');
+						arr.push(d);
+						arr.push('</td>');
+					}
+					arr.push('</tr>');
+					
+					for(var i = 0, l = Math.ceil((days + week) / 7) - 2; i < l; i ++){			
+						arr.push('<tr>');
+						for(var j = 1; j < 8; j ++, d ++){
+							arr.push('<td class="datepicker-td');
+							if(d == day){
+								arr.push(' cur');
+							}
+							if(j >= 6){
+								arr.push(' datepicker-weekend');
+							}
+							arr.push('">');
+							arr.push(d);
+							arr.push('</td>');
+						}
+						arr.push('</tr>');
+					}
+					
+					var l = days - d + 1;
+					if(l != 0){
+						arr.push('<tr>');
+						for(var i = 0; i < l; i ++, d ++){
+							arr.push('<td class="datepicker-td');
+							if(d == day){
+								arr.push(' cur');
+							}
+							if(i >= 6){
+								arr.push(' datepicker-weekend');
+							}
+							arr.push('">');
+							arr.push(d);
+							arr.push('</td>');
+						}
+						for(var i = l + 1; i < 8; i ++){
+							arr.push('<td>&nbsp;</td>');
+						}
+						arr.push('</tr>');
+					}
+					this._picker.find('tbody')[0].innerHTML = arr.join('');
+					
+					var p = this;
+					this._picker.find('.datepicker-td').unbind().on('touchstart', function(){
+						$(this).addClass('hover');
+					}).on('touchend', function(){
+						$(this).removeClass('hover');
+					}).click(function(){
+						p._picker.find('.datepicker-td').removeClass('cur');
+						$(this).addClass('cur');
+						var day = parseInt($(this).text(), 10);
+						p._date = new Date(year, month - 1, day);
+						p.hide();
+						p._formatDate();
+					});
+				},
+				_formatDate: function(){
+					var weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+					this._target.text(this._date.getFullYear() + '年' + (this._date.getMonth() + 1) + '月' + this._date.getDate() + '日（周' + weekDays[this._date.getDay()] + '）');
+				}
+			};
+			
+			datepicker.init();
+			
+			var initialised = false;
+			
+			var self = this;
+			target.click(function(){
+				if(!initialised){
+					datepicker.bind().insert();
+					initialised = true;
+				}
+				datepicker.show();
+			});
+		};
+
+		$.fn.datepicker = function(options){
+			$.datepicker(this);
+		};
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

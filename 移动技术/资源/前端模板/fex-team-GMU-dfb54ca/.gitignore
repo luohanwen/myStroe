@@ -1,0 +1,8 @@
+.DS_Store
+/.idea
+/gmu_webapp2.0.0.zip
+/node_modules
+/doc
+/test/report/report.html
+/test/report/report.xml
+/src_cov

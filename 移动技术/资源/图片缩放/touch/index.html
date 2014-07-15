@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>demo</title>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+    body {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .img_area img{
+		width:300px;
+    }
+
+    #pinchzoom {
+      -webkit-transform: translate3d(0, 0, 0);
+      overflow: hidden;
+      display: none;
+
+      position: absolute;
+      top:0;
+      left:0;
+      bottom:0;
+      width:100%;
+      margin-bottom:-999px;
+      background:rgba(0,0,0,0.7);
+    }
+    #pinchzoom img{
+    	position: absolute;
+		top: 14%;
+		left:50%;
+		width:320px;
+		height:320px;
+		margin-left: -160px;
+		margin-top: -160px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="img_area">
+	<img class="target_img" src="img/demo.jpg" alt="">
+</div>
+
+
+<!--点击上面的图片后，获取上面的img的src放到下面的img src中-->
+<div id="pinchzoom">
+    <img id="rect"  ondragstart="return false" alt=""/>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/hammer.min.js"></script>
+
+<script>
+	
+	//点击目标图片后的逻辑
+  $('.target_img').click(function() {
+  		var src = $(this).attr("src"),
+  			$pinchzoom = $('#pinchzoom');
+
+  		$pinchzoom.find('img').attr("src", src);
+  		$('#pinchzoom').show();
+  		pinchInit();
+  });
+
+//点击弹出层 使之消失
+  $('#pinchzoom').click(function() {
+  		$(this).hide();
+  });	
+
+
+//初始化弹出层中的图片双指缩放和拖拽效果
+  function pinchInit() {
+  	var hammertime = Hammer(document.getElementById('pinchzoom'), {
+	    transform_always_block: true,
+	    transform_min_scale   : 1,
+	    drag_block_horizontal : true,
+	    drag_block_vertical   : true,
+	    drag_min_distance     : 0
+	  });
+
+	  var rect = document.getElementById('rect');
+
+	  var posX = 0, posY = 0,
+	      scale = 1, last_scale = 1,
+	      rotation = 0, last_rotation = 0;
+
+	  hammertime.on('touch drag transform', function(ev) {
+	    switch(ev.type) {
+	      case 'touch':
+	        last_scale = scale;
+	        last_rotation = rotation;
+	        break;
+
+	      case 'drag':
+	        posX = ev.gesture.deltaX;
+	        posY = ev.gesture.deltaY;
+	        break;
+
+	      case 'transform':
+	        scale = Math.max(1, Math.min(last_scale * ev.gesture.scale, 10));
+	        break;
+	    }
+
+	    // transform!
+	    var transform =
+	            "translate3d(" + posX + "px," + posY + "px, 0) " +
+	            "scale3d(" + scale + "," + scale + ", 1) ";
+
+	    rect.style.transform = transform;
+	    rect.style.oTransform = transform;
+	    rect.style.msTransform = transform;
+	    rect.style.mozTransform = transform;
+	    rect.style.webkitTransform = transform;
+	  });
+  }
+  
+
+
+</script>
+<script src="assets/js/ga.js"></script>
+</body>
+</html>

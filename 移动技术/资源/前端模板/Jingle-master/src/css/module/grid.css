@@ -1,0 +1,26 @@
+.grid{
+    display: -webkit-box;
+    display: box;
+}
+.grid.middle{
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    box-pack:center;
+    box-align:center;
+}
+.grid.vertical{
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+}
+.grid-label{
+    -webkit-box-flex:0;
+    box-flex:0;
+    width: 100px;
+    font-weight: 600;
+}
+.col-0 {-webkit-box-flex:0;box-flex:0;}
+.col-1 {-webkit-box-flex:1;box-flex:1;}
+.col-2 {-webkit-box-flex:2;box-flex:2;}
+.col-3 {-webkit-box-flex:3;box-flex:3;}
+.col-4 {-webkit-box-flex:4;box-flex:3;}
+.col-5 {-webkit-box-flex:5;box-flex:5;}

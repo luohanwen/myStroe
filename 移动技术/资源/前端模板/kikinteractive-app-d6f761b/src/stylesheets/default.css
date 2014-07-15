@@ -1,0 +1,272 @@
+/* Topbar */
+
+.app-topbar {
+	background: #222;
+	color: #DDD;
+	font-weight: bold;
+}
+.app-android .app-topbar {
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5),
+		inset 0 1px 0 #2B2B2B,
+		inset 0 -2px 0 #1B1B1B;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.5),
+		inset 0 1px 0 #2B2B2B,
+		inset 0 -2px 0 #1B1B1B;
+}
+.app-ios .app-topbar {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#525252), to(#1F1E1F));
+	background-image: -webkit-linear-gradient(#525252, #1F1E1F);
+	background-image: linear-gradient(#525252, #1F1E1F);
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5),
+		inset 0 1px 0 #797979,
+		inset 0 -1px 0 #333;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.5),
+		inset 0 1px 0 #797979,
+		inset 0 -1px 0 #333;
+	color: #EEE;
+	text-shadow: 0px -1px 0 #1D1E1E;
+}
+
+.app-title {
+	font-size: 20px;
+}
+.app-android .app-title {
+	float: left;
+	padding: 0 12px 0 24px;
+	width: auto;
+	text-align: left;
+}
+.app-android .app-topbar .app-button[data-back].left.active ~ .app-title {
+	background: #3C3C3C;
+}
+
+.app-topbar .app-button.active {
+	background: #3C3C3C;
+}
+.app-android .app-topbar .app-button {
+	padding: 0 16px;
+}
+.app-android .app-topbar .app-button[data-back].left {
+	padding: 0;
+	height: 100%;
+	width: 33%;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAMAAABf788oAAAAjVBMVEUiIiIjIyMrKysqKioAAACdnZ0mJiYnJyednZ0kJCQoKCgsLCwlJSXLy8vPz8/MzMzJycnNzc3Ozs7GxsagoKCjo6O3t7exsbHIyMisrKzAwMDExMS+vr6ysrLHx8fKysq0tLStra27u7urq6unp6fBwcGoqKjDw8Ourq66urq9vb2fn5/FxcWwsLClpaWY7qkYAAAADXRSTlMAAAAAADMAAJkAAAAAOhxptwAAAMVJREFUeF5d0dVuBTEMBNCZvUWY0OLFMsP/f15lxWqb5i1HijO2cYR6zndKKfWDA7EuksIeFcjVNkv5uaMDPoOkco8KxNkhSmVHwmEKkjSiAjFeW8UJhMNdkOLh2IF4yFbxBYQBebopUtmcsIJnil8gYIBVn6XwCsJhDlJOww8Mi2Xa290hGcy/gJt/T9D1sSlK3IbmW/LisQkG4qmJDhBvxZtzwKim/WZADu9LM0LQGpLKGnRg92Fr2F7y76KiL6qeK1/lN9FpDuyoOMUMAAAAAElFTkSuQmCC);
+	background-position: 8px center;
+	background-repeat: no-repeat;
+	-webkit-background-size: 8px 14px;
+	background-size: 8px 14px;
+	color: transparent;
+}
+.app-android .app-topbar .app-button[data-back].left.active {
+	background-color: transparent;
+}
+.app-ios .app-topbar .app-button {
+	margin: 7px 5px;
+	padding: 0 10px;
+	height: 28px;
+	border: 1px solid #201F20;
+	-webkit-box-shadow: 0 1px 1px rgba(255,255,255,0.1),
+		inset 0 0 2px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 1px rgba(255,255,255,0.1),
+		inset 0 0 2px rgba(0,0,0,0.3);
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	font-size: 12px;
+	line-height: 28px;
+}
+.app-ios .app-topbar .app-button[data-back].left {
+	padding: 5px 5px 5px 3px;
+	height: 16px;
+	background: transparent;
+	box-shadow: none;
+	border-width: 2px 6px 2px 12px;
+	-webkit-border-image: url(data:image/png;base64,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) 4 12 4 24;
+	font-size: 12px;
+	line-height: 16px;
+}
+.app-ios .app-topbar .app-button.blue {
+	padding: 0 9px;
+	height: 26px;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4e80ab), color-stop(4%,#4583b7), color-stop(12%,#407fb5), color-stop(27%,#3c79af), color-stop(85%,#225e9a), color-stop(96%,#205a96), color-stop(100%,#1b5288));
+	background-image: -webkit-linear-gradient(top, #4e80ab 0%,#4583b7 4%,#407fb5 12%,#3c79af 27%,#225e9a 85%,#205a96 96%,#1b5288 100%);
+	background-image: linear-gradient(#4e80ab 0%,#4583b7 4%,#407fb5 12%,#3c79af 27%,#225e9a 85%,#205a96 96%,#1b5288 100%);
+	border: 1px solid rgba(0,0,0,0.7);
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-border-image: none;
+	-webkit-box-shadow: 0 1px 0 rgba(42, 51, 58, 0.5);
+	box-shadow: 0 1px 0 rgba(42, 51, 58, 0.5);
+	line-height: 26px;
+}
+.app-ios .app-topbar .app-button.active {
+	background-color: rgba(0,0,0,0.2);
+	color: #C8C8C8;
+}
+.app-ios .app-topbar .app-button[data-back].left.active {
+	background: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-image: url(data:image/png;base64,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) 4 12 4 24;
+}
+.app-ios .app-topbar .app-button.blue.active {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0.1))), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4e80ab), color-stop(4%,#4583b7), color-stop(12%,#407fb5), color-stop(27%,#3c79af), color-stop(85%,#225e9a), color-stop(96%,#205a96), color-stop(100%,#1b5288));
+	background-image: -webkit-linear-gradient(top,rgba(0,0,0,0.3),rgba(0,0,0,0.1)), -webkit-linear-gradient(top, #4e80ab 0%,#4583b7 4%,#407fb5 12%,#3c79af 27%,#225e9a 85%,#205a96 96%,#1b5288 100%);
+	background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)), linear-gradient(#4e80ab 0%,#4583b7 4%,#407fb5 12%,#3c79af 27%,#225e9a 85%,#205a96 96%,#1b5288 100%);
+	-webkit-border-image: none;
+}
+
+
+
+/* Content */
+
+.app-page, .app-content {
+	background: #EEE;
+	color: #696969;
+}
+
+.app-section,
+.app-list > li,
+.app-list > li.app-button,
+.app-content .app-button,
+.app-input {
+	border-color: #EEE;
+}
+
+.app-section {
+	background: #FFF;
+	border: none;
+	border-bottom: 1px solid #DDD;
+	-webkit-box-shadow: 0 0 3px rgba(0,0,0,0.1);
+	box-shadow: 0 0 3px rgba(0,0,0,0.1);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	overflow: hidden;
+}
+p.app-section {
+	padding: 10px 12px;
+}
+.app-section > :first-child {
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+}
+.app-section > :last-child {
+	-webkit-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+}
+.app-section > :only-child {
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+
+/* Lists */
+
+.app-list {
+	background: #FFF;
+}
+.app-list > li {
+	font-weight: bold;
+}
+.app-android .app-list > *,
+.app-android .app-list > .app-button {
+	padding-left: 8px;
+	margin: 0 18px;
+}
+.app-android .app-list > label {
+	padding-top: 12px;
+	background: none;
+	border-bottom: 2px solid #CCC;
+	-webkit-box-shadow: 0 -1px 0 #FFF;
+	color: inherit;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.app-ios .app-list > label {
+	height: 23px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#E3E5EB), to(#EFF1F4));
+	background-image: -webkit-linear-gradient(top, #E3E5EB, #EFF1F4);
+	background-image: linear-gradient(#E3E5EB, #EFF1F4);
+	border-top: 1px solid #D1D4D8;
+	border-bottom: 1px solid #CFD2DA;
+	color: #8C8C8C;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 23px;
+	text-shadow: 0px 1px 0 #FFF;
+}
+
+
+
+/* Buttons */
+
+.app-content .app-button.active {
+	background: #F7F7F7;
+	color: #09C;
+}
+.app-ios .app-content .app-button.active {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#058CF5), to(#015EE6));
+	background-image: -webkit-linear-gradient(top, #058CF5, #015EE6);
+	background-image: linear-gradient(#058CF5, #015EE6);
+	color: #FFF;
+}
+.app-button {
+	font-weight: bold;
+}
+.app-button.red,
+.app-button.green,
+.app-button.blue {
+	color: #FFF;
+}
+.app-button.red.active,
+.app-button.green.active,
+.app-button.blue.active {
+	color: #EEE;
+}
+.app-content .app-button.red {
+	background-color: #F0293A;
+}
+.app-content .app-button.red.active {
+	background-color: #D0091A;
+}
+.app-content .app-button.green {
+	background-color: #5CCC5C;
+}
+.app-content .app-button.green.active {
+	background-color: #3CAC3C;
+}
+.app-content .app-button.blue {
+	background-color: #1C7DE6;
+}
+.app-content .app-button.blue.active {
+	background-color: #005DC6;
+}
+.app-ios .app-button.red,
+.app-ios .app-button.green,
+.app-ios .app-button.blue {
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+}
+.app-ios .app-content .app-button.red {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FF2035), to(#E13443));
+	background-image: -webkit-linear-gradient(top, #FF2035, #E13443);
+	background-image: linear-gradient(#FF2035, #E13443);
+}
+.app-ios .app-content .app-button.green {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#7D7), to(#4B4));
+	background-image: -webkit-linear-gradient(top, #7D7, #4B4);
+	background-image: linear-gradient(#7D7, #4B4);
+}
+.app-ios .app-content .app-button.blue {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#2A8CF8), to(#0F6FD5));
+	background-image: -webkit-linear-gradient(top, #2A8CF8, #0F6FD5);
+	background-image: linear-gradient(#2A8CF8, #0F6FD5);
+}
+.app-ios .app-button.red.active,
+.app-ios .app-button.green.active,
+.app-ios .app-button.blue.active {
+	background-image: none;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.1);
+	box-shadow: inset 0 2px 4px rgba(0,0,0,.1);
+	color: #DDD;
+}

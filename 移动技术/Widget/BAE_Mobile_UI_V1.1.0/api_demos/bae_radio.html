@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_radio.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">单选按钮</div>
+<div style="padding:10px;text-align: center;">
+    <!--在input标签中增加“data-role='bae_radio'”标识后，该input标签将被修改为bae_radio样式-->
+    <input data-role="bae_radio" name="group1" type="radio" checked="checked" disabled ="disabled">Radio选项一<br>
+    <input data-role="bae_radio" name="group1" type="radio" >Radio选项二<br>
+    <input data-role="bae_radio" name="group1" type="radio" >Radio选项三<br><br>
+
+    <br>点击下面radio的描述文字<br>可以改变radio的选中状态<br>
+    <input data-role="bae_radio" id="Test1" name="group2" type="radio" checked="checked"><label id="Label1">选项一</label>
+    <input data-role="bae_radio" id="Test2" name="group2" type="radio" ><label id="Label2">选项二</label>
+    <input data-role="bae_radio" id="Test3" name="group2" type="radio" ><label id="Label3">选项三</label>
+    <br><br>
+    <a data-role="bae_button" onclick="changeRadio()">改变'选项一'可用状态</a>
+</div>
+<script type="text/javascript">
+    function changeRadio(){
+        if("disabled" == $("#Test1").attr("disabled")){
+            /**
+             * bae_radio()按钮属性修改方法。提供如下属性：
+             * disable：radio按钮的可用状态
+             */
+                //将id=Test1的radio置为enable状态
+            $("#Test1").bae_radio({disable:false});
+        } else {
+            //将id=Test1的radio置为disable状态
+            $("#Test1").bae_radio({disable:true});
+        }
+    };
+    //将label和radio的点击事件关联，从而点击radio的描述文字时，改变radio的选中状态。
+    $(function(){
+        $("#Label1").bind("click",function(){$("#Test1")[0].click();});
+        $("#Label2").bind("click",function(){$("#Test2")[0].click();})
+        $("#Label3").bind("click",function(){$("#Test3")[0].click();})
+    });
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

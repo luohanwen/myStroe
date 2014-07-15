@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>App.js</title>
+		<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+		<link rel="stylesheet" href="demos/styles.css">
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="info">
+				<div class="title">app.js</div>
+				<div class="subtitle">mobile webapps made easy</div>
+				<div class="description">
+					<p>App.js is a lightweight JavaScript UI library for creating mobile webapps that behave like native apps, sacrificing neither performance nor polish.</p>
+					<ul>
+						<li>cross-platform (Android 2.2+, iOS 4.3+)</li>
+						<li>themable platform-specific UI designs</li>
+						<li>configurable native-like transitions</li>
+						<li>automatically managed navigation stack</li>
+						<li>built-in widgets for general use-cases</li>
+					</ul>
+					<p>The goal of App.js is to provide a robust starting point for mobile webapps, handling general scenarios, and maintaining compatiblity with other common JavaScript libraries.</p>
+					<div class="buttons">
+						<a class="download external" href="https://raw.github.com/kikinteractive/app/1.10.0/appjs-v1.zip">Download</a>
+						<a class="github external" href="https://github.com/kikinteractive/app">GitHub project</a>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="phones">
+				<div id="nexus">
+					<iframe border="none"></iframe>
+					<a href="javascript:;" id="back"></a>
+				</div>
+				<div id="iphone" class="active">
+					<iframe border="none"></iframe>
+				</div>
+			</div>
+			<div id="iframe-blocker">
+				<div class="notification">
+					<div class="title">Unsupported Platform</div>
+					<div class="description">Use a WebKit browser (Chrome, Safari, etc) to try this demo.</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div id="showcase">
+			<div class="title">Showcase</div>
+			<div class="subtitle">Click to demo these apps</div>
+			<div class="apps">
+				<div class="app" data-app="youtube">
+					<div class="pic"></div>
+					<div class="text">YouTube Videos</div>
+				</div>
+				<div class="app" data-app="image-search">
+					<div class="pic"></div>
+					<div class="text">Image Search</div>
+				</div>
+				<div class="app" data-app="sketch">
+					<div class="pic"></div>
+					<div class="text">Sketch</div>
+				</div>
+				<div class="app" data-app="meme">
+					<div class="pic"></div>
+					<div class="text">Memes</div>
+				</div>
+				<div class="app" data-app="reddit">
+					<div class="pic"></div>
+					<div class="text">Funny Pics</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div id="documentation">
+			<div class="menu">
+				<div class="header">Documentation</div>
+
+				<a class="menu-section" href="#start">Getting started</a>
+				<a class="menu-section-title" href="#start-html">HTML structure</a>
+				<a class="menu-section-title" href="#start-run">Run the app</a>
+
+				<a class="menu-section" href="#pages">Page basics</a>
+				<a class="menu-section-title" href="#pages-topbar">Topbar</a>
+				<a class="menu-section-title" href="#pages-content">Content</a>
+				<a class="menu-section-title" href="#pages-buttons">Buttons</a>
+				<a class="menu-section-title" href="#pages-lists">Lists</a>
+				<a class="menu-section-title" href="#pages-inputs">Inputs</a>
+				<a class="menu-section-title" href="#pages-sections">Sections</a>
+
+				<a class="menu-section" href="#populators">Populators</a>
+				<a class="menu-section-title" href="#populators-arguments">Arguments &amp; Templating</a>
+				<a class="menu-section-title" href="#populators-events">Events</a>
+				<a class="menu-section-title" href="#populators-destructors">Destructors</a>
+
+				<a class="menu-section" href="#navigation">Navigation</a>
+				<a class="menu-section-title" href="#navigation-back">Back stack</a>
+				<a class="menu-section-title" href="#navigation-transitions">Transitions</a>
+				<a class="menu-section-title" href="#navigation-restore">Restore</a>
+
+				<a class="menu-section" href="#styles">Styling</a>
+				<a class="menu-section-title" href="#styles-platforms">Platform styles</a>
+			</div>
+
+			<div id="start" class="section">
+				<div class="title">Getting started</div>
+
+				<p>The goal of this tutorial is to provide a reference for common tasks and give a step-by-step walkthrough for building your first app. Please download the App.js template above to start hacking!</p>
+
+				<div id="start-html" class="subtitle">HTML structure</div>
+				<p>This is the preferred structure of your HTML when starting an App.js webapp.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My App&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width,
+                                   initial-scale=1.0,
+                                   maximum-scale=1.0,
+                                   user-scalable=no"&gt;
+    &lt;link rel="stylesheet" href="http://cdn.kik.com/app/1/default.css"&gt;
+    &lt;style&gt;
+      /* put your styles here */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- put your pages here --&gt;
+    &lt;script src="http://zeptojs.com/zepto.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://cdn.kik.com/app/1/app.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+      /* put your javascript here */
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+				<p>Things to note:</p>
+				<ul>
+					<li><b>app.js</b> is the core module containing all library functionality.</li>
+					<li><b>default.css</b> is the default stylesheet provided with App.js. It contains iOS/Android styles for all included widgets.</li>
+					<li><b><a class="external" href="http://zeptojs.com/">zepto.js</a></b> is jQuery-like library focusing on being lightweight and mobile-friendly. It is <b>not</b> a dependency for App.js but still nice to have for writing concise, cross-platform code. Replace this with <a class="external" href="http://jquery.com">jQuery</a> if you so desire.</li>
+					<li>The meta viewport tag simply insures that the window is sized correctly on whatever device it runs on. This is important to get consistent sizing and scale across different platforms.</li>
+					<li>The comment about "pages" is where your HTML page elements will go, as described in the <a href="#pages">next section</a>.</li>
+					<li>The comment about "javascript" is where your <a href="#populators">populators</a> and <a href="#navigation">navigation</a> code will go.</li>
+					<li>The comment about "styles" is where your <a href="#styles">custom styles</a> will go.</li>
+				</ul>
+
+				<div id="start-run" class="subtitle">Run the app</div>
+				<p>Since App.js apps are fundamentally static all you have to do is put your code in an HTML file and open it in a browser to test.</p>
+				<p>It is advised that you run your app <a class="external" href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation#emulate-device-viewports">in Chrome while simulating a mobile platform</a> that you're targeting. Don't forget to <a class="external" href="https://developers.google.com/chrome-developer-tools/docs/mobile-emulation#emulate-touch-events">turn on touch event emulation</a>.</p>
+				<p>Right now your app is a blank page so move on to the <a href="#pages">next section</a> to start building!</p>
+			</div>
+
+			<div id="pages" class="section">
+				<div class="title">Page basics</div>
+
+				<p>Note: all the HTML widgets provided below can be styled as described in the <a href="#styles">styling section</a>.</p>
+				<p>App.js pages are HTML elements that have certain generic components like a topbar and content area. Note that while these components are completely optional the "app-page" format is the only requirement of your HTML.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="app-page" data-page="home"&gt;
+  &lt;div class="app-topbar"&gt;&lt;/div&gt;
+  &lt;div class="app-content"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<p>The "app-page" must have a "data-page" attribute that denotes the name of the page. This name is used whenever any JavaScript code tries to load the page.</p>
+<pre class="prettyprint linenums lang-js">
+App.load('home');
+</pre>
+				<p>This single line of JavaScript instructs App.js to load the page named "home". You should now have an app that loads a blank page with a topbar</p>
+
+				<div id="pages-topbar" class="subtitle">Topbar</div>
+				<p>Like many native mobile apps, the App.js topbar generally consists of several buttons and a title.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="app-topbar"&gt;
+  &lt;div class="app-title"&gt;Page title&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<p>Your app should now have the title visible in the topbar.</p>
+
+				<div id="pages-content" class="subtitle">Content</div>
+				<p>The "app-content" contains all of the contents of the page including buttons, lists, and inputs. While these widgets are useful, it is usually the case that the custom HTML structures of the app will go here.</p>
+				<p>By default it automatically has scrolling managed for it. To turn off automatic scrolling add the attribute "data-no-scroll='true'" to the content element.</p>
+
+				<div id="pages-buttons" class="subtitle">Buttons</div>
+				<p>Buttons are basic components of any app and App.js has several built-in conveniences for handling them. Any element with the class "app-button" will automatically be styled accordingly, as well being very responsive to touches with appropriate downstates when pressed.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your app-content --&gt;
+&lt;div class="app-button"&gt;My button&lt;/div&gt;
+</pre>
+				<p>One of the more common placements for buttons is in the topbar.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="app-topbar"&gt;
+  &lt;div class="app-button left"&gt;Back&lt;/div&gt;
+  &lt;div class="app-title"&gt;Page title&lt;/div&gt;
+  &lt;div class="app-button right"&gt;Forward&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<p>As you might imagine, the "Back" button will show up on the left and the "Forward" on the right. You'll notice that the styles are significantly different than the button in the content area as in this context we expect a smaller button that is suitable for navigation and such.</p>
+
+				<div id="pages-lists" class="subtitle">Lists</div>
+				<p>Lists are useful for displaying bulk data or providing a set of options to choose from.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your app-content --&gt;
+&lt;ul class="app-list"&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+				<p>Additionally list items can be buttons.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;ul class="app-list"&gt;
+  &lt;li class="app-button"&gt;Button item&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+				<p>Lists often have labels to segment items into logical sections.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;ul class="app-list"&gt;
+  &lt;label&gt;Animals&lt;/label&gt;
+  &lt;li&gt;Dogs&lt;/li&gt;
+  &lt;li&gt;Cats&lt;/li&gt;
+  &lt;label&gt;Fruits&lt;/label&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+				<div id="pages-inputs" class="subtitle">Inputs</div>
+				<p>App.js provides standard components to gather user input, from either HTML inputs or textareas, making it easy to construct forms.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your app-content --&gt;
+&lt;input class="app-input"&gt;
+&lt;textarea class="app-input"&gt;&lt;/textarea&gt;
+</pre>
+
+				<div id="pages-sections" class="subtitle">Sections</div>
+				<p>"Sections" is a concept in the App.js UI that lets you separate blocks of components into convenient.. well.. sections.</p>
+				<p>Try this out in the content of your app:</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your app-content --&gt;
+&lt;div class="app-section"&gt;
+  &lt;input class="app-input" placeholder="Subject"&gt;
+  &lt;textarea class="app-input" placeholder="Message"&gt;&lt;/textarea&gt;
+  &lt;div class="app-button"&gt;Send&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<p>You'll notice that the very same inputs that were described above are now in a rounded section all to themselves. Additionally, there is a margin around the section as well as appropriate borders. These features can be applied to any of the described widgets that go in the content area of your page.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;ul class="app-list app-section"&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="app-section"&gt;
+  &lt;div class="app-button"&gt;Send&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="app-section"&gt;
+  &lt;input class="app-input"&gt;
+&lt;/div&gt;
+</pre>
+				<p>Notice that you can put as many widgets as you like in a section and they will be handled accordingly.</p>
+			</div>
+
+			<div id="populators" class="section">
+				<div class="title">Populators</div>
+
+				<p>In the <a href="#pages">previous section</a> we described how to create App.js pages and load them. In that example a single page was created and loaded using "App.load('home');". Under the hood, App.js clones the HTML "app-page" element with that name and makes it visible to the user. This way we can create multiple instances of the same page and use it in different contexts.</p>
+				<p>Whenever a new page is being loaded using "App.load" a special function called a 'populator' is called to prepare your HTML page element. This allows you to hook up any dynamic aspects of your page prior to it being shown to the user. For example, the buttons described in the previous section looked and felt like real buttons but didn't actually perform any actions. The populator would be the place to listen for button events and make them trigger whatever action you want.</p>
+<pre class="prettyprint linenums lang-js">
+/* in your javascript */
+App.populator('home', function (page) {
+  // this runs whenever a 'home' page is loaded
+  // 'page' is the HTML app-page element
+  $(page)
+    .find('.app-button')
+    .on('click', function () {
+      alert('button was clicked!');
+    });
+});
+</pre>
+				<p>If you have described multiple pages in your HTML, you will want to create a populator for each of them so that they can be constructed properly whenever loaded.</p>
+
+				<div id="populators-arguments" class="subtitle">Arguments &amp; Templating</div>
+				<p>Populators can have dynamic arguments so that you can construct a page slightly different depending on the input. For example, if I am creating a contact list app I will want to load a contact page for any given contact in my list. What we will do is describe a generic contact page with blank fields and fill them in depending on which contact the page is being loaded for.</p>
+				<p>To load a page with special arguments simply add an JSON object to the "App.load" call and you'll be able to use that object in the populator accordingly.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your html --&gt;
+&lt;div class="app-page" data-page="contact"&gt;
+  &lt;div class="app-topbar"&gt;
+    &lt;div class="app-title"&gt;Contact&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="app-content"&gt;
+    &lt;div class="first-name"&gt;&lt;/div&gt;
+    &lt;div class="last-name"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<pre class="prettyprint linenums lang-js">
+/* in your javascript */
+App.populator('contact', function (page, contact) {
+  $(page).find('.first-name').text(contact.firstName);
+  $(page).find('.last-name' ).text(contact.lastName );
+});
+</pre>
+<pre class="prettyprint linenums lang-js">
+/* somewhere else in javascript */
+var contact = { firstName : 'Bruce' , lastName : 'Lee' };
+App.load('contact', contact);
+</pre>
+				<p>In the second last line of code above, the "contact" object could have any first / last name and the populator would setup the page accordingly.</p>
+				<p>These kinds of arguments coupled with Zepto or jQuery combine to make an effect method of templating your HTML.</p>
+
+				<div id="populators-events" class="subtitle">Events</div>
+				<p>There are various events that App.js will fire on your page.</p>
+				<ul>
+					<li><b>"appLayout"</b>: This is caused by an orientation change, window resize, page placement in the DOM, or anything that could invalidate the layout of your page. Bind to this event and place any layout related code for your page in here.</li>
+					<li><b>"appShow"</b>: This is fired whenever the user navigates to this page. This may fire multiple times if the user navigates to another page and eventually returns.</li>
+					<li><b>"appHide"</b>: This is fired whenever the user navigates away from this page. Note that this doesn't necessarily mean that the page will be destroyed, for example in the case when the user navigates forward to another page and can possibly come back.</li>
+				</ul>
+				<p>To handle these events bind to them in your populators.</p>
+<pre class="prettyprint linenums lang-js">
+/* in your javascript */
+App.populator('home', function (page) {
+  $(page).on('appShow', function () {
+    alert('annoy the user!');
+  });
+});
+</pre>
+
+				<div id="populators-destructors" class="subtitle">Destructors</div>
+				<p>Populators have a converse function that is analogous to destructors in other environments. This destructor allows you to clean up any code that would prevent garbage collection when the page is ready to be destroyed. This is also a convenient time to unbind from global events if necessary.</p>
+<pre class="prettyprint linenums lang-js">
+App.populator('home', function (page, args) {
+  // this is the normal populator
+}, function (page, args) {
+  // this is the destructor
+  // 'page', 'args' are identical to the populator
+});
+</pre>
+				<p>The populator and destructor of a page share the "this" context for convenience and ease of passing data.</p>
+<pre class="prettyprint linenums lang-js">
+App.populator('home', function (page, args) {
+  this.interval = setInterval(function () {
+    $(page)
+      .find('.app-title')
+      .text( new Date() );
+  }, 1000);
+}, function (page, args) {
+  clearInterval(this.interval);
+});
+</pre>
+				<p>This block of code periodically sets the title of the page to the current time. Once the page is destroyed we want to stop setting the title otherwise that code would continue to run wastfully.</p>
+			</div>
+
+			<div id="navigation" class="section">
+				<div class="title">Navigation</div>
+
+				<p>As discussed earlier, "App.load" makes clone of the chosen page, runs the populator for it, and then presents it to the user.</p>
+<pre class="prettyprint linenums lang-js">
+/* in your javascript */
+App.load('home');
+</pre>
+				<p>This can be called from anywhere in your code at any time. If a navigation is attempted while one is in progress the navigation will be queued to perform after the current one completes.</p>
+				<p>Additionally, a callback can be provided to be run when the navigation is complete.</p>
+<pre class="prettyprint linenums lang-js">
+App.load('home', function () {
+  // done!
+});
+</pre>
+				<p>Because buttons often directly load pages there is a feature to allow this is a quick, succinct way.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your html --&gt;
+&lt;div class="app-button" data-target="page2"&gt;Go to page 2&lt;/div&gt;
+</pre>
+				<p>When the above button is clicked "App.load('page2');" will automatically get called.</p>
+
+				<div id="navigation-back" class="subtitle">Back stack</div>
+				<p>As you navigate from page to page App.js mantains a history of the pages you have been to with the ability to navigate back to them. "App.back" is the conceptual reverse of "App.load" in that navigates back to the previous page load (destroying the current page when the navigation completes).</p>
+<pre class="prettyprint linenums lang-js">
+// load home
+// load page2
+App.back(function () {
+  // back to home
+  // page2 destructor has been called
+});
+</pre>
+				<p>If there is no prior page to navigate back to "App.back" will return "false".</p>
+				<p>As with the "data-target" feature, there is a conceptually reverse feature for "App.back".</p>
+<pre class="prettyprint linenums lang-html">
+&lt;!-- in your html --&gt;
+&lt;div class="app-button" data-back="true"&gt;Go back&lt;/div&gt;
+</pre>
+				<p>When the above button is clicked "App.back();" will automatically get called.</p>
+				<p>One of the common things to do with a back button is to name it based on the previous page. App.js provides a convenience for automatically having the back button be named after the page it will lead to.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class="app-button" data-back="true" data-autotitle="true"&gt;&lt;/div&gt;
+</pre>
+
+				<div id="navigation-transitions" class="subtitle">Transitions</div>
+				<p>By default App.js will attempt to transition between pages using whatever fits best with the platform that your app is running on. For example on iOS the titles of your pages will slide while fading out, simulating the native iOS transition style.</p>
+				<p>There are many built in transitions and each call to "App.load" can specify which transition to use directly (overriding the defaults).</p>
+<pre class="prettyprint linenums lang-js">
+App.load('home', 'fade'); // fade between pages
+</pre>
+				<p>Transitions are provided by Swapper.js. <a class="external" href="https://github.com/kikinteractive/swapper">Go to the docs</a> for the list of available transitions.</p>
+				<p>Additionally you can set the global default transition for all navigations.</p>
+<pre class="prettyprint linenums lang-js">
+App.setDefaultTransition('transition-name'); // global
+
+// set per platform
+App.setDefaultTransition({
+  ios             : 'transition-name' , // iOS
+  iosFallback     : 'transition-name' , // iOS &lt;5
+  android         : 'transition-name' , // Android
+  androidFallback : 'transition-name' , // Android &lt; 4
+  fallback        : 'transition-name'   // non-iOS, non-Android
+});
+</pre>
+
+				<div id="navigation-restore" class="subtitle">Restore</div>
+				<p>Because App.js is aware of your navigation stack and how to construct pages, it also provides the ability to automatically restore the users session to where they were the last time it was closed. Enabling this feature requires this following idiom:</p>
+<pre class="prettyprint linenums lang-js">
+try {
+  // try to restore previous session
+  App.restore();
+}
+catch (err) {
+  // else start from scratch
+  App.load('home');
+}
+</pre>
+			</div>
+
+
+
+
+			<div id="styles" class="section">
+				<div class="title">Styling</div>
+
+				<p>App.js provides a default stylesheet called default.css (as used in the demo at the top of this page). default.css is meant to serve as a good starting point for prototyping and an example for stylesheet creation.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;link rel="stylesheet" href="http://cdn.kik.com/app/1/default.css"&gt;
+&lt;style&gt;
+  /* put your additional styles here */
+&lt;/style&gt;
+</pre>
+				<p>There is a root CSS file called app.css that can be used as a starting point for creating stylesheets from scratch. It provides all the basic necessities for App.js while leaving all the custom styles up to your doing.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;link rel="stylesheet" href="http://cdn.kik.com/app/1/app.css"&gt;
+&lt;style&gt;
+  /* create your custom stylesheet here */
+&lt;/style&gt;
+</pre>
+
+				<div id="styles-platforms" class="subtitle">Platform styles</div>
+				<p>It is often convenient to have styles that are specific to a platform. For example in the demo at the top of this page the topbar is styled slightly different on iOS and Android. iOS tends to prefer gradients and shadows while newer Android styles are often flat and without text shadows.</p>
+				<p>To accomodate this App.js adds classes to the body of the document denoting which platform it is running on. Using this class as a filtering selector can let you have separate styles for a single widget.</p>
+<pre class="prettyprint linenums lang-css">
+.my-widget {
+  /* cross-platform styles */
+}
+.app-ios .my-widget {
+  /* ios only styles */
+}
+.app-android .my-widget {
+  /* android only styles */
+}
+</pre>
+			</div>
+		</div>
+
+		<div id="footer">&copy; 2013 Kik Interactive Inc.</div>
+
+		<script>
+			window._gaq = [];
+			_gaq.push(['_setAccount', 'UA-36047984-14']);
+			_gaq.push(['_trackPageview']);
+		</script>
+		<script src="demos/main.js"></script>
+		<script>
+			(function () {
+				var ga   = document.createElement('script');
+				ga.type  = 'text/javascript';
+				ga.async = true;
+				ga.defer = true;
+				ga.src   = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</body>
+</html>

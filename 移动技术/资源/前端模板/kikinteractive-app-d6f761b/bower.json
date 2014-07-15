@@ -1,0 +1,45 @@
+{
+  "name": "appjs",
+  "version": "2.0.3",
+  "homepage": "http://code.kik.com/app/",
+  "authors": [
+    "Jairaj Sethi <j@jairaj.org>"
+  ],
+  "description": "Lightweight JavaScript UI library for creating mobile webapps that behave like native apps, sacrificing neither performance nor polish",
+  "main": [
+    "dist/app.js",
+    "dist/app.min.js",
+    "dist/app.css",
+    "dist/app.min.css",
+    "dist/base.css",
+    "dist/base.min.css",
+    "dist/default.css",
+    "dist/default.min.css"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "app",
+    "appjs",
+    "mobile",
+    "ui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".DS_Store",
+    ".gitignore",
+    "1",
+    "2",
+    "LICENSE.txt",
+    "README.md",
+    "_layouts",
+    "_site",
+    "appjs-v2.zip",
+    "bowser.json",
+    "build",
+    "bundle",
+    "index.html",
+    "src"
+  ]
+}

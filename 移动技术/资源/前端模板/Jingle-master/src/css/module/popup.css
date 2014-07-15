@@ -1,0 +1,118 @@
+#jingle_popup_mask{
+    display: none;
+    position: absolute;
+    z-index: 90;
+    left: 0;
+    right:0;
+    top:0;
+    bottom: 0;
+    opacity: 0;
+}
+#jingle_popup{
+    display: none;
+    position: absolute;
+    left: 0;
+    right:0;
+    z-index: 98;
+    min-height: 50px;
+}
+#jingle_popup.arrow{
+    border-radius: 5px;
+}
+#jingle_popup.arrow:after{
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+}
+#jingle_popup.arrow.top:after{
+     bottom: 100%;
+     left: 50%;
+     margin-left: -10px;
+ }
+#jingle_popup.arrow.right:after{
+    left: 100%;
+    top: 50%;
+    margin-top: -10px;
+}
+#jingle_popup.arrow.bottom:after{
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+}
+#jingle_popup.arrow.left:after{
+    top: 50%;
+    right: 100%;
+    margin-top: -10px;
+}
+#popup_btn_container{
+    text-align: center;
+    margin-top: 10px;
+    display: -webkit-box;
+    display: box;
+}
+#popup_btn_container > a{
+    -webkit-box-flex:1;
+    box-flex:1;
+    padding: 10px;
+    display: block;
+    color: #222;
+    border:1px solid rgba(0, 0, 0, 0.2);
+    border-left: none;
+    border-bottom: none;
+}
+#popup_btn_container > a:last-child{
+    border-right: 0 none;
+}
+.popup-title{
+    text-align: left;
+    padding: 10px;
+}
+.popup-content{
+    padding: 0 10px 10px 10px;
+    line-height: 1.2em;
+}
+#tag_close_popup{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1em;
+    padding: 5px 5px 10px 10px;
+}
+#jingle_popup .nav{
+    text-align: center;
+    font-size: 1em;
+}
+
+#jingle_popup.loading{
+    top:50%;
+    left: 50%;
+    margin: -75px 0 0 -75px;
+    opacity: .9;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+#jingle_popup.loading i.icon{
+    font-size: 4em;
+    line-height: 110px;
+    margin:0;
+}
+.actionsheet{
+    display: -webkit-box;
+    display: box;
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+    padding: 20px;
+}
+.actionsheet > button{
+   -webkit-box-flex:1;
+    box-flex:1;
+    margin : 10px 0;
+    display: block;
+    width:100%;
+}

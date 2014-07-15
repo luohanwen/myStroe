@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_toast.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_page_anim.js"></script>
+    <style type="text/css">
+        .content{
+            position: absolute;
+            top:74px;
+            bottom: 0px;
+            width: 100%;
+            text-align: center;
+        }
+        .darkcyan{
+            background: darkcyan;
+        }
+        .darkorange{
+            background: darkorange;
+        }
+        .darksalmon{
+            background: darksalmon;
+        }
+        .darkgreen{
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var bae_page_anim = null;
+    $(document).ready(
+        function(){
+            bae_page_anim = $.bae_page_anim("page1");
+        }
+    )
+    function setStartPage(){
+        bae_page_anim.setStartPage("page3");
+        //阻止事件冒泡
+        event.stopPropagation();
+    }
+</script>
+<!--将默认显示页面(page1)之外的其他页面(page2,page3,page4)设置为隐藏-->
+<div id="page1">
+    <!--页面回退：调用函数bae_page_anim.back()-->
+    <!--调用该函数可以按操作历史回退-->
+    <div data-role="bae_header" data-event="bae_page_anim.back()">
+        首页
+    </div>
+    <!--页面切换：调用函数bae_page_anim.slideToPage(pageTo，direction，callback）-->
+    <!--pageTo：将要切换到的页面-->
+    <!--direction：页面切换动画的方向-->
+    <!--callback：页面切换完成的回调函数-->
+    <div class="content darkcyan" onclick="bae_page_anim.slideToPage('page2', 'left','')">点击切换页面
+		<br>
+		<div style="padding:10px">
+			<a data-role="bae_button" onclick="back()">退出</a>
+		</div>
+	</div>
+    
+</div>
+<div id="page2" style="display: none">
+    <div data-role="bae_header" data-event="bae_page_anim.back()">
+        第二页
+    </div>
+    <div class="content darksalmon" onclick="bae_page_anim.slideToPage('page3', 'left','')">点击切换页面</div>
+</div>
+<div id="page3" style="display: none">
+    <div data-role="bae_header" data-event="bae_page_anim.back()">
+        第三页
+    </div>
+    <div class="content darkgreen" onclick="bae_page_anim.slideToPage('page4', 'left','')">
+        点击切换页面
+		<div style="padding:10px">
+		    <!--清空回退历史：调用函数bae_page_anim.clear()-->
+			<!--调用该函数可以清空回退历史，此时再调用bae_page_anim.back()将提示已经回退到开始页-->
+			<a data-role="bae_button" onclick="setStartPage()" id="setStartPage">设置本页为起始页</a>
+			<br>
+			<a data-role="bae_button" onclick="back()">退出</a>
+		</div>
+    </div>
+</div>
+<div id="page4" style="display: none">
+    <div data-role="bae_header" data-event="bae_page_anim.back()">
+        结束页
+    </div>
+    <div class="content darkorange">结束页</div>
+</div>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

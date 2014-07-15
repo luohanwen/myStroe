@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_checkbox.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">多选按钮</div>
+<div style="padding:10px;text-align: center;">
+    <!--在input标签中增加“data-role='bae_checkbox'”标识后，该input标签将被修改为bae_checkbox样式-->
+    <input data-role="bae_checkbox" name="group1" type="checkbox" checked="checked" disabled="disabled"><label>Checkbox选项一</label><br>
+    <input data-role="bae_checkbox" name="group1" type="checkbox"><label>Checkbox选项二</label><br>
+    <input data-role="bae_checkbox" name="group1" type="checkbox"><label>Checkbox选项三</label><br>
+
+    <br>点击下面checkbox的描述文字<br>可以改变checkbox的选中状态<br>
+    <input data-role="bae_checkbox" id="Test1" name="group2" type="checkbox" checked="checked"><label
+        id="Label1">选项一</label>
+    <input data-role="bae_checkbox" id="Test2" name="group2" type="checkbox"><label id="Label2">选项二</label>
+    <input data-role="bae_checkbox" id="Test3" name="group2" type="checkbox"><label id="Label3">选项三</label>
+    <br><br>
+    <a data-role="bae_button" onclick="changeCheckbox()">改变'选项一'可用状态</a>
+</div>
+<script type="text/javascript">
+    function changeCheckbox() {
+        if ("disabled" == $("#Test1").attr("disabled")) {
+            /**
+             * bae_checkbox()按钮属性修改方法。提供如下属性：
+             * disable：checkbox按钮的可用状态
+             */
+                //将id=Test1的checkbox置为enable状态
+            $("#Test1").bae_checkbox({disable:false});
+        } else {
+            //将id=Test1的checkbox置为disable状态
+            $("#Test1").bae_checkbox({disable:true});
+        }
+    }
+    ;
+    //将label和checkbox的点击事件关联，从而点击checkbox的描述文字时，改变checkbox的选中状态。
+    $(function () {
+        $("#Label1").bind("click", function () {
+            $("#Test1")[0].click();
+        });
+        $("#Label2").bind("click", function () {
+            $("#Test2")[0].click();
+        })
+        $("#Label3").bind("click", function () {
+            $("#Test3")[0].click();
+        })
+    });
+</script>
+<script type="text/javascript" src="common.js"></script></body>
+</html>

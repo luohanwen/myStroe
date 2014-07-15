@@ -1,0 +1,16 @@
+[data-progress]{
+    border-radius: 10px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 0.9em;
+}
+[data-progress] .bar{
+    float: left;
+    width:0;
+    height: 100%;
+    white-space: nowrap;
+    border-radius: 10px 0 0 10px;
+    margin-left: -1px;
+
+}

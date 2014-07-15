@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="css/demos.css" rel="stylesheet" type="text/css"/>
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="application/javascript" src="uiframe_1.1.0/js/iscroll.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_tabs_bottom.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_checkbox.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_select.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_dialog.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_progressbar.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_toast.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_calendar.js"></script>
+</head>
+<body>
+    <!--page home start-->
+    <div id="page_home" class="page">
+        <div data-role="bae_header" data-event="Widget.onBackPressed()">
+            公共事业查缴
+        </div>
+        <div data-role="bae_tabs_bottom">
+            <div data-role="bae_tab" data-event="" data-tab-name="水费" data-tab-icon="res/1.png"
+                 data-tab-icon-selected="res/1_selected.png" data-tab-selected="true">
+                <!--定义iscroll列表-->
+                <div class="wrapper" id="water_wrapper">
+                    <!--滚动面板-->
+                    <div class="scroller">
+                        <!--数据显示在ul标签内-->
+                        <ul>
+                            <!--水费页面内容-->
+                            <div style="margin:10px;text-align: left">
+                                <div style="position: relative;height:45px;">
+                                    <div style="position: absolute;left:0;top:0;height:45px;line-height: 45px"> 1.缴费单位</div>
+                                    <div style="position: absolute;right:0;top:0;height:45px;line-height: 45px">
+                                        <span style="margin-bottom: 7px; vertical-align:top"
+                                              onclick="showWaterChargeUnitMap()">
+                                            <img src="res/marker_mini.png" style="margin:0px 6px -7px 0px">
+                                            <a herf="" style="color:#4397d4;">查看地图</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <select data-role="bae_select">
+                                    <option value="01">自来水市北有限公司</option>
+                                    <option value="02" selected>自来水市南有限公司</option>
+                                    <option value="03">新区自来水总公司</option>
+                                </select>
+
+                                <p class="title">2. 账户编号</p>
+                                <select data-role="bae_select" id="water_account">
+                                </select>
+                                <input type="text" placeholder="请输入账户" class="ui-input-text" id="input_water_account">
+
+                                <p class="title">3. 提醒设置(下月提醒我缴费)</p>
+
+                                <div style="text-align: left;margin-top: 0px">
+                                    <span style="width:40%" id="notify_date_btn"
+                                          class="ui-bae-select-inline ui-bae-btn-inner ui-bae-select ui-bae-btn-icon-right ui-bae-select-corner-all ui-bae-shadow  ui-bae-select-enable"
+                                          aria-hidden="true">
+                                        <span class="ui-bae-btn-text" style="text-align: left; padding-left:15px"
+                                              id="notify_date">2013-8-5 </span>
+                                        <span class="ui-bae-select-icon ui-date-select-icon ui-bae-select-icon-enable"></span>
+                                    </span>
+                                    <span style="display:inline-block;width:50%;text-align: right;">
+                                        <input data-role="bae_checkbox" id="checkbox_phone" name="group2" type="checkbox">
+                                        <label id="label_phone">手机</label>
+                                        <input data-role="bae_checkbox" id="checkbox_mail" name="group2" type="checkbox">
+                                        <label id="label_mail">邮件</label>
+                                    </span>
+                                </div>
+                                <input type="text" placeholder="请输入手机号" class="ui-input-text" id="input_phone">
+                                <input type="text" placeholder="请输入邮箱" class="ui-input-text" id="input_mail">
+
+                                <a data-role='bae_button' id="button01" class="common_btn" onclick="dataQuery()">查 询</a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div data-role="bae_tab" data-event="" data-tab-name="电费" data-tab-icon="res/2.png"
+                 data-tab-icon-selected="res/2_selected.png">
+                <!--电费页面内容-->
+            </div>
+            <div data-role="bae_tab" data-event="" data-tab-name="燃气" data-tab-icon="res/3.png"
+                 data-tab-icon-selected="res/3_selected.png">
+                <!--燃气页面内容-->
+            </div>
+            <div data-role="bae_tab" data-event="choseHelp" data-tab-icon="res/4.png"
+                 data-tab-icon-selected="res/4_selected.png" data-tab-name="帮助">
+                <!--帮助页面内容-->
+                <div id="help_wrapper" class="wrapper">
+                    <div class="scroller">
+                        <ul id="thelist">
+                            <li>
+                                <div class="list_item_content">
+                                    <div class="list_item_title">
+                                        水费收费标准
+                                    </div>
+                                    <div class="list_item_subtitle">
+                                        水费收费标准详细细则
+                                    </div>
+                                </div>
+                                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+                            </li>
+                            <li>
+                                <div class="list_item_content">
+                                    <div class="list_item_title">
+                                        电费收费标准
+                                    </div>
+                                    <div class="list_item_subtitle">
+                                        电费收费标准详细细则
+                                    </div>
+                                </div>
+                                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+                            </li>
+                            <li>
+                                <div class="list_item_content">
+                                    <div class="list_item_title">
+                                        燃气费收费标准
+                                    </div>
+                                    <div class="list_item_subtitle">
+                                        燃气费收费标准详细细则
+                                    </div>
+                                </div>
+                                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+                            </li>
+                            <li>
+                                <div class="list_item_content">
+                                    <div class="list_item_title">
+                                        是否可以帮别人缴费
+                                    </div>
+                                    <div class="list_item_subtitle">
+                                        是否可以帮别人缴费呢？
+                                    </div>
+                                </div>
+                                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+                            </li>
+                            <li>
+                                <div class="list_item_content">
+                                    <div class="list_item_title">
+                                        没有无线城市账户可以缴费吗？
+                                    </div>
+                                    <div class="list_item_subtitle">
+                                        没有无线城市账户可以缴费吗？
+                                    </div>
+                                </div>
+                                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+                            </li>
+                        </ul>
+                        <div class="pullUp" id="pullUp">
+                            <span class="pullUpIcon"></span><span class="pullUpLabel">点击获取更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--page home end-->
+    <!--page date start-->
+    <div id="page_date" class="page">
+        <div data-role="bae_header" data-event="Widget.onBackPressed()">
+            公共事业查缴
+        </div>
+        <!--在div标签中增加“data-role='bae_calendar'”标识后，该标签将自动被修改为bae_calendar样式-->
+        <!-- data-event：自定义日期选择事件 data-default-date：设置默认日期，日期格式为yyyy-mm-dd。如果无该属性或者该属性设置为空则默认为今日
+       data-choose-old-date：是否可以选择今天以前的日期 -->
+        <div id="chose_notify_date"></div>
+    </div>
+    <!--page date end-->
+    <!--page pay start-->
+    <div id="page_pay" class="page">
+        <div data-role="bae_header" data-event="Widget.onBackPressed()">
+            公共事业查缴
+        </div>
+        <!--定义iscroll列表-->
+        <div class="wrapper details" id="details_wrapper">
+            <!--数据显示在ul标签内-->
+            <ul style="width: 100%">
+                <div style="margin: 10px">
+                    <ul class="rounded_rectangle_ul">
+                        <li>
+                            <span class="pay_row_right_padding">收费单位:</span><span id="charge_unit" class="blue"></span>
+                        </li>
+                        <li>
+                            <span class="pay_row_right_padding">账户编号:</span><span id="account_num" class="blue"></span>
+                        </li>
+                        <li>
+                            <span class="pay_row_right_padding">当月消费:</span><span id="current_amount" class="blue"></span>
+                        </li>
+                        <li>
+                            <span class="pay_row_right_padding">账户结余:</span><span class="highlight" id="left_amount"
+                                                                                  class="blue"></span>
+                        </li>
+                        <li>
+                            <span class="pay_row_right_padding">交费金额:</span><span class="blue"><input class="ui-input-text"
+                                                                                                      style="width:30%;display: inline-block;"
+                                                                                                      type="text" value=""
+                                                                                                      id="charge_amount"> 元</span>
+                        </li>
+                    </ul>
+                    <a data-role="bae_button" class="common_btn" onclick="pay()">确认缴费</a>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!--page pay end-->
+    <!--page pay result start-->
+    <div id="page_pay_result" class="page">
+        <div data-role="bae_header" data-event="Widget.onBackPressed()">
+            公共事业查缴
+        </div>
+        <!--定义iscroll列表-->
+        <div class="wrapper details" id="pay_result_wrapper">
+            <!--数据显示在ul标签内-->
+            <ul style="width: 100%">
+                <div style="padding: 10px">
+                    <li style="text-align: center;margin: 30px">
+                        <img src="res/success.png" style="margin-right: 10px">
+
+                        <div style="display:inline;width:100%;height: 56px;font-size: 26px;line-height: 56px;vertical-align: top">
+                            支付成功！
+                        </div>
+                    </li>
+                    <ul class="rounded_rectangle_ul">
+                        <li>
+                            <span class="pay_row_right_padding">收费单位:</span><span id="result_charge_unit"
+                                                                                  class="blue"></span>
+                        </li>
+                        <li>
+                            <span class="pay_row_right_padding">账户编号:</span><span id="result_account_num"
+                                                                                  class="blue"></span>
+                        </li>
+                        <li>
+                            <span class="pay_row_right_padding">账户结余:</span><span id="result_left_amount"
+                                                                                  class="blue"></span><span
+                                class="blue"> 元</span>
+                        </li>
+                    </ul>
+                    <a data-role='bae_button' class="common_btn" onclick="Widget.onBackPressed()">确 定</a>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <!--page pay result end-->
+    <!--page help details start-->
+    <div id="page_help_details" class="page">
+        <div data-role="bae_header" data-event="Widget.onBackPressed()">
+            公共事业查缴
+        </div>
+        <!--定义iscroll列表-->
+        <div class="wrapper details" id="help_details_wrapper">
+            <!--滚动面板-->
+            <div id="scroller">
+                <!--数据显示在ul标签内-->
+                <ul id="help_details_list">
+                    <li>
+                        <div style="padding: 0px 20px;line-height: 30px">
+                            <br>第七条依法确定的单位用户用水计划，由年度计划用水总量和月度计划用水量、用水性质等组成。水性质根据有关法律、法规确定或者变更。
+                            　　<br>第八条单位用户应当在每年12月1日前申请下一年度用水计划，但新用水单位和施工用水单位可以在供水业务办理期间申请。
+                            　　水务主管部门应当将申请用水计划所需提交材料的目录和申请表的示范文本以及单位用户用水计划在办公场所和政府网站公示，并应当实行网上申请与受理业务。
+                            　　<br>第九条新用水单位申请用水计划应当提供：
+                            　　(一)用水计划申请表;(二)合法设立的证明文件;
+                            　　(三)新建、扩建、改建建设项目及节约用水设施竣工验收合格证明文件;
+                            　　(四)设计年用水总量的有关文件。
+                            　　第十条既有单位用户申请用水计划应当提供用水计划申请表、用水节水情况表;因生产经营或者用水人数变化等因素引起用水需求变化，需要调整年度用水计划总量的，还应当提交年度计划用水总量增减原因的说明和相关证明材料。
+                            　　第十一条建设项目施工前，建设单位应当申请施工用水计划。
+                            　　申请施工用水计划应当提供：(一)施工用水计划申请表;
+                            　　(二)建设工程规划、施工许可等合法证明文件;
+                            　　(三)施工用水节水及排水措施方案。
+                            　　<br>第十二条市水务主管部门负责年度计划用水总量在5万立方米以上的重点单位用户的用水计划的核定及管理;区水务主管部门负责年度计划用水总量在3万立方米以上不足5万立方米的重点单位用户的用水计划的核定及管理，以及年度计划用水总量不足3万立方米的一般单位用户的用水计划的备案及管理。
+                            　　<br>第十三条年度施工计划用水量在3万立方米以上的，由市水务主管部门核定和管理;不足3万立方米的，由区水务主管部门备案和管理。
+                            　　<br>第十四条月度计划用水量由单位用户根据年度计划用水总量自行确定，并报水务主管部门备案。
+                            　　<br>第十五条单位用户年度计划用水总量根据水量平衡测试确定的合理用水水平系数、用水平均增长率以及最近三年年度实际用水总量的平均值确定。
+                            　　单位用户有三年以上用水数据的：单位用户年度计划用水总量=合理用水水平系数×(1+前三年用水平均增长率)×前三年实际用水总量的平均值。
+                            　< 单位用户有两年以上用水数据的：单位用户年度计划用水总量=合理用水水平系数×(1+前两年用水平均增长率)×前两年实际用水总量的平均值。 <br>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--page help details end-->
+    <!--page map start-->
+    <div id="page_map" class="page">
+        <div data-role="bae_header" data-event="Widget.onBackPressed()">
+            公共事业查缴
+            <a class="header_icon map_center" id="center_icon_btn" onclick="setMapCenter()"></a>
+        </div>
+        <div class="wrapper details" id="map_wrapper">
+        </div>
+    </div>
+    <!--page map end-->
+<script type="text/javascript" src="js/widget_pc_debug_1.0.0.js"></script>
+<script type="application/javascript" src="js/demos.js"></script>
+</body>
+</html>

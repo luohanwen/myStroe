@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>模版-多行列表</title>
+
+    <link href="uiframe_1.1.0/css/bae.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="application/javascript" src="uiframe_1.1.0/js/iscroll.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">
+    模版-多行列表
+</div>
+<div id="wrapper">
+    <div id="scroller">
+        <ul id="thelist">
+            <li>
+                <div class="list_item_content">
+                    <div class="list_item_title">
+                        主标题1
+                    </div>
+                    <div class="list_item_subtitle">
+                        副标题1
+                    </div>
+                </div>
+                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+            </li>
+            <li>
+                <div class="list_item_content">
+                    <div class="list_item_title">
+                        主标题2
+                    </div>
+                    <div class="list_item_subtitle">
+                        副标题2
+                    </div>
+                </div>
+                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+            </li>
+            <li>
+                <div class="list_item_content">
+                    <div class="list_item_title">
+                        主标题3
+                    </div>
+                    <div class="list_item_subtitle">
+                        副标题3
+                    </div>
+                </div>
+                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+            </li>
+            <li>
+                <div class="list_item_content">
+                    <div class="list_item_title">
+                        主标题4
+                    </div>
+                    <div class="list_item_subtitle">
+                        副标题4
+                    </div>
+                </div>
+                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+            </li>
+            <li>
+                <div class="list_item_content">
+                    <div class="list_item_title">
+                        主标题5
+                    </div>
+                    <div class="list_item_subtitle">
+                        副标题5
+                    </div>
+                </div>
+                <img class='icon_arrow_right' src='uiframe_1.1.0/images/bae_list_arrow_r.png'/>
+            </li>
+        </ul>
+        <div id="pullUp">
+            <span class="pullUpIcon"></span><span class="pullUpLabel">点击获取更多</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="common.js"></script></body>
+
+<script type="text/javascript">
+    var myScroll, pullUpEl, pullUpOffset, generatedCount = 5;
+
+    function pullUpAction() {
+        setTimeout(function () {    // <-- Simulate network congestion, remove setTimeout from production!
+            var el, li, i;
+            el = $('#thelist');
+
+            for (i = 0; i < 5; i++) {
+                li = document.createElement('li');
+                var curCount = ++generatedCount;
+                li.innerHTML = '<div class="list_item_content"><div class="list_item_title">主标题'
+                        + curCount + '</div><div class="list_item_subtitle">副标题' + curCount
+                        + '</div></div><img class="icon_arrow_right" src="uiframe_1.1.0/images/bae_list_arrow_r.png"/>';
+                el.append(li, li);
+                li.onclick = function (obj) {
+                    return function () {
+                        //点击list中某一项的事件
+                        alert("点击了第" + ($(obj).index() + 1) + "项");
+                    };
+                }(li);
+            }
+            myScroll.refresh();		// Remember to refresh when contents are loaded (ie: on ajax completion)
+        }, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+    }
+
+    $(document).ready(function () {
+        pullUpEl = document.getElementById('pullUp');
+        pullUpOffset = pullUpEl.offsetHeight;
+        myScroll = new iScroll('wrapper', {
+            scrollbarClass:'myScrollbar',
+            onRefresh:function () {
+                if (pullUpEl.className.match('loading')) {
+                    pullUpEl.className = '';
+                    pullUpEl.querySelector('.pullUpIcon').style.display = "none";
+                    pullUpEl.querySelector('.pullUpLabel').innerHTML = '点击获取更多数据';
+                }
+            }
+        });
+
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+
+        $('#thelist>li').bind("click", function () {
+            //点击list中某一项的事件
+            alert("点击了第" + ($(this).index() + 1) + "项");
+        });
+
+        //单击更多事件处理
+        $("#pullUp").bind("click", function () {
+            pullUpEl.className = 'loading';
+            pullUpEl.querySelector('.pullUpIcon').style.display = "inline-block";
+            pullUpEl.querySelector('.pullUpLabel').innerHTML = '正在加载数据，请稍候...';
+            pullUpAction();
+        });
+
+    });
+</script>
+<style type="text/css" media="all">
+* {
+    vertical-align: middle;
+}
+
+body, ul, li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 74px;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+    background: #e7e7e7;
+}
+
+#scroller {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+
+#scroller ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+#scroller li {
+    padding: 0 10px;
+    height: 88px;
+    line-height: 88px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    background-color: #e7e7e7;
+    font-size: 24px;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: #d1d1d1;
+}
+
+#scroller li:active {
+    background-color: #d1d1d1;
+}
+
+.icon_arrow_right {
+    position: absolute;
+    width: 11px;
+    height: 20px;
+    margin-top: 35px;
+    border: none;
+    right: 10px;
+}
+
+#pullDown, #pullUp {
+    background: #fff;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    color: #888;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: #d1d1d1;
+}
+
+#pullDown:active, #pullUp:active {
+    background-color: #d1d1d1;
+}
+
+#pullDown .pullDownIcon, #pullUp .pullUpIcon {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: url(uiframe_1.1.0/images/bae_list_refresh.png) 0 0 no-repeat;
+    -webkit-background-size: 40px 80px;
+    background-size: 40px 80px;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+}
+
+#pullDown .pullDownIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+#pullUp .pullUpIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+    background-position: 0 100%;
+    -webkit-transform: rotate(0deg) translateZ(0);
+    -webkit-transition-duration: 0ms;
+
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0deg) translateZ(0);
+    }
+    to {
+        -webkit-transform: rotate(360deg) translateZ(0);
+    }
+}
+
+.list_item_content {
+    display: inline-block;
+}
+
+.list_item_title {
+    font-size: 24px;
+    color: #3a3a3a;
+    height: 34px;
+    line-height: 34px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+.list_item_subtitle {
+    font-size: 18px;
+    color: #777777;
+    height: 34px;
+    line-height: 34px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+    /**
+    *
+    * Horizontal Scrollbar
+    *
+    */
+.myScrollbarH {
+    position: absolute;
+    z-index: 100;
+    height: 8px;
+    bottom: 1px;
+    left: 2px;
+    right: 6px
+}
+
+.myScrollbarH > div {
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -o-background-clip: padding-box;
+    background-clip: padding-box;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+    /**
+    * Vertical Scrollbar
+    */
+.myScrollbarV {
+    position: absolute;
+    z-index: 100;
+    width: 6px;
+    bottom: 7px;
+    top: 2px;
+    right: 1px
+}
+
+.myScrollbarV > div {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+
+    /* The following is probably what you want to customize */
+    background: rgba(0, 0, 0, 0.4);
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    -o-background-clip: padding-box;
+    background-clip: padding-box;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+</style>
+</html>

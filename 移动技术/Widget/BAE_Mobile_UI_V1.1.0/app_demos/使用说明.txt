@@ -1,0 +1,4 @@
+在将该应用打包为wgt格式在手机运行时，请保证将demo.html中如下代码关闭：
+<!--<script type="text/javascript" src="js/widget_pc_debug_1.0.0.js"></script>-->
+在PC端运行时需要将该段代码打开：
+<script type="text/javascript" src="js/widget_pc_debug_1.0.0.js"></script>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://ma.rkusa.st/touch-dnd/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>touch-dnd by rkusa</title>
+
+    <link rel="stylesheet" href="http://ma.rkusa.st/touch-dnd/stylesheets/styles.css">
+    <link rel="stylesheet" href="http://ma.rkusa.st/touch-dnd/stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+      
+    <script>
+      document.write('<script src="javascripts/' + 
+      ('__proto__' in {} ? 'zepto' : 'jquery') +
+      '.min.js"><\/script>')
+    </script><script src="./homePage_files/zepto.min.js"></script>
+    <script src="./homePage_files/touch-dnd.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>touch-dnd</h1>
+        <p>Advanced touch-compatible Drag'n'Drop library providing Draggable, Droppable and Sortable for Zepto.js and jQuery</p>
+        
+        <p class="view"><a href="https://github.com/rkusa/touch-dnd">View the Project on GitHub <small>rkusa/touch-dnd</small></a></p>
+
+        <ul>
+          <li><a href="https://github.com/rkusa/touch-dnd/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rkusa/touch-dnd/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rkusa/touch-dnd">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h4><a href="http://ma.rkusa.st/touch-dnd/sortable.html">Sortable</a></h4>
+<div style="float:left;margin-right:20px">
+  <ul class="list" id="lhs">
+    <li>A 1</li>
+    <li>A 2</li>
+    <li>A 3</li>
+    <li>A 4</li>
+  </ul>
+</div>
+
+<div style="float:left">
+  <ul class="list" id="rhs">
+    <li>B 1</li>
+    <li>B 2</li>
+    <li>B 3</li>
+    <li>B 4</li>
+  </ul>
+</div>
+
+<div style="clear:both"></div>
+
+<h4><a href="http://ma.rkusa.st/touch-dnd/draggable.html">Draggable</a></h4>
+<ul class="grid wide">
+  <li class="draggable"></li>
+  <li class="draggable"></li>
+  <li class="draggable"></li>
+  <li class="draggable"></li>
+  <li class="draggable"></li>
+  <li class="draggable"></li>
+  <li class="draggable"></li>
+</ul>
+
+<h4><a href="http://ma.rkusa.st/touch-dnd/droppable.html">Droppable</a></h4>
+<div class="droppable"></div>
+<div class="droppable"></div>
+
+<script type="text/javascript">
+  $(function() {
+    $('#lhs').sortable({ connectWith: '.droppable' })
+    $('#rhs').sortable({ connectWith: '#lhs' })
+    .on('sortable:receive', function(e, ui) {
+      ui.item.removeClass('draggable')
+    })
+    $('.draggable').draggable({ connectWith: '#rhs' })
+    $('.droppable').droppable({ activeClass: 'active', hoverClass: 'drop-here' })
+  })
+</script>
+
+<p style="clear:both"></p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#lhs'</span><span class="p">).</span><span class="nx">sortable</span><span class="p">({</span> <span class="nx">connectWith</span><span class="o">:</span> <span class="s1">'.droppable'</span> <span class="p">})</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#rhs'</span><span class="p">).</span><span class="nx">sortable</span><span class="p">({</span> <span class="nx">connectWith</span><span class="o">:</span> <span class="s1">'#lhs'</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'sortable:receive'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">ui</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">ui</span><span class="p">.</span><span class="nx">item</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'draggable'</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.draggable'</span><span class="p">).</span><span class="nx">draggable</span><span class="p">({</span> <span class="nx">connectWith</span><span class="o">:</span> <span class="s1">'#rhs'</span> <span class="p">})</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.droppable'</span><span class="p">).</span><span class="nx">droppable</span><span class="p">({</span> <span class="nx">activeClass</span><span class="o">:</span> <span class="s1">'active'</span><span class="p">,</span> <span class="nx">hoverClass</span><span class="o">:</span> <span class="s1">'drop-here'</span> <span class="p">})</span>
+  <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+<p></p>
+
+<p><b>If you need to support Internet Explorer, you can fall back on jQuery.</b> Note that conditional comments are no longer supported starting on IE 10, therefor Zepto's documentation recommends the following document.write approach:</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;script&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'&lt;script src='</span> <span class="o">+</span>
+<span class="p">(</span><span class="s1">'__proto__'</span> <span class="k">in</span> <span class="p">{}</span> <span class="o">?</span> <span class="s1">'zepto'</span> <span class="o">:</span> <span class="s1">'jquery'</span><span class="p">)</span> <span class="o">+</span>
+<span class="s1">'.js&gt;&lt;\/script&gt;'</span><span class="p">)</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/rkusa">rkusa</a></p>
+        <p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="./homePage_files/scale.fix.js"></script>
+    
+  
+</body></html>

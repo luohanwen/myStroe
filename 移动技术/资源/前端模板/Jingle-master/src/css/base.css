@@ -1,0 +1,191 @@
+a, abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, tfoot, th, thead, time, tr, ul, var, video {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust:none;
+   /* background-color: #222;*/
+    font: 16px/1.25 "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    overflow: hidden;
+}
+html{
+    -webkit-text-size-adjust: none;
+}
+
+body * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:hover {
+    opacity: 1
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+    font-size: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th, td, caption {
+    vertical-align: top;
+    text-align: left
+}
+
+sub,sup{
+    font-size: 10px;
+}
+
+.bold{
+    font-weight: 600;
+}
+.fr{
+    float:right;
+}
+.fl{
+    float:left;
+}
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,
+.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small,
+h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small,.h1 .small,.h2 .small,.h3 .small,.h4 .small,.h5 .small,.h6 .small {
+    font-weight: normal;
+    line-height: 1;
+    color: #999999;
+}
+
+h1,h2,h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h1 small,h2 small,h3 small,h1 .small,h2 .small,h3 .small {
+    font-size: 65%;
+}
+
+h4,h5,h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4 small,h5 small,h6 small,h4 .small,h5 .small,h6 .small {
+    font-size: 75%;
+}
+
+h1,.h1 {
+    font-size: 36px;
+}
+
+h2,.h2 {
+    font-size: 30px;
+}
+
+h3,.h3 {
+    font-size: 24px;
+}
+
+h4,.h4 {
+    font-size: 18px;
+}
+
+h5,.h5 {
+    font-size: 14px;
+}
+
+h6,.h6 {
+    font-size: 12px;
+}
+/******colors**********/
+.turquoise{background-color: #1ABC9C !important;}
+.green-sea{background-color: #16A085 !important;}
+.emerland{background-color: #78ba00 !important;}
+.nephritis{background-color: #27AE60 !important;}
+.peter-river{background-color: #3498DB !important;}
+.belize-hole{background-color: #2980B9 !important;}
+.amethyst{background-color: #9B59B6 !important;}
+.wisteria{background-color: #8E44AD !important;}
+.wet-asphalt{background-color: #2C3E50 !important;}
+.midnight-blue{background-color: #2C3E50 !important;}
+.concrete{background-color: #95A5A6 !important;}
+.asbestos{background-color: #7F8C8D !important;}
+.clouds{background-color: #ECF0F1 !important;color:#666 !important}
+.sliver{background-color:#BDC3C7 !important;}
+.alizarin{background-color:#E74C3C !important;}
+.pomegranate{background-color:#C0392B !important;}
+.carrot{background-color:#E67E22 !important;}
+.pumpkin{background-color:#D35400 !important;}
+.sun-flower{background-color:#F1C40F !important;}
+.orange{background-color:#F39C12 !important;}
+.violet{background-color: #9f00a7 !important;}
+/********** tip arrow*****************/
+.tip-arrow-down:after{
+    content: "▼";
+    position: relative;
+    left: 1px;
+    font-size: 0.9em
+}
+.tip-arrow-up:after{
+    content: "▲";
+    position: relative;
+    left: 1px;
+    font-size: 0.9em;
+}
+[data-scroll="true"]{
+    overflow: auto;
+}
+#jingle_welcome{
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    overflow: hidden;
+    background-color: #fff;
+}

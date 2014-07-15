@@ -1,0 +1,38 @@
+.toggle {
+    position: relative;
+    width: 70px;
+    height: 28px;
+    border-radius: 8px;
+    display:inline-block;
+    text-align: center;
+}
+/** 自定义文本 **/
+[data-on]:before {
+    content: attr(data-off) !important;
+    font-family: "Open Sans" !important;
+    font-size: .9em !important;
+    line-height: 28px;
+    color: #fff;
+    margin-left: 30px;
+}
+
+[data-on].active:before {
+    content: attr(data-on) !important;
+    margin-right: 30px;
+    margin-left: 0;
+}
+.toggle-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 30px;
+    height: 28px;
+    -webkit-transition : left 0.1s ease-in-out;
+    transition : left 0.1s ease-in-out;
+    border-radius: 7px 0 0 7px;
+}
+.toggle.active .toggle-handle {
+    left:40px;
+    border-radius:0 7px 7px 0;
+}

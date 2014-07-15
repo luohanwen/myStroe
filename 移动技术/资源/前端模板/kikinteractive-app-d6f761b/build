@@ -1,0 +1,191 @@
+#!/bin/sh
+
+PROJECT="app"
+LICENSE="LICENSE.txt"
+MAJOR_VERSION="2"
+MINOR_VERSION="0"
+BUG_VERSION="3"
+ZIP_FILE="appjs-v${MAJOR_VERSION}.zip"
+ZIP_DIR="appjs"
+AWS_BUCKET="cdn.kik.com"
+AWS_CFG="${HOME}/.s3cfg-kik"
+
+buildProject () {
+	APP_JS="
+		src/lib/swapper.js
+		src/lib/clickable.js
+		src/lib/scrollable.js
+		src/app.js
+		src/utils.js
+		src/events.js
+		src/metrics.js
+		src/dialog.js
+		src/form.js
+		src/scroll.js
+		src/scroll-fix.js
+		src/pages.js
+		src/stack.js
+		src/transitions.js
+		src/navigation.js
+	"
+	APP_CSS="src/stylesheets/base.css"
+	buildDebugJS  "app.js"          "${APP_JS}"
+	buildJS       "app.min.js"      "${APP_JS}"
+	buildDebugCSS "base.css"        "${APP_CSS}"
+	buildCSS      "base.min.css"    "${APP_CSS}"
+	buildDebugCSS "app.css"         "${APP_CSS} src/stylesheets/app.css"
+	buildCSS      "app.min.css"     "${APP_CSS} src/stylesheets/app.css"
+	buildDebugCSS "default.css"     "${APP_CSS} src/stylesheets/default.css"
+	buildCSS      "default.min.css" "${APP_CSS} src/stylesheets/default.css"
+}
+
+buildZip () {
+	mkdir "${ZIP_DIR}"
+	cp bundle/* "${ZIP_DIR}"
+	cp "${BUILD_DIR}"/app.min.css "${ZIP_DIR}"
+	cp "${BUILD_DIR}"/app.min.js "${ZIP_DIR}"
+	rm -f "${ZIP_FILE}"
+	zip -r "${ZIP_FILE}" "${ZIP_DIR}"
+	rm -r "${ZIP_DIR}"
+}
+
+
+
+
+
+
+if [ -z "${BUILD_NUMBER}" ] ; then
+	BUILD_NUMBER="SNAPSHOT"
+fi
+
+VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${BUG_VERSION}"
+DEV_VERSION="${MAJOR_VERSION}-DEV"
+BUILD_VERSION="${VERSION}.${BUILD_NUMBER}"
+
+BUILD_DIR="builds"
+BUILD_ZIP="${PROJECT}.zip"
+JS_COMPILER="yui-compressor --type js"
+CSS_COMPILER="yui-compressor --type css"
+
+S3CMD="s3cmd -c ${AWS_CFG}"
+NO_CACHE="--add-header=Cache-Control:no-cache"
+FULL_CACHE="--add-header=Cache-Control:max-age=31557600"
+
+clean () {
+	echo "Cleaning builds"
+	rm -rf "${BUILD_DIR}" "${BUILD_ZIP}" "${ZIP_DIR}"
+}
+
+createBuildDir () {
+	clean
+	mkdir -p "${BUILD_DIR}"
+}
+
+preprendLicense () {
+	tmpFile="${1}.tmp"
+	if [ -n "${LICENSE}" ] ; then
+		cat "${LICENSE}" | sed "s/DEVBUILD/${VERSION}/" > "${tmpFile}"
+		cat "${1}" >> "${tmpFile}"
+		mv "${tmpFile}" "${1}"
+	fi
+}
+
+buildJS () {
+	echo "Building ${1}"
+	fileName="${BUILD_DIR}/${1}"
+	cat ${2} | sed "s/^[ 	]*;;;.*$//" | sed "s/DEVBUILD/${VERSION}/" | ${JS_COMPILER} > "${fileName}"
+	preprendLicense "${fileName}"
+}
+
+buildDebugJS () {
+	echo "Building ${1}"
+	fileName="${BUILD_DIR}/${1}"
+	cat ${2} | sed "s/DEVBUILD/${VERSION}/" > "${fileName}"
+	preprendLicense "${fileName}"
+}
+
+buildCSS () {
+	echo "Building ${1}"
+	fileName="${BUILD_DIR}/${1}"
+	cat ${2} | ${CSS_COMPILER} > "${fileName}"
+	preprendLicense "${fileName}"
+}
+
+buildDebugCSS () {
+	echo "Building ${1}"
+	fileName="${BUILD_DIR}/${1}"
+	cat ${2} > "${fileName}"
+	preprendLicense "${fileName}"
+}
+
+build () {
+	buildProject
+
+	echo "Building zip"
+	zip -r "${BUILD_ZIP}" "${BUILD_DIR}" >/dev/null
+}
+
+gzipDir () {
+	echo "Gziping files"
+	files="`find ${BUILD_DIR} -name '*' | sed 's/.*\/\..*//' | grep -I './'`"
+	for file in ${files}; do
+		cat "$file" | gzip -fc - | tee "$file" >/dev/null
+	done
+}
+
+deployToFolder () {
+	${S3CMD} put --recursive --acl-public --guess-mime-type --add-header "Content-Encoding:gzip" ${2} "${BUILD_DIR}/" "s3://${AWS_BUCKET}/${PROJECT}/${1}"
+}
+
+deploy () {
+	echo "Deploying build ${BUILD_VERSION}..."
+	gzipDir
+	deployToFolder "${BUILD_VERSION}/" "${FULL_CACHE}"
+	deployToFolder "${DEV_VERSION}/"   "${NO_CACHE}"
+}
+
+promote () {
+	echo "Promoting version ${VERSION}..."
+	gzipDir
+	deployToFolder "${VERSION}/"                        "${FULL_CACHE}"
+	deployToFolder "${MAJOR_VERSION}.${MINOR_VERSION}/" "${NO_CACHE}"
+	deployToFolder "${MAJOR_VERSION}/"                  "${NO_CACHE}"
+}
+
+if [ "$1" = "clean" ] ; then
+	clean &&
+	exit 0
+	exit 1
+elif [ "$1" = "deploy" ] ; then
+	createBuildDir &&
+	build &&
+	deploy &&
+	clean &&
+	exit 0
+	exit 1
+elif [ "$1" = "promote" ] ; then
+	createBuildDir &&
+	build &&
+	promote &&
+	clean &&
+	exit 0
+	exit 1
+elif [ "$1" = "zip" ] ; then
+	createBuildDir &&
+	build &&
+	buildZip &&
+	clean &&
+	exit 0
+	exit 1
+elif [ "$1" = "dist" ] ; then
+	createBuildDir &&
+	build &&
+	mv "${BUILD_DIR}" "dist"
+	exit 0
+	exit 1
+else
+	createBuildDir &&
+	build &&
+	exit 0
+	exit 1
+fi

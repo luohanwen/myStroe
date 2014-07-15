@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="uiframe_1.1.0/css/bae.css">
+    <script type="text/javascript" src="uiframe_1.1.0/js/jquery.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_header.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_button.js"></script>
+    <script type="text/javascript" src="uiframe_1.1.0/js/bae_search.js"></script>
+</head>
+<body>
+<div data-role="bae_header" data-event="back()">搜 索 框</div>
+<!--在div标签中增加“data-role='bae_search'”标识后，该标签将自动被修改为bae_search样式-->
+<div data-role="bae_search" data-event="search" data-icon="uiframe_1.1.0/images/bae_search_icon.png" data-text="搜索" data-change="textChange">
+    <!--
+       data-event：单击按钮触发的事件
+       data-text：按钮上显示的文字（如果没有指定显示的文字，默认显示的是“确定”）
+       data-icon：图片路径（也可以使用UI框架中的图片资源，路径为：uiframe_x.x.x/images/bae_search_icon.png）
+       data-change：输入框内容改变时触发的事件
+    -->
+    <!-- data-role="bae_search"的div中的内容为输入框默认的文字，当data-role="bae_search"的div内容为空时，输入框默认文字为“请输入关键字”-->
+    内容不能为空
+</div>
+搜索框输入内容：<span id="search_text"></span>
+<br>
+<div data-role="bae_search" data-event="search" data-icon="uiframe_1.1.0/images/bae_search_icon.png" id="btnC">
+</div>
+<br>
+<a data-role="bae_button" onclick="changeBtn()">修改第二个搜索框</a>
+<script type="text/javascript">
+    function changeBtn(){
+        /**
+         * bae_search()搜索属性修改方法。提供如下属性：
+         * text：按钮上显示的文字
+         * icon：图片的路径
+         * placeholder：输入框的提示信息(默认显示的文字)
+         */
+        $("#btnC").bae_search({text:"修改",icon:"res/search_icon.png",placeholder:"内容不能为空"}) //对第二个搜索框进行修改
+    }
+    //单击按钮进行搜索时该函数将会被调用，该函数中的data参数，传递的是输入框的值
+    function search(data){
+        if(data=='')
+        {
+            alert("搜索不能为空，请重新输入！");
+        }
+        else{
+            alert(data);//显示输入框的内容，根据内容发送请求
+        }
+    }
+    //当输入框的内容改变时该函数将会被调用，该函数中的data参数，传递的是输入框的值
+    function textChange(data){
+        $("#search_text").text(data);
+    }
+</script>
+<script type="text/javascript" src="common.js"></script>
+</body>
+</html>
