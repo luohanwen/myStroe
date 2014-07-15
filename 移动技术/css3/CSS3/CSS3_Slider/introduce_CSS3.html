@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)#79 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>CSS3 介绍</title>
+<meta name="keywords" content="CSS3,HTML5,slides幻灯片,介绍">
+<link rel="stylesheet" href="res/style.css">
+<link rel="stylesheet" href="res/-webkit-transition.css">
+<link rel="stylesheet" href="res/-moz-transition.css">
+<link rel="alternate stylesheet" href="res/dark.css" title="dark" disabled="">
+<script src="res/prettify.js"></script>
+<script src="res/lang-css.js"></script>
+<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+<script>
+function $(s, c) {
+	return (c || document).querySelector(s);
+};
+function $all(s, c) {
+	return (c || document).querySelectorAll(s);
+};
+</script>
+<style>
+.wrap{display:-webkit-box; display:-moz-box; display:-ms-box; display:-o-box; display:box; -webkit-box-orient:horizontal; -moz-box-orient:horizontal; -ms-box-orient:horizontal; -o-box-orient:horizontal; box-orient:horizontal; border:1px solid #555; min-height:150px; width:100%; text-shadow:none}
+.wrap div{padding:10px; color:#000}
+.box1{background:#fcc}
+.box2{background:#cfc}
+.box3{background:#ccf}
+.f .box1, 
+.f .box2, 
+.f .box3{-webkit-box-flex:1; -moz-box-flex:1; -ms-box-flex:1; -o-box-flex:1; box-flex:1}
+
+.none-type{list-style:none}
+.none-type input{margin-right:1em}
+:checked+span{color:red}
+
+.bdrs{width:200px; height:200px; margin:0 auto; border-radius:20px; background:skyblue; border:4px solid #333}
+[type=range]{width:70%}
+
+.gbox{width:100%; height:150px; border:1px solid #333; color:#000}
+
+.boxba{border:2px solid #333; height:200px; overflow:auto; background:url(res/icon.png) no-repeat 50% top}
+.boxbb{border:2px solid #333; height:240px; background:url(res/icon.png) no-repeat 0 0}
+.boxbc{border:10px solid rgba(0,0,0,.5); padding:20px; height:160px; background:url(res/icon.png) no-repeat 0 0}
+.boxbd{border:10px solid rgba(0,0,0,.5); padding:20px; height:120px; background:url(res/icon.png) no-repeat 0 0}
+.boxbe{border:10px solid rgba(0,0,0,.5); padding:20px; height:80px; background:url(res/icon.png) no-repeat 0 0; background-origin:border-box; background-size:64px}
+
+.coding{ margin-top:20px;  font-size:30px;  width:100%;  height:280px; font-family:'courier new',courier,monospace}
+
+.balls{list-style:none}
+.balls li{float:left; width:68px; height:68px; line-height:68px; text-align:center; -webkit-box-shadow:inset 0 0 0 3px rgba(0,0,0,.2);-moz-box-shadow:inset 0 0 0 3px rgba(0,0,0,.2);box-shadow:inset 0 0 0 3px rgba(0,0,0,.2); -webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%; margin-right:20px; color:#333; background:#ccc; text-shadow:0 1px 2px rgba(0,0,0,.2);color:#fff;font-family:arial;font-weight:600;}
+
+.balls li:only-child, 
+.balls.f :first-child, 
+.balls.l :last-child,
+.balls.lt4 li:nth-child(-n+4),
+.balls.n4 li:nth-child(4n+1){ background:red }
+
+.test, .test div, .test p{border:4px solid #ccc; padding:.2em; margin:.2em}
+
+.test2 :checked+span{color:#666}
+
+pre.exampletf{width:300px;height:300px;background:#2E79BB;margin:0 auto;color:#fff;text-shadow:none;font-size:40px;padding:1em}
+pre.exampletf .pun,
+pre.exampletf .lit{color:#fff}
+
+.examplegd{width:100px;height:100px;background:#2E79BB;
+-webkit-transition:all ease-in .5s;
+-moz-transition:all ease-in .5s;
+-o-transition:all ease-in .5s;
+transition:all ease-in .5s;
+}
+
+#examplegd1:hover{
+	-webkit-transform:scale(2);
+	-moz-transform:scale(2);
+	-o-transform:scale(2);
+	transform:scale(2);
+}
+
+.gdtf .examplegd{
+	width: 70px;
+	height:70px;
+	-webkit-transition:all ease-in 1s;
+	-moz-transition:all ease-in 1s;
+	-o-transition:all ease-in 1s;
+	transition:all ease-in 1s;
+}
+.gdtf:hover .examplegd{
+	-webkit-transform:translateX(900%) rotate(1turn);
+	-moz-transform:translateX(900%) rotate(1turn);
+	-o-transform:translateX(900%) rotate(1turn);
+	transform:translateX(900%) rotate(1turn);
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background:red;
+}
+
+.exampledh{
+	width: 100%;
+	height: 1em;
+	background: silver;
+}
+.exampledh i{
+	width: 1%;
+	background: green;
+	display:inline-block;
+	height:100%;
+}
+.exampledh:hover i{
+	-webkit-animation: loading-example 3s ease-out infinite;
+	-moz-animation: loading-example 3s ease-out infinite;
+	-o-animation: loading-example 3s ease-out infinite;
+	animation: loading-example 3s ease-out infinite;
+}
+@-webkit-keyframes loading-example{
+    0%{ width: 0 }
+    100%{ width: 100% }
+}
+@-moz-keyframes loading-example{
+    0%{ width: 0 }
+    100%{ width: 100% }
+}
+@-o-keyframes loading-example{
+    0%{ width: 0 }
+    100%{ width: 100% }
+}
+@keyframes loading-example{
+    0%{ width: 0 }
+    100%{ width: 100% }
+}
+</style>
+<style type="text/css" id="sstyle1"></style>
+<style type="text/css" id="sstyle2"></style>
+<style type="text/css" id="sstyle3"></style>
+<style type="text/css" id="sstyle4"></style>
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head>
+<body class="" data-transition="push" screen_capture_injected="true">
+
+<section id="slides" data-go="forward">
+
+<article data-section="">
+	<div class="box">
+		<img src="res/logo.png" alt="CSS3 Logo" style="-webkit-box-reflect:below -30px -webkit-linear-gradient(transparent 80%,rgba(255,255,255,.3))">
+		<h1>样式换新衫, 还看<span style="color:orange">C</span><span style="color:green">S</span><span style="color:blue">S</span><span style="color:red">3</span></h1>
+	</div>
+</article>
+
+<article data-section="">
+	<div class="box">
+		<small>大家好：）</small>
+		<h2>我叫 冯秋明</h2>
+		<p style="color:blue;"><b>工程二部，移动开发组</b></p>
+	</div>
+</article>
+
+
+<article data-section="">
+	<div class="box">
+		<small>Flexible Box Layout</small>
+		<h2>弹性盒子布局</h2>
+	</div>
+</article>
+
+<article>
+	<h3>display: box</h3>
+	<p>特点：</p>
+	<ul>
+		<li>等高(宽)的栏目</li>
+		<li>独立的元素顺序</li>
+		<li>指定元素之间的关系</li>
+		<li>灵活的尺寸和对齐方式</li>
+	</ul>
+<pre class="prettyprint smaller"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"wrap"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box1"</span><span class="tag">&gt;</span><span class="pln">1</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box2"</span><span class="tag">&gt;</span><span class="pln">2</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box3"</span><span class="tag">&gt;</span><span class="pln">3</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></pre>
+</article>
+
+<article>
+	<h3>box-orient</h3>
+	<p>设置弹性盒模型对象的子元素的排列方式。</p>
+	<h5>取值：</h5>
+	<ul class="none-type">
+		<li><label><input type="radio" name="box-orient" value="horizontal" checked=""><span>horizontal(默认)</span></label></li>
+		<li><label><input type="radio" name="box-orient" value="vertical"><span>vertical</span></label></li>
+	</ul>
+<div class="wrap" id="example1">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</div>
+<script>
+var els = $all("[name=box-orient]");
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		$("#example1").style.WebkitBoxOrient = $("#example1").style.MozBoxOrient = $("#example1").style.boxOrient = this.value;
+		if(this.value=="vertical"){
+			$("#example1").style.width="920px";
+		}else{
+			$("#example1").style.width="921px";
+		}
+	}
+}
+</script>
+</article>
+
+<article>
+	<h3>box-pack</h3>
+	<p>设置弹性盒模型对象的子元素的排列方式。</p>
+	<h5>取值：</h5>
+	<ul class="none-type">
+		<li><label><input type="radio" name="box-pack" value="start" checked=""><span>start(默认)</span></label></li>
+		<li><label><input type="radio" name="box-pack" value="center"><span>center</span></label></li>
+		<li><label><input type="radio" name="box-pack" value="end"><span>end</span></label></li>
+		<li><label><input type="radio" name="box-pack" value="justify"><span>justify</span></label></li>
+	</ul>
+	<div class="wrap" id="example2">
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+	</div>
+<script>
+var els = $all("[name=box-pack]");
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		$("#example2").style.WebkitBoxPack = $("#example2").style.MozBoxPack = $("#example2").style.boxPack = this.value;
+	}
+}
+</script>
+</article>
+
+
+
+<article>
+	<h3>box-flex</h3>
+	<p>设置弹性盒模型对象的子元素如何分配其剩余空间。</p>
+	<h5>取值：<span class="green">&lt;number&gt;</span></h5>
+	<ul class="none-type">
+		<li><label><input type="radio" name="box-flex" value="1|-|-"><span>1 | - | -</span></label></li>
+		<li><label><input type="radio" name="box-flex" value="1|1|1"><span>1 | 1 | 1</span></label></li>
+		<li><label><input type="radio" name="box-flex" value="1|2|1"><span>1 | 2 | 1</span></label></li>
+		<li><label><input type="radio" name="box-flex" value="2|3|5"><span>2 | 3 | 5</span></label></li>
+	</ul>
+	<div class="wrap" id="example4">
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+	</div>
+<script>
+var els = $all("[name=box-flex]");
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		var vs = this.value.split("|");
+		$("#example4 .box1").style.WebkitBoxFlex = $("#example4 .box1").style.MozBoxFlex = $("#example4 .box1").style.boxFlex = vs[0] == "-" ? "" : vs[0];
+		$("#example4 .box2").style.WebkitBoxFlex = $("#example4 .box2").style.MozBoxFlex = $("#example4 .box2").style.boxFlex = vs[1] == "-" ? "" : vs[1];
+		$("#example4 .box3").style.WebkitBoxFlex = $("#example4 .box3").style.MozBoxFlex = $("#example4 .box3").style.boxFlex = vs[2] == "-" ? "" : vs[2];
+	}
+}
+</script>
+</article>
+
+<article>
+	<h3>box-ordinal-group</h3>
+	<p>设置弹性盒模型对象的子元素的显示顺序。</p>
+	<h5>取值：<span class="green">&lt;integer&gt;</span></h5>
+	<ul class="none-type">
+		<li><label><input type="radio" name="box-ordinal-group" value="1|1|1" checked=""><span>默认</span></label></li>
+		<li><label><input type="radio" name="box-ordinal-group" value="1|3|2"><span>1 | 3 | 2</span></label></li>
+		<li><label><input type="radio" name="box-ordinal-group" value="3|1|1"><span>3 | 1 | 2</span></label></li>
+		<li><label><input type="radio" name="box-ordinal-group" value="3|1|1"><span>3 | 1 | 1</span></label></li>
+	</ul>
+	<div class="wrap f" id="example5">
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+	</div>
+<script>
+var els = $all("[name=box-ordinal-group]");
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		var vs = this.value.split("|");
+		$("#example5 .box1").style.WebkitBoxOrdinalGroup = $("#example5 .box1").style.MozBoxOrdinalGroup = $("#example5 .box1").style.boxOrdinalGroup = vs[0];
+		$("#example5 .box2").style.WebkitBoxOrdinalGroup = $("#example5 .box2").style.MozBoxOrdinalGroup = $("#example5 .box2").style.boxOrdinalGroup = vs[1];
+		$("#example5 .box3").style.WebkitBoxOrdinalGroup = $("#example5 .box3").style.MozBoxOrdinalGroup = $("#example5 .box3").style.boxOrdinalGroup = vs[2];
+	}
+}
+</script>
+</article>
+
+<article>
+	<h3>box-direction</h3>
+	<p>设置弹性盒模型对象的子元素的排列顺序是否反转。</p>
+	<h5>取值：</h5>
+	<ul class="none-type">
+		<li><label><input type="radio" name="box-direction" value="normal" checked=""><span>normal(默认)</span></label></li>
+		<li><label><input type="radio" name="box-direction" value="reverse"><span>reverse</span></label></li>
+	</ul>
+	<div class="wrap f" id="example6">
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+	</div>
+<script>
+var els = $all("[name=box-direction]");
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		$("#example6").style.WebkitBoxDirection = $("#example6").style.MozBoxDirection = $("#example6").style.boxDirection = this.value;
+	}
+}
+</script>
+</article>
+
+
+
+
+<article data-section="">
+	<div class="box">
+		<small>Border</small>
+		<h2>边框</h2>
+	</div>
+</article>
+
+<article>
+	<h3>border-radius <small class="gray normal">( 圆角 )</small></h3>
+	<h5>基本语法：<span class="green">水平与垂直半径相同时</span></h5>
+<pre class="prettyprint lang-css" id="p1"><span class="kwd">border-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></pre>
+<div class="bdrs" id="examplebdrs1"></div>
+
+<p class="aligncenter">
+长度值：<input type="range" max="100" min="0" value="20" id="b1">
+</p>
+<p class="aligncenter">
+百分比：<input type="range" max="50" min="0" value="0" id="b2">
+</p>
+
+<script>
+$("#b1").onchange = function (){
+	$("#examplebdrs1").style.borderRadius = $("#p1 .lit").innerHTML = this.value + "px";
+};
+$("#b2").onchange = function (){
+	$("#examplebdrs1").style.borderRadius = $("#p1 .lit").innerHTML = this.value + "%";
+};
+</script>
+</article>
+
+<article>
+	<h3>border-radius <small class="gray normal">( 圆角边框 )</small></h3>
+	<h5>基本语法：<span class="green">水平与垂直半径相同时</span></h5>
+	<br>
+	<p>
+		</p><div class="bdrs to-build" style="width:90%;height:100px;border-radius: 10px 30px">
+			<pre class="prettyprint" style="background:none;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin:10px"><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pln"> </span><span class="lit">30px</span></pre>
+		</div>
+	<p></p>
+	<p>
+		</p><div class="bdrs to-build" style="width:90%;height:100px;border-radius: 10px 30px 50px">
+			<pre class="prettyprint" style="background:none;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin:10px"><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pln"> </span><span class="lit">30px</span><span class="pln"> </span><span class="lit">50px</span></pre>
+		</div>
+	<p></p>
+	<p>
+		</p><div class="bdrs to-build" style="width:90%;height:100px;border-radius: 10px 30px 70px 50px">
+			<pre class="prettyprint" style="background:none;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin:10px"><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pln"> </span><span class="lit">30px</span><span class="pln"> </span><span class="lit">70px</span><span class="pln"> </span><span class="lit">50px</span></pre>
+		</div>
+	<p></p>
+</article>
+
+<article>
+	<h3>border-radius <small class="gray normal">( 圆角边框 )</small></h3>
+	<h5>基本语法：<span class="green">水平与垂直半径不同时</span></h5>
+	<pre class="prettyprint lang-css"><span class="kwd">border-radius</span><span class="pun">:</span><span class="pln"> </span><span class="pun">水平半径{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">}</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="pun">垂直半径{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">}</span></pre>
+	<p>
+		</p><div class="bdrs to-build" style="width:90%;height:100px;border-radius: 60px / 30px">
+			<pre class="prettyprint lang-css" style="background:none;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin:10px"><span class="kwd">border-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">60px</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">30px</span></pre>
+		</div>
+	<p></p>
+	<p>
+		</p><div class="bdrs to-build" style="width:90%;height:100px;border-radius: 10px 50px / 20px 40px 60px 80px">
+			<pre class="prettyprint lang-css smaller" style="background:none;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;margin:10px"><span class="kwd">border-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pln"> </span><span class="lit">50px</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">20px</span><span class="pln"> </span><span class="lit">40px</span><span class="pln"> </span><span class="lit">60px</span><span class="pln"> </span><span class="lit">80px</span></pre>
+		</div>
+	<p></p>
+</article>
+
+<article>
+	<h3>border-radius <small class="gray normal">( 圆角边框 )</small></h3>
+	<h5>拆分语法：</h5>
+
+<pre class="prettyprint lang-css"><span class="kwd">border-top-left-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">20px</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">border-top-right-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">80px</span><span class="pln"> </span><span class="lit">40px</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">border-bottom-left-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">30px</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">border-bottom-right-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">70px</span><span class="pun">;</span></pre>
+
+<div class="bdrs" style="border-top-left-radius:20px;border-top-right-radius:80px 40px;border-bottom-left-radius:30px;border-bottom-right-radius:70px;"></div>
+</article>
+
+<article>
+	<h3>✍画个鸡蛋？</h3>
+	<br><br>
+	<div class="bdrs" style="background:wheat;height:230px;-webkit-border-radius:50%/65% 65% 35% 35%;-moz-border-radius:50%/65% 65% 35% 35%;border-radius:50%/65% 65% 35% 35%"></div>
+<pre class="prettyprint lang-css to-build"><span class="kwd">border-radius</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">65%</span><span class="pln"> </span><span class="lit">65%</span><span class="pln"> </span><span class="lit">35%</span><span class="pln"> </span><span class="lit">35%</span><span class="pun">;</span></pre>
+</article>
+
+<article>
+	<h3>border-image <small class="gray normal">( 图像边框 )</small></h3>
+
+<div style="position:absolute;top:120px;left:70px;background:#fff url(res/border.png);width:81px;height:81px;border:2px solid #ddd" id="bdimg" class="fl-r" onclick="this.style.zoom=this.style.zoom==2?1:2">
+<div class="t" style="height:2px;width:100%;position:absolute;top:27px;left:0;background:purple"></div>
+<div class="l" style="width:2px;height:100%;position:absolute;top:0;left:27px;background:purple"></div>
+<div class="r" style="width:2px;height:100%;position:absolute;top:0;right:27px;background:purple"></div>
+<div class="b" style="height:2px;width:100%;position:absolute;bottom:27px;left:0;background:purple"></div>
+</div>
+
+<br class="clr">
+
+	&nbsp;<br/>
+<p class="aligncenter">
+</p><pre class="prettyprint lang-css smaller" style="margin: 0px auto; width: 700px; height: 200px; overflow: auto; resize: auto; border-image-source: url(res/border.png); border-image-slice: 27; border-image-width: 27px; border-image-repeat: repeat; -webkit-border-image: url(res/border.png) 27 fill / 27px repeat;" id="bi"><span class="kwd">border-image</span><span class="pun">:</span><span class="kwd">url</span><span class="pun">(</span><span class="str">res/border.png</span><span class="pun">)</span><span class="pln"> </span><span class="lit">27</span><span class="pln"> </span><span class="lit">27</span><span class="pln"> </span><span class="lit">27</span><span class="pln"> </span><span class="lit">27</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">27px</span><span class="pln"> </span><span class="lit">27px</span><span class="pln"> </span><span class="lit">27px</span><span class="pln"> </span><span class="lit">27px</span><span class="pln"> repeat</span></pre>
+<p></p>
+
+<div class="smaller-x aligncenter">
+	<div class="fl-l" style="width:50%;margin-bottom:2em">
+		<h6>裁剪区域：</h6>
+		<div>上：<input type="range" max="50" min="0" value="27" id="bct" style="width:30%"></div>
+		<div>右：<input type="range" max="50" min="0" value="27" id="bcr" style="width:30%"></div>
+		<div>下：<input type="range" max="50" min="0" value="27" id="bcb" style="width:30%"></div>
+		<div>左：<input type="range" max="50" min="0" value="27" id="bcl" style="width:30%"></div>
+	</div>
+	<div class="fl-l" style="width:50%;margin-bottom:2em">
+		<h6>边框宽度：</h6>
+		<div>上：<input type="range" max="50" min="0" value="27" id="bbt" style="width:30%"></div>
+		<div>右：<input type="range" max="50" min="0" value="27" id="bbr" style="width:30%"></div>
+		<div>下：<input type="range" max="50" min="0" value="27" id="bbb" style="width:30%"></div>
+		<div>左：<input type="range" max="50" min="0" value="27" id="bbl" style="width:30%"></div>
+	</div>
+	<div class="aligncenter clr">
+		填充方式：
+		<label><input type="radio" name="border-image" value="stretch"><span>stretch(默认)</span></label>
+		<label><input type="radio" name="border-image" value="repeat" checked=""><span>repeat</span></label>
+		<label><input type="radio" name="border-image" value="round"><span>round</span></label>
+	</div>
+</div>
+
+<script>
+updateB();
+function updateB(){
+	$("#bi").style.WebkitBorderImage = $("#bi").style.MozBorderImage = $("#bi").style.OBorderImage = $("#bi").style.borderImage = $("#bi").textContent.split(":")[1];
+}
+$("#bct").onchange = function (){ $all("#bi .lit")[0].innerHTML=this.value; $("#bdimg .t").style.top=this.value+"px"; updateB() };
+$("#bcr").onchange = function (){ $all("#bi .lit")[1].innerHTML=this.value; $("#bdimg .r").style.right=this.value+"px"; updateB() };
+$("#bcb").onchange = function (){ $all("#bi .lit")[2].innerHTML=this.value; $("#bdimg .b").style.bottom=this.value+"px"; updateB() };
+$("#bcl").onchange = function (){ $all("#bi .lit")[3].innerHTML=this.value; $("#bdimg .l").style.left=this.value+"px"; updateB() };
+
+$("#bbt").onchange = function (){ $all("#bi .lit")[4].innerHTML=this.value+"px"; updateB() };
+$("#bbr").onchange = function (){ $all("#bi .lit")[5].innerHTML=this.value+"px"; updateB() };
+$("#bbb").onchange = function (){ $all("#bi .lit")[6].innerHTML=this.value+"px"; updateB() };
+$("#bbl").onchange = function (){ $all("#bi .lit")[7].innerHTML=this.value+"px"; updateB() };
+
+var els = $all("[name=border-image]");
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		$all("#bi .pln")[$all("#bi .pln").length-1].innerHTML = " " + this.value;
+		 updateB();
+	}
+}
+</script>
+
+</article>
+
+
+<article>
+	<h3>box-shadow <small class="gray normal">( 盒阴影 )</small></h3>
+
+<pre class="prettyprint lang-css larger-x" style="-webkit-box-shadow: red 0px 5px 20px 0px; box-shadow: red 0px 5px 20px 0px;" id="ebs"><span class="kwd">box-shadow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> </span><span class="lit">20px</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> red</span></pre>
+
+<p class="aligncenter to-build">水平偏移：<input type="range" max="50" min="0" value="0" id="bsx"></p>
+<p class="aligncenter to-build">垂直偏移：<input type="range" max="50" min="0" value="5" id="bsy"></p>
+<p class="aligncenter to-build">模糊半径：<input type="range" max="50" min="0" value="20" id="bss"></p>
+<p class="aligncenter to-build">阴影扩展：<input type="range" max="50" min="0" value="0" id="bsw"></p>
+<p class="aligncenter to-build"><label><input type="checkbox" id="bsi" value=" inset "> 内阴影</label></p>
+
+<script>
+updateBs();
+function updateBs(){
+	$("#ebs").style.WebkitBoxShadow = $("#ebs").style.MozBoxShadow = $("#ebs").style.boxShadow = $("#ebs").textContent.split(":")[1];
+}
+$("#bsx").onchange = function (){ $all("#ebs .lit")[0].innerHTML=this.value + "px"; updateBs() };
+$("#bsy").onchange = function (){ $all("#ebs .lit")[1].innerHTML=this.value + "px"; updateBs() };
+$("#bss").onchange = function (){ $all("#ebs .lit")[2].innerHTML=this.value + "px"; updateBs() };
+$("#bsw").onchange = function (){ $all("#ebs .lit")[3].innerHTML=this.value + "px"; updateBs() };
+
+$("#bsi").onclick = function (){ $all("#ebs .pln")[0].innerHTML= $all("#ebs .pln")[0].innerHTML==" " ? this.value: " "; updateBs() };
+</script>
+</article>
+
+<article data-section="">
+	<div class="box">
+		<small>Gradient</small>
+		<h2>渐变</h2>
+	</div>
+</article>
+
+<article data-section="">
+	<div class="box">
+		<div id="bslBox" class="show">
+			<div style="background-image:url('res/bsl_bg.png');background-size:cover;width:300px;">
+			<image id="bslImg" class="" onclick="bslGo();" src="res/bsl_only.png">
+			</div>
+			<h2 style=""><span id="zhen" style="color:red"></span><span id="bword" style="color:green"></span><span id="sword" style="color:blue"></span><span id="lword" style="color:orange"></span><span id="oldbslword" style="color:black;">变色龙</span></h2>
+		</div>
+	<img id="cssBSL" class="to-build" style="width:500px;position:absolute;left:500px;top:200px;" src="res/cssBSL.png"/>
+	</div>
+	<style>
+		#bslBox{
+			position: absolute;
+			left:300px;
+			top:200px;
+			-webkit-transition: -webkit-transform ease-in 2s;
+		}
+
+		#bslBox:hover{
+			-webkit-transform: translateX(-200px);
+		}
+	</style>
+	<script type="text/javascript">
+		function bslGo(){
+
+			var classname=document.getElementById('bslImg').className;
+			if(classname&&classname.length>0){
+				document.getElementById('bslImg').className="";
+				document.getElementById('zhen').innerHTML="";
+				document.getElementById('bword').innerHTML="";
+				document.getElementById('sword').innerHTML="";
+				document.getElementById('lword').innerHTML="";
+				document.getElementById('oldbslword').innerHTML="变色龙";
+			}else{
+				document.getElementById('bslImg').className="bsl";
+				document.getElementById('zhen').innerHTML="真 ";
+				document.getElementById('cssBSL').style.display="none";
+				document.getElementById('oldbslword').innerHTML="";
+				document.getElementById('bword').innerHTML="变";
+				document.getElementById('sword').innerHTML="色";
+				document.getElementById('lword').innerHTML="龙";
+			}
+		}
+	</script>
+
+	<style type="text/css">
+		img.bsl {    
+	   -webkit-animation: bslrun 5s alternate infinite;    
+	}    
+    
+		@-webkit-keyframes bslrun {    
+		   0% { -webkit-filter: hue-rotate(30deg); }    
+		   10% { -webkit-filter: hue-rotate(60deg); }    
+		   20% { -webkit-filter: hue-rotate(90deg); }   
+		   30% { -webkit-filter: hue-rotate(120deg); }   
+		   40% { -webkit-filter: hue-rotate(150deg); }   
+		   50% { -webkit-filter: hue-rotate(180deg); }    
+		   60% { -webkit-filter: hue-rotate(210deg); }   
+		   68% { -webkit-filter: hue-rotate(240deg); }   
+		   76% { -webkit-filter: hue-rotate(270deg); }   
+		   84% { -webkit-filter: hue-rotate(300deg); }   
+		   92% { -webkit-filter: hue-rotate(330deg); }   
+		   100% { -webkit-filter: hue-rotate(360deg); }   
+		} 
+
+	</style>
+</article>
+
+<article>
+<h3>linear-gradient() <span class="gray">(线性渐变)</span></h3>
+<div class="gbox" style="background:-webkit-linear-gradient(red,green);background:-moz-linear-gradient(red,green);background:-o-linear-gradient(red,green);background:linear-gradient(red,green)"></div>
+	<ul class="none-type">
+		<li><label><input type="radio" name="linear-gradient" value="linear-gradient(red,green)" checked=""><span>linear-gradient(red, green)</span></label></li>
+		<li class="to-build"><label><input type="radio" name="linear-gradient" value="linear-gradient(red 20%,blue 80%,green)"><span>linear-gradient(red 20%, blue 80%, green)</span></label></li>
+		<li class="to-build"><label><input type="radio" name="linear-gradient" value="linear-gradient(top,red 50px,green 50px)"><span>linear-gradient(top, red 50px, green 50px)</span></label></li>
+		<ul class="to-build">
+			方向：
+			<label><input type="radio" name="lgrp" value="top" checked=""><span>top(默认)</span></label>
+			<label><input type="radio" name="lgrp" value="right"><span>right</span></label>
+			<label><input type="radio" name="lgrp" value="bottom"><span>bottom</span></label>
+			<label><input type="radio" name="lgrp" value="left"><span>left</span></label>
+		</ul>
+		<li class="to-build"><label><input type="radio" name="linear-gradient" value="linear-gradient(45deg,red,blue,green)"><span>linear-gradient(45deg, red, blue, green)</span></label></li>
+		<ul class="to-build">角度：<input type="range" max="360" min="-360" value="45" id="lgr1"></ul>
+	</ul>
+<p></p>
+<script>
+var els = $all("[name=linear-gradient]");
+var elsr = $all("[name=lgrp]");
+
+for(var i=0;i<elsr.length;i++){
+	elsr[i].onclick = function (){
+		els[2].value = els[2].nextSibling.innerHTML = els[2].value.replace(/(top|right|bottom|left)/g, this.value);
+		$(".gbox").style.background = "-webkit-" + els[2].value;
+		$(".gbox").style.background = "-moz-" + els[2].value;
+		$(".gbox").style.background = "-o-" + els[2].value;
+		$(".gbox").style.background = els[2].value;
+	};
+};
+
+for(var i=0;i<els.length;i++){
+	els[i].onclick = function (){
+		$(".gbox").style.background = "-webkit-" + this.value;
+		$(".gbox").style.background = "-moz-" + this.value;
+		$(".gbox").style.background = "-o-" + this.value;
+		$(".gbox").style.background = this.value;
+	}
+};
+$("#lgr1").onchange = function (){
+	els[3].value = els[3].nextSibling.innerHTML = els[3].value.replace(/(-)?\d+/g, this.value);
+	$(".gbox").style.background = "-webkit-" + els[3].value;
+	$(".gbox").style.background = "-moz-" + els[3].value;
+	$(".gbox").style.background = "-o-" + els[3].value;
+	$(".gbox").style.background = els[3].value;
+};
+</script>
+</article>
+
+<article>
+<h3>radial-gradient() <span class="gray">( 径向渐变 )</span></h3>
+<div class="gbox gbox2" style="background:-webkit-radial-gradient(center, red, yellow 10%, #1E90FF 50%, white);background:-moz-radial-gradient(red, yellow 10%, #1E90FF 50%, white);background:-o-radial-gradient(red, yellow 10%, #1E90FF 50%, white);background:radial-gradient(red, yellow 10%, #1E90FF 50%, white)"></div>
+	<ul class="none-type smaller">
+		<li><label><input type="radio" name="radial-gradient" value="radial-gradient(red, yellow 10%, #1E90FF 50%, white)" checked=""><span>radial-gradient(red, yellow 10%, #1E90FF 50%, white)</span></label></li>
+		
+	</ul>
+<p></p>
+<script>
+var els_rg = $all("[name=radial-gradient]");
+
+var elsrs = $all("[name=lgrs]");
+for(var i=0;i<elsrs.length;i++){
+	elsrs[i].onclick = function (){
+		els_rg[2].value = els[2].nextSibling.innerHTML = els_rg[2].value.replace(/(circle|ellipse)/g, this.value);
+		$(".gbox2").style.background = "-webkit-" + els_rg[2].value;
+		$(".gbox2").style.background = "-moz-" + els_rg[2].value;
+		$(".gbox2").style.background = "-o-" + els_rg[2].value;
+		$(".gbox2").style.background = els_rg[2].value;
+	};
+};
+
+
+</script>
+</article>
+
+<article>
+<h3>repeating-linear-gradient()<br><span class="gray">( 重复线性渐变 )</span></h3>
+<div class="gbox gbox2" style="background:-webkit-repeating-linear-gradient(-90deg,#fff, olive 20%);background:-moz-repeating-linear-gradient(-90deg,#fff, olive 20%);background:-o-repeating-linear-gradient(-90deg,#fff, olive 20%);background:repeating-linear-gradient(-90deg,#fff, olive 20%)">repeating-linear-gradient(-90deg,#fff, olive 20%)</div>
+<hr>
+<h3>repeating-radial-gradient()<br><span class="gray">( 重复径向渐变 )</span></h3>
+<div class="gbox gbox2" style="background:-webkit-repeating-radial-gradient(circle cover,#fff,orange 20%);background:-moz-repeating-radial-gradient(circle cover,#fff,orange 20%);background:-o-repeating-radial-gradient(circle cover,#fff,orange 20%);background:repeating-radial-gradient(circle cover,#fff,orange 20%)">repeating-radial-gradient(circle cover,#fff,orange 20%)</div>
+</article>
+
+<article>
+	<h3>✍画条彩虹？</h3>
+	<br>
+	<div class="gbox gbox2" style="height:200px;
+background-image:-webkit-radial-gradient(50% 110%,ellipse farthest-side,white 56%,#FF4D4D 59%,#FFA64D 62%,#FFDC73 65%,#93FF26 68%,#4DFFFF 71%,#2693FF 74%,#D24DFF 77%,white 80%);
+background-image:-moz-radial-gradient(50% 110%,ellipse farthest-side,white 56%,#FF4D4D 59%,#FFA64D 62%,#FFDC73 65%,#93FF26 68%,#4DFFFF 71%,#2693FF 74%,#D24DFF 77%,white 80%);
+background-image:-o-radial-gradient(50% 110%,ellipse farthest-side,white 56%,#FF4D4D 59%,#FFA64D 62%,#FFDC73 65%,#93FF26 68%,#4DFFFF 71%,#2693FF 74%,#D24DFF 77%,white 80%);
+background-image:radial-gradient(50% 110%,ellipse farthest-side,white 51.7%,#FF4D4D 52%,#FF4D4D 55.7%,#FFA64D 56%,#FFA64D 59.7%,#FFDC73 60%,#FFDC73 63.7%,#93FF26 64%,#93FF26 67.7%,#4DFFFF 68%,#4DFFFF 71.7%,#2693FF 72%,#2693FF 75.7%,#D24DFF 76%,#D24DFF 79%,white 79.7%)"></div>
+<pre class="prettyprint lang-css smaller to-build"><span class="kwd">background-image</span><span class="pun">:</span><span class="pln"> radial-gradient</span><span class="pun">(</span><span class="pln">
+  </span><span class="lit">50%</span><span class="pln"> </span><span class="lit">110%</span><span class="pun">,</span><span class="pln">    ellipse farthest-side</span><span class="pun">,</span><span class="pln">
+  white </span><span class="lit">56%</span><span class="pun">,</span><span class="pln">   </span><span class="lit">#FF4D4D</span><span class="pln"> </span><span class="lit">59%</span><span class="pun">,</span><span class="pln"> </span><span class="lit">#FFA64D</span><span class="pln"> </span><span class="lit">62%</span><span class="pun">,</span><span class="pln"> </span><span class="lit">#FFDC73</span><span class="pln"> </span><span class="lit">65%</span><span class="pun">,</span><span class="pln">
+  </span><span class="lit">#93FF26</span><span class="pln"> </span><span class="lit">68%</span><span class="pun">,</span><span class="pln"> </span><span class="lit">#4DFFFF</span><span class="pln"> </span><span class="lit">71%</span><span class="pun">,</span><span class="pln"> </span><span class="lit">#2693FF</span><span class="pln"> </span><span class="lit">74%</span><span class="pun">,</span><span class="pln"> </span><span class="lit">#D24DFF</span><span class="pln"> </span><span class="lit">77%</span><span class="pun">,</span><span class="pln">
+  white </span><span class="lit">80%</span><span class="pun">);</span></pre>
+</article>
+
+
+
+<article data-section="">
+	<div class="box">
+		<small>Multi-column</small>
+		<h2>多列</h2>
+	</div>
+</article>
+
+<article>
+<h3>columns</h3>
+<pre class="prettyprint lang-css" id="cspre"><span class="kwd">columns</span><span class="pun">:</span><span class="pln"> </span><span class="lit">200px</span></pre>
+	<div class="smaller-x" id="cspp" style="-webkit-columns:200px;-moz-columns:200px;columns:200px;color:red">
+		<h5>公司介绍</h5>
+		<p>恒拓开源（天津）信息科技有限公司（简称“恒拓开源”）是一家由海外归国留学人员创办的、致力于开源软件技术研究与发展、定位于为中国大型企业和政府客户提供软件开源化技术服务以及为软件技术人员提供开源技术培训的高新技术企业。</p>
+	<h5>开源中国开源世界</h5>
+	<p>第八届“开源中国开源世界”高峰论坛6月28日在北京航空航天大学举行，恒拓开源技术副总监陈操受邀在会上与阿里巴巴高级副总裁章文嵩、华为开源中心主任徐陶陶等五位同仁共同探讨开源在企业级领域的实践。</p>
+	<h5>最具潜力企业奖</h5>
+	<p>主题为“智能改变未来”的第十一届中国国际软件和信息服务交易会6月20日在大连开幕，凭借在开源技术服务领域的优秀表现，本土领先的开源技术服务提供商恒拓开源在本届大连软交会上获“2012-2013年度中国软件和信息服务业最具潜力企业奖”。</p>
+	</div>
+	</div>
+
+	<p class="aligncenter">宽度：<input type="range" max="500" min="100" value="200" id="ecs1"></p>
+	<p class="aligncenter">列数：<input type="range" max="10" min="1" value="2" id="ecs2"></p>
+
+<script>
+$("#ecs1").onchange = function (){
+	$("#cspre .lit").innerHTML = this.value + "px";
+	$("#cspp").style.WebkitColumns = $("#cspp").style.MozColumns = $("#cspp").style.columns = $("#cspre").textContent.split(":")[1];
+};
+
+$("#ecs2").onchange = function (){
+	$("#cspre .lit").innerHTML = " " + this.value;
+	$("#cspp").style.WebkitColumns = $("#cspp").style.MozColumns = $("#cspp").style.columns = $("#cspre").textContent.split(":")[1];
+};
+</script>
+</article>
+
+<article>
+	<h3>column-width</h3>
+	<p>设置对象每列的宽度</p>
+<pre class="prettyprint lang-css"><span class="kwd">column-width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">200px</span></pre>
+	<hr>
+	<h3>column-count</h3>
+	<p>设置对象每列的列数</p>
+<pre class="prettyprint lang-css"><span class="kwd">column-count</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span></pre>
+</article>
+
+<article>
+	<h3>column-rule</h3>
+	<p>设置对象的列与列之间的边框，参阅border属性。</p>
+<pre class="prettyprint lang-css"><span class="kwd">column-rule</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5px</span><span class="pln"> dashed blue</span></pre>
+	<div class="smaller-x" style="-webkit-column-rule:5px dashed blue;-moz-column-rule:5px dashed blue;column-rule:5px dashed blue;-webkit-columns:200px;-moz-columns:200px;columns:200px;-webkit-column-gap:50px;-moz-column-gap:50px;column-gap:50px;color:red">
+		<h5>公司介绍</h5>
+		<p>恒拓开源（天津）信息科技有限公司（简称“恒拓开源”）是一家由海外归国留学人员创办的、致力于开源软件技术研究与发展、定位于为中国大型企业和政府客户提供软件开源化技术服务以及为软件技术人员提供开源技术培训的高新技术企业。</p>
+	<h5>开源中国开源世界</h5>
+	<p>第八届“开源中国开源世界”高峰论坛6月28日在北京航空航天大学举行，恒拓开源技术副总监陈操受邀在会上与阿里巴巴高级副总裁章文嵩、华为开源中心主任徐陶陶等五位同仁共同探讨开源在企业级领域的实践。</p>
+	<h5>最具潜力企业奖</h5>
+	<p>主题为“智能改变未来”的第十一届中国国际软件和信息服务交易会6月20日在大连开幕，凭借在开源技术服务领域的优秀表现，本土领先的开源技术服务提供商恒拓开源在本届大连软交会上获“2012-2013年度中国软件和信息服务业最具潜力企业奖”。</p>
+	</div>
+</article>
+
+<article>
+	<h3>column-gap</h3>
+<pre class="prettyprint lang-css" id="cspre1"><span class="kwd">column-gap</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50px</span></pre>
+	<div class="smaller-x" id="cspp2" style="-webkit-column-rule:5px dashed blue;-moz-column-rule:5px dashed blue;column-rule:5px dashed blue;-webkit-columns:200px;-moz-columns:200px;-o-columns:200px;-webkit-column-gap:50px;-moz-column-gap:50px;-o-column-gap:50px;color:red">
+		<h5>公司介绍</h5>
+		<p>恒拓开源（天津）信息科技有限公司（简称“恒拓开源”）是一家由海外归国留学人员创办的、致力于开源软件技术研究与发展、定位于为中国大型企业和政府客户提供软件开源化技术服务以及为软件技术人员提供开源技术培训的高新技术企业。</p>
+	<h5>开源中国开源世界</h5>
+	<p>第八届“开源中国开源世界”高峰论坛6月28日在北京航空航天大学举行，恒拓开源技术副总监陈操受邀在会上与阿里巴巴高级副总裁章文嵩、华为开源中心主任徐陶陶等五位同仁共同探讨开源在企业级领域的实践。</p>
+	<h5>最具潜力企业奖</h5>
+	<p>主题为“智能改变未来”的第十一届中国国际软件和信息服务交易会6月20日在大连开幕，凭借在开源技术服务领域的优秀表现，本土领先的开源技术服务提供商恒拓开源在本届大连软交会上获“2012-2013年度中国软件和信息服务业最具潜力企业奖”。</p>
+	</div>
+
+	<p class="aligncenter">列间距：<input type="range" max="200" min="0" value="50" id="ecs3"></p>
+
+<script>
+$("#ecs3").onchange = function (){
+	$("#cspre1 .lit").innerHTML = this.value + "px";
+	$("#cspp2").style.WebkitColumnGap = $("#cspp2").style.MozColumnGap = $("#cspp2").style.columnGap = $("#cspre1").textContent.split(":")[1];
+};
+</script>
+</article>
+
+<article>
+	<h3>column-span</h3>
+<pre class="prettyprint lang-css" id="cspre5"><span class="kwd">column-span</span><span class="pun">:</span><span class="pln"> all</span></pre>
+	<div class="smaller-x" style="-webkit-column-rule:5px dashed blue;-moz-column-rule:5px dashed blue;column-rule:5px dashed blue;-webkit-columns:200px;-moz-columns:200px;-o-columns:200px;-webkit-column-gap:50px;-moz-column-gap:50px;-o-column-gap:50px;color:red">
+		
+		<h5>公司介绍</h5>
+		<p>恒拓开源（天津）信息科技有限公司（简称“恒拓开源”）是一家由海外归国留学人员创办的、致力于开源软件技术研究与发展、定位于为中国大型企业和政府客户提供软件开源化技术服务以及为软件技术人员提供开源技术培训的高新技术企业。</p>
+		<p id="cspp5" style="background:red;color:#fff;text-align:center;padding:.5em">我是一个大标题</p>
+
+	<h5>开源中国开源世界</h5>
+	<p>第八届“开源中国开源世界”高峰论坛6月28日在北京航空航天大学举行，恒拓开源技术副总监陈操受邀在会上与阿里巴巴高级副总裁章文嵩、华为开源中心主任徐陶陶等五位同仁共同探讨开源在企业级领域的实践。</p>
+	<h5>最具潜力企业奖</h5>
+	<p>主题为“智能改变未来”的第十一届中国国际软件和信息服务交易会6月20日在大连开幕，凭借在开源技术服务领域的优秀表现，本土领先的开源技术服务提供商恒拓开源在本届大连软交会上获“2012-2013年度中国软件和信息服务业最具潜力企业奖”。</p>
+	</div>
+	<p class="aligncenter"><label><input type="checkbox" value="all" id="ecs5">横跨所有列</label></p>
+
+<script>
+$("#ecs5").onclick = function (){
+	$("#cspre5 .pln").innerHTML = this.checked ? " all" : " none";
+	$("#cspp5").style.WebkitColumnSpan = $("#cspp5").style.MozColumnSpan = $("#cspp5").style.columnSpan = $("#cspre5").textContent.split(":")[1];
+};
+</script>
+</article>
+
+
+
+<article data-section="">
+	<div class="box">
+		<small>Pseudo-Classes Selectors</small>
+		<h2>伪类选择符</h2>
+	</div>
+</article>
+
+<article>
+<h3>E:nth-child(n)</h3>
+<pre class="prettyprint"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"balls balls-1"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;li&gt;</span><span class="pln">1</span><span class="tag">&lt;/li&gt;</span><span class="pln">...</span><span class="tag">&lt;li&gt;</span><span class="pln">10</span><span class="tag">&lt;/li&gt;</span><span class="pln">
+</span><span class="tag">&lt;/ul&gt;</span></pre>
+<ul class="balls balls-1">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+	<li>9</li>
+	<li>10</li>
+</ul>
+<textarea id="selector1" cols="30" rows="10" class="coding">.balls-1&gt;li:nth-child(n){
+/*
+      border-color: red;
+      background: red;
+      font-weight: 700;
+      color: #fff;
+*/
+}</textarea>
+<script type="text/javascript">
+$("#selector1").oninput = function(){
+	$("#sstyle1").innerHTML = this.value;
+};
+</script>
+</article>
+
+<article>
+<h3>E:nth-last-child(n)</h3>
+<pre class="prettyprint"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"balls balls-2"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;li&gt;</span><span class="pln">1</span><span class="tag">&lt;/li&gt;</span><span class="pln">...</span><span class="tag">&lt;li&gt;</span><span class="pln">10</span><span class="tag">&lt;/li&gt;</span><span class="pln">
+</span><span class="tag">&lt;/ul&gt;</span></pre>
+<ul class="balls balls-2"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul>
+<textarea id="selector2" cols="30" rows="10" class="coding">.balls-2 &gt; li:nth-last-child(n){
+/*
+      border-color: red;
+      background: red;
+      font-weight: 700;
+      color: #fff;
+*/
+}</textarea>
+<script type="text/javascript">
+$("#selector2").oninput = function(){
+	$("#sstyle1").innerHTML = this.value;
+};
+</script>
+</article>
+
+<article>
+<h3>E:only-child</h3>
+<pre class="prettyprint lang-css"><span class="pun">.</span><span class="pln">balls </span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">li</span><span class="pun">:</span><span class="pln">only-child </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></pre>
+<pre class="prettyprint smaller"><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"balls"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;li&gt;</span><span class="pln">1</span><span class="tag">&lt;/li&gt;</span><span class="pln">
+</span><span class="tag">&lt;/ul&gt;</span><span class="pln">
+</span><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"balls"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;li&gt;</span><span class="pln">1</span><span class="tag">&lt;/li&gt;&lt;li&gt;</span><span class="pln">2</span><span class="tag">&lt;/li&gt;&lt;li&gt;</span><span class="pln">3</span><span class="tag">&lt;/li&gt;</span><span class="pln">
+</span><span class="tag">&lt;/ul&gt;</span></pre>
+<ul class="balls balls2">
+	<li>1</li>
+</ul>
+<div class="clr"></div>
+<ul class="balls balls2">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+</ul>
+</article>
+
+<article>
+<h3>E:first-child</h3>
+<pre class="prettyprint lang-css"><span class="pun">.</span><span class="pln">balls </span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">li</span><span class="pun">:</span><span class="pln">first-child </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></pre>
+<ul class="balls f"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul>
+<br>
+<br>
+<br>
+<hr>
+<h3>E:last-child</h3>
+<pre class="prettyprint lang-css"><span class="pun">.</span><span class="pln">balls </span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">li</span><span class="pun">:</span><span class="pln">last-child </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></pre>
+<ul class="balls l"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul>
+</article>
+
+
+<article>
+<h3>type 系列</h3>
+<div class="test">
+div.test
+<div>div1</div>
+<p>p1</p>
+<div>div2</div>
+<div>div3</div>
+</div>
+<ul class="none-type smaller">
+	<li class="to-build"><label><input type="radio" name="typeselector" value=".test &gt; p:first-of-type{border-color:red}"><span>.test &gt; p:first-of-type {border-color:red}</span></label></li>
+	<li class="to-build"><label><input type="radio" name="typeselector" value=".test &gt; div:last-of-type{border-color:red}"><span>.test &gt; div:last-of-type {border-color:red}</span></label></li>
+	<li class="to-build"><label><input type="radio" name="typeselector" value=".test &gt; :only-of-type{border-color:red}"><span>.test &gt; :only-of-type {border-color:red}</span></label></li>
+	<li class="to-build"><label><input type="radio" name="typeselector" value=".test &gt; div:nth-of-type(2){border-color:red}"><span>.test &gt; div:nth-of-type(2) {border-color:red}</span></label></li>
+	<li class="to-build"><label><input type="radio" name="typeselector" value=".test &gt; div:nth-last-of-type(3){border-color:red}"><span>.test &gt; div:nth-last-of-type(3) {border-color:red}</span></label></li>
+</ul>
+<script>
+var elstype = $all("[name=typeselector]");
+for(var i=0;i<elstype.length;i++){
+	elstype[i].onclick = function (){
+		$("#sstyle2").innerHTML = this.value;
+	}
+}
+</script>
+</article>
+
+
+
+
+
+<article>
+	<h3>E:root</h3>
+	<p>匹配E元素在文档的根元素。在HTML中，根元素永远是HTML。</p>
+	<hr>
+	<h3>E:empty</h3>
+	<p>匹配没有任何子元素（包括text节点）的元素E。</p>
+	<hr>
+	<h3>E:target</h3>
+	<p>匹配相关URL指向的E元素。</p>
+</article>
+
+<article>
+	<h3>✍该怎么选？</h3>
+	<h5>选择前4个元素</h5>
+	<ul class="balls lt4"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul>
+	<br>
+<pre class="prettyprint lang-css to-build"><span class="pun">.</span><span class="pln">balls </span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">li</span><span class="pun">:</span><span class="pln">nth-child</span><span class="pun">(-</span><span class="pln">n</span><span class="pun">+</span><span class="lit">4</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></pre>
+	<br>
+	<h5 class="to-build">从第一个开始，选择每第四个</h5>
+	<ul class="balls n4 to-build"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ul>
+	<br>
+<pre class="prettyprint lang-css to-build"><span class="pun">.</span><span class="pln">balls </span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">li</span><span class="pun">:</span><span class="pln">nth-child</span><span class="pun">(</span><span class="lit">4n</span><span class="pun">+</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">}</span></pre>
+</article>
+
+
+<article data-section="">
+	<div class="box">
+		<small>Units</small>
+		<h2>单位</h2>
+	</div>
+</article>
+
+<article>
+	<h3>长度 <span class="gray">(Length)</span></h3>
+	<dl>
+		<dt>rem</dt><dd>相对长度单位，相对于根元素(即html元素)font-size计算值的倍数。</dd>
+	</dl>
+	<p>html-&gt;32px</p>
+	<p style="padding:1em;border:2px solid #999;font-size:.5em">font-size:0.5em <span style="border:2px solid red;font-size:2em">font-size:2em</span></p>
+	<p class="to-build" style="padding:1em;border:2px solid #999;font-size:.5em">font-size:0.5em <span style="border:2px solid red;font-size:2rem">font-size:2rem</span></p>
+</article>
+
+<article>
+	<h3>角度 <span class="gray">(Angel)</span></h3>
+	<p class="green">90deg = 100grad = 0.25turn ≈ 1.570796326794897rad</p>
+	<dl>
+		<dt>deg</dt><dd>度（Degress）。一个圆共360度</dd> 
+		<dt>grad</dt><dd>梯度（Gradians）。一个圆共400梯度</dd>
+		<dt>turn</dt><dd>转、圈（Turns）。一个圆共1圈</dd>
+		<dt>rad</dt><dd>弧度（Radians）。一个圆共2π弧度</dd>
+	</dl>
+</article>
+
+<article data-section="">
+	<div class="box">
+		<small>Transform</small>
+		<h2>转换</h2>
+	</div>
+</article>
+
+<article>
+	<h3>scale()</h3>
+	<h5>取值：<span class="green">&lt;x:number&gt;</span>[,<span class="green">&lt;y:number&gt;</span>]</h5>
+<pre class="prettyprint lang-css exampletf" id="exampletf1"><span class="pln">scale</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span></pre>
+	<p class="aligncenter">X: <input type="range" max="2" min="-2" value="1" step="0.1" id="scalex"></p>
+	<p class="aligncenter">Y: <input type="range" max="2" min="-2" value="1" step="0.1" id="scaley"></p>
+
+<script>
+function updateTf() {
+	$("#exampletf1").style.WebkitTransform = $("#exampletf1").style.MozTransform = $("#exampletf1").style.MsTransform = $("#exampletf1").style.OTransform = $("#exampletf1").style.transform = $("#exampletf1").textContent.replace(/\n/g,"");
+};
+$("#scalex").onchange = function (){ $all("#exampletf1 .lit")[0].innerHTML = Number(this.value).toFixed(1); updateTf() };
+$("#scaley").onchange = function (){ $all("#exampletf1 .lit")[1].innerHTML = Number(this.value).toFixed(1); updateTf() };
+</script>
+</article>
+
+<article data-section="">
+	<div class="box">
+		<h3>scale()</h3>
+		<h2>主要用途：镜像</h2>
+		<p>
+			<img style="-webkit-transform:scale(-1,1)" src="res/bsl.png">
+			<img src="res/bsl.png">
+		</p>
+	</div>
+</article>
+
+<article>
+<h3>scaleX() scaleY()</h3>
+<p>以下三种语法效果一样</p>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span></pre>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span></pre>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> scaleX</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> scaleY</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span></pre>
+</article>
+
+<article>
+	<h3>translate()</h3>
+	<h5>取值：<span class="green">&lt;x:length&gt;</span>[,<span class="green">&lt;y:length&gt;</span>]</h5>
+<pre class="prettyprint lang-css exampletf" id="exampletf2"><span class="pln">translate</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></pre>
+	<p class="aligncenter">X: <input type="range" max="100" min="-100" value="0" id="translatex"></p>
+	<p class="aligncenter">Y: <input type="range" max="100" min="-100" value="0" id="translatey"></p>
+
+<script>
+function updateTf1() {
+	$("#exampletf2").style.WebkitTransform = $("#exampletf2").style.MozTransform = $("#exampletf2").style.MsTransform = $("#exampletf2").style.OTransform = $("#exampletf2").style.transform = $("#exampletf2").textContent.replace(/\n/g,"");
+};
+$("#translatex").onchange = function (){ $all("#exampletf2 .lit")[0].innerHTML = this.value + "px"; updateTf1() };
+$("#translatey").onchange = function (){ $all("#exampletf2 .lit")[1].innerHTML = this.value + "%"; updateTf1() };
+</script>
+</article>
+
+<article>
+<h3>translateX() translateY()</h3>
+<p>以下两种语法效果一样</p>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> translate</span><span class="pun">(</span><span class="lit">100px</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100%</span><span class="pun">);</span></pre>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> translateX</span><span class="pun">(</span><span class="lit">100px</span><span class="pun">)</span><span class="pln"> translateY</span><span class="pun">(</span><span class="lit">100%</span><span class="pun">);</span></pre>
+<hr>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> translate</span><span class="pun">(</span><span class="lit">100%</span><span class="pun">);</span></pre>
+</article>
+
+<article>
+	<h3>skew()</h3>
+	<h5>取值：<span class="green">&lt;x:angel&gt;</span>[,<span class="green">&lt;y:angel&gt;</span>]</h5>
+<pre class="prettyprint lang-css exampletf" id="exampletf3"><span class="pln">skew</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span></pre>
+	<p class="aligncenter">X: <input type="range" max="100" min="-100" value="0" id="skewx"></p>
+	<p class="aligncenter">Y: <input type="range" max="100" min="-100" value="0" id="skewy"></p>
+
+<script>
+function updateTf2() {
+	$("#exampletf3").style.WebkitTransform = $("#exampletf3").style.MozTransform = $("#exampletf3").style.MsTransform = $("#exampletf3").style.OTransform = $("#exampletf3").style.transform = $("#exampletf3").textContent.replace(/\n/g,"");
+};
+$("#skewx").onchange = function (){ $all("#exampletf3 .lit")[0].innerHTML = this.value + "deg"; updateTf2() };
+$("#skewy").onchange = function (){ $all("#exampletf3 .lit")[1].innerHTML = this.value + "deg"; updateTf2() };
+</script>
+</article>
+
+<article>
+<h3>skewX() skewY()</h3>
+<p>以下两种语法效果一样</p>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> skew</span><span class="pun">(</span><span class="lit">100deg</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100deg</span><span class="pun">);</span></pre>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> skewX</span><span class="pun">(</span><span class="lit">100deg</span><span class="pun">)</span><span class="pln"> skewY</span><span class="pun">(</span><span class="lit">100deg</span><span class="pun">);</span></pre>
+<hr>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> skew</span><span class="pun">(</span><span class="lit">100deg</span><span class="pun">);</span></pre>
+</article>
+
+<article class="">
+	<h3>rotate()</h3>
+	<h5>取值：<span class="green">&lt;angel&gt;</span></h5>
+<pre class="prettyprint lang-css exampletf" id="exampletf0"><span class="pln">rotate</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)</span></pre>
+	<p class="aligncenter">Angel: <input type="range" max="360" min="-360" value="0" id="rotate"></p>
+
+<script>
+function updateTf0() {
+	$("#exampletf0").style.WebkitTransform = $("#exampletf0").style.MozTransform = $("#exampletf0").style.MsTransform = $("#exampletf0").style.OTransform = $("#exampletf0").style.transform = $("#exampletf0").textContent.replace(/\n/g,"");
+};
+$("#rotate").onchange = function (){ $("#exampletf0 .lit").innerHTML = this.value + "deg"; updateTf0() };
+</script>
+</article>
+
+
+
+
+<article class="">
+	<h3>transform语法</h3>
+<pre class="prettyprint lang-css"><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> rotate</span><span class="pun">(</span><span class="lit">30deg</span><span class="pun">)</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">1.5</span><span class="pun">)</span><span class="pln"> skew</span><span class="pun">(</span><span class="lit">10deg</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50deg</span><span class="pun">);</span></pre>
+</article>
+
+
+<article data-section="" class="">
+	<div class="box">
+		<small>Transition</small>
+		<h2>过渡</h2>
+		<small class="to-build" style="color:blue">照进动画世界的电筒</small>
+	</div>
+</article>
+
+<article class="">
+<h3>导航菜单：旧方法</h3>
+<pre class="prettyprint lang-css"><span class="pln">div </span><span class="pun">{</span>
+   <span class="kwd">width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span><br/>&nbsp;&nbsp;&nbsp;<span class="kwd">height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span>
+<span class="pun">}</span><span class="pln">
+</span><span class="kwd">div</span><span class="pun">:</span><span class="pln">hover </span><span class="pun">{</span><br/>&nbsp;&nbsp;&nbsp;<span class="kwd">width</span><span class="pun">:</span> <span class="lit">120px</span><span class="pun">;</span><br/>&nbsp;&nbsp;&nbsp;<span class="kwd">height</span><span class="pun">:</span> <span class="lit">120px</span><span class="pun">;</span><span class="pun">}</span></pre>
+<div class="oldExamplegd" id="examplegd1" style="margin:0 auto"></div>
+<style>
+	.oldExamplegd{
+		width: 100px;
+   		height: 100px;
+   		background-color: #2E79BB;
+	}
+
+	.oldExamplegd:hover{
+		width: 120px;
+   		height: 120px;
+   		background-color: #2E79BB;
+	}
+</style>
+</article>
+
+<article class="">
+<h3>新方法：transition</h3>
+<small>（对于新状态所使用的过渡方式）</small>
+<pre class="prettyprint lang-css"><span class="pln">div </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">transition</span><span class="pun">:</span><span class="pln"> transform ease-in </span><span class="lit">.5s</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">div</span><span class="pun">:</span><span class="pln">hover </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">transform</span><span class="pun">:</span><span class="pln"> scale</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<div class="examplegd" id="examplegd1" style="margin:0 auto"></div>
+</article>
+
+
+
+<article class="">
+<h3>transition-duration</h3>
+<p>设置对象过渡的持续时间。</p>
+<pre class="prettyprint lang-css"><span class="kwd">transition-duration</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2s</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">transition-duration</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4000ms</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">transition-duration</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4000ms</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8000ms</span><span class="pun">;</span></pre>
+</article>
+
+<article class="">
+<h3>transition-timing-function</h3>
+<p>设置对象中过渡的类型。</p>
+<div class="gdtf">
+<table>
+<tbody><tr>
+	<td width="150px" class="smaller">ease(默认)</td>
+	<td><div class="examplegd" style="-webkit-transition-timing-function:ease;-moz-transition-timing-function:ease;-o-transition-timing-function:ease;transition-timing-function:ease;"></div></td>
+</tr>
+<tr>
+	<td>linear</td>
+	<td><div class="examplegd" style="-webkit-transition-timing-function:linear;-moz-transition-timing-function:linear;-o-transition-timing-function:linear;transition-timing-function:linear;"></div></td>
+</tr>
+<tr>
+	<td>ease-in</td>
+	<td><div class="examplegd" style="-webkit-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-o-transition-timing-function:ease-in;transition-timing-function:ease-in;"></div></td>
+</tr>
+<tr>
+	<td>ease-out</td>
+	<td><div class="examplegd" style="-webkit-transition-timing-function:ease-out;-moz-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;"></div></td>
+</tr>
+<tr>
+	<td class="smaller">ease-in-out</td>
+	<td><div class="examplegd" style="-webkit-transition-timing-function:ease-in-out;-moz-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out;"></div></td>
+</tr>
+</tbody></table>
+</div>
+</article>
+
+<article class="">
+	<h3>transition-timing-function</h3>
+	<h5>取值：<span class="green">cubic-bezier(P1x, P1y, P2x, P1y)</span></h5>
+	<p>ease-in-out： 由慢到快再到慢→贝塞尔曲线(0.42, 0, 0.58, 1.0) </p>
+	<div class="aligncenter"><img src="res/cubic-bezier.png" alt=""></div>
+	<div class="gdtf">
+		<div class="examplegd" style="-webkit-transition-timing-function:cubic-bezier(0.2,0.4,0.8,0.4);-moz-transition-timing-function:ease-out;-o-transition-timing-function:ease-out;transition-timing-function:ease-out;"></div>
+	</div>
+</article>
+
+<article class="">
+	<h3>transition-delay</h3>
+	<p>设置对象延迟过渡的时间。</p>
+	<div class="gdtf">
+		<table>
+			<tbody><tr>
+				<td width="150px">0(默认)</td>
+				<td><div class="examplegd"></div></td>
+			</tr>
+			<tr>
+				<td>1s</td>
+				<td><div class="examplegd" style="-webkit-transition-delay:1s;-moz-transition-delay:1s;-o-transition-delay:1s;transition-delay:1s"></div></td>
+			</tr>
+			<tr>
+				<td>2000ms</td>
+				<td><div class="examplegd" style="-webkit-transition-delay:2000ms;-moz-transition-delay:2000ms;-o-transition-delay:2000ms;transition-delay:2000ms"></div></td>
+			</tr>
+			<tr>
+				<td>-3s</td>
+				<td><div class="examplegd" style="-webkit-transition-delay:-3s;-moz-transition-delay:-3s;-o-transition-delay:-3s;transition-delay:-3s"></div></td>
+			</tr>
+		</tbody></table>
+	</div>
+</article>
+
+<article class="">
+<h3>transition</h3>
+<p>复合语法</p>
+<pre class="prettyprint lang-css"><span class="kwd">transition</span><span class="pun">:</span><span class="pln"> width </span><span class="lit">3s</span><span class="pun">,</span><span class="pln"> height </span><span class="lit">2s</span><span class="pln"> </span><span class="lit">2s</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">transition</span><span class="pun">:</span><span class="pln"> background-color </span><span class="lit">3s</span><span class="pln"> linear </span><span class="lit">1s</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">transition</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4s</span><span class="pln"> ease-in-out</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">transition</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5s</span><span class="pun">;</span></pre>
+</article>
+
+<article data-section="" class="">
+	<div class="box" id="animateEle">
+		<small>Animation</small>
+		<h2>动画</h2>
+		<h3 class="to-build" style="color:red">给元素带来生命力</h3>
+	</div>
+	<style type="text/css">
+		#animateEle{
+				position: absolute;
+				left: 100px;
+			    -webkit-animation: 'loadingAni' 3s linear infinite alternate;
+			}
+			@-webkit-keyframes loadingAni{
+
+				0% { 
+					left: 100px; 
+					color: red;
+				}
+			    50% { 
+			    	left: -100px; 
+			    	color: blue;
+			    }
+			    100% { 
+					left: 100px; 
+					color: red;
+				}
+			}
+	</style>
+</article>
+
+<article class="far-prev">
+<h3>animation</h3>
+<pre class="prettyprint lang-css"><span class="kwd">div</span><span class="pun">:</span><span class="pln">hover i </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">animation</span><span class="pun">:</span><span class="pln"> loading </span><span class="lit">3s</span><span class="pln"> ease-out infinite
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">@</span><span class="pln">keyframes loading</span><span class="pun">{</span><span class="pln">
+    </span><span class="lit">0%</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="lit">100%</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100%</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<div class="exampledh"><i></i></div>
+<p class="aligncenter">↑ 鼠标移上去 ↑</p>
+</article>
+
+<article class="last prev">
+	<h3>animation 独立属性</h3>
+<pre class="prettyprint lang-css"><span class="pln">div </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">animation</span><span class="pun">:</span><span class="pln"> name </span><span class="lit">3s</span><span class="pln"> ease </span><span class="lit">1s</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> alternate</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+	<ul>
+		<li>animation-name：<span class="red">name</span>（对应keyframes的名称）</li>
+		<li>animation-duration：<span class="red">3s</span>（持续时间）</li>
+		<li>animation-timing-function：<span class="red">ease</span>（过渡类型）</li>
+		<li>animation-delay：<span class="red">1s</span>（延迟时间）</li>
+		<li>animation-iteration-count：<span class="red">3</span>（循环次数）|| infinite</li>
+		<li>animation-direction：<span class="red">alternate</span>（反向运动）|| normal</li>
+	</ul>
+</article>
+
+
+<article data-section="" class="current">
+	<div class="box">
+		<small>小试牛刀</small>
+		<iframe src="../animation-oss/demo.html" scrolling="no" style="width:880px;height:650px;-webkit-transform:scale(0.8);"></iframe>
+	</div>
+</article>
+
+<article data-section="" class="current">
+	<div class="box">
+		<small>that's all</small>
+		<h2>Thanks :)</h2>
+		<b>恒 拓 开 源</b>
+	</div>
+</article>
+
+</section>
+
+<div id="prev">‹</div>
+<div id="next">›</div>
+<footer id="footer" class="hide">
+	<div id="gethelp">?</div>
+	<div id="navigation">
+		幻灯片 <b class="current">79</b> / <span class="total">79</span> <span class="split">|</span> <span class="droparrow">▼</span>
+		<nav id="goto">
+			<div class="scroll"><ol>
+				<li class="section"><a href="#1">1 样式换新衫, 还看CSS3</a></li>
+				<li class="section"><a href="#3">2 弹性盒子布局</a></li>
+				
+				<li class="section"><a href="#10">3 边框</a></li>
+				
+				<li class="section"><a href="#18">4 渐变</a></li>
+				
+				<li class="section"><a href="#24">5 多列</a></li>
+				<li class="section"><a href="#30">6 伪类选择符</a></li>
+
+				<li class="section"><a href="#38">7 单位</a></li>
+				<li class="section"><a href="#41">8 转换</a></li>
+
+				<li class="section"><a href="#51">9 过渡</a></li>
+
+				<li class="section"><a href="#59">10 动画</a></li>
+
+				<li class="section" style="text-align:center"> - </li>
+
+				<li class="section" style="text-align:center"> - </li>
+			</ol></div>
+			<div class="overbg"></div>
+			<div class="arrow"><i></i></div>
+		</nav>
+	</div>
+	<div id="progressbar"><i style="width: 100%;"></i></div>
+</footer>
+
+<div id="help">
+	<div class="bg"></div>
+	<div class="main">
+		<h4>快捷键</h4>
+		<dl>
+			<dt>铺满窗口：</dt><dd>W</dd>
+			<dt>窗口适配：</dt><dd>S</dd>
+			<dt>全屏模式：</dt><dd>F</dd>
+			<dt>切换主题：</dt><dd>T</dd>
+			<dt>上一页：</dt><dd>↑ / ← / P / PageDown</dd>
+			<dt>下一页：</dt><dd>↓ / → / N / PageUp / Space</dd>
+			<dt>第一页：</dt><dd>Home</dd>
+			<dt>最后一页：</dt><dd>End</dd>
+			<dt>画笔：</dt><dd>Ctrl+鼠标左键</dd>
+			<dt>荧光笔：</dt><dd>Alt+鼠标左键</dd>
+		</dl>
+		<div class="gray aligncenter clr">点击任意区域退出</div>
+	</div>
+</div>
+
+
+
+<script src="res/script.js"></script>
+
+</body></html>

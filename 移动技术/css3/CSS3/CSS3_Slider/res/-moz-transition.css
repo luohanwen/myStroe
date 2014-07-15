@@ -1,0 +1,587 @@
+/* Switch 切换 */
+[data-transition=switch] article {
+	-moz-transition: -moz-transform .5s;
+}
+[data-transition=switch] [data-go=forward] article.last{
+	display: block;
+	-moz-transform: translateX(-150%);
+}
+[data-transition=switch] [data-go=forward] article.current {
+	-moz-animation: switch-show .5s linear;
+	
+}
+[data-transition=switch] [data-go=back] article.last{
+	display: block;
+	opacity: 0;
+	-moz-transform: scale(.5);
+	-moz-animation: switch-hide .5s linear;
+}
+[data-transition=switch] [data-go=back] article.current {
+	-moz-animation: switch-in .5s linear;
+}
+@-moz-keyframes switch-show {
+	0% {
+		opacity: 0;
+		-moz-transform: scale(.5);
+	}
+	100% {
+		opacity: 1;
+		-moz-transform: scale(1);
+	}
+}
+@-moz-keyframes switch-hide {
+	0% {
+		opacity: 1;
+		-moz-transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		-moz-transform: scale(.5);
+	}
+}
+@-moz-keyframes switch-in {
+	0% {
+		-moz-transform: translateX(-150%);
+	}
+	100% {
+		-moz-transform: none;
+	}
+}
+
+/* Cube 立方体 */
+[data-transition=cube] section {
+	-moz-transform-style: preserve-3d;
+}
+[data-transition=cube] article {
+	-moz-transition: all 1s linear;
+	-moz-transition: opacity .5s, -moz-transform .5s;
+}
+[data-transition=cube] article:not(.current),
+[data-transition=cube] article.prev{
+	display: block;
+	opacity: 0;
+	-moz-transform: translateX(-100%) rotateY(-90deg) translateX(-100%);
+}
+[data-transition=cube] article.next,
+[data-transition=cube] article.next ~ article:not(.current) {
+	display: block;
+	opacity: 0;
+	-moz-transform: translateX(100%) rotateY(90deg) translateX(100%);
+}
+
+/* Wave 波浪 */
+[data-transition=wave] section {
+	-moz-perspective: 1800px;
+}
+[data-transition=wave] article {
+	display: block;
+	opacity: 0;
+	-moz-transition: opacity .5s, -moz-transform .5s, -moz-transform-origin .5s;
+}
+[data-transition=wave] [data-go=forward] article{
+	-moz-transform: rotateY(90deg);
+	-moz-transform-origin: right
+}
+[data-transition=wave] [data-go=forward] article.last {
+	-moz-transform: rotateY(-90deg);
+	-moz-transform-origin: right
+}
+[data-transition=wave] [data-go=forward] article.current{
+	-moz-transform: rotateY(0);
+	-moz-transform-origin: left
+}
+
+[data-transition=wave] [data-go=back] article{
+	-moz-transform: rotateY(-90deg);
+	-moz-transform-origin: left
+}
+[data-transition=wave] [data-go=back] article.last {
+	-moz-transform: rotateY(90deg);
+	-moz-transform-origin: left
+}
+[data-transition=wave] [data-go=back] article.current{
+	-moz-transform: rotateY(0);
+	-moz-transform-origin: right
+}
+
+/* Flip 翻转 */
+[data-transition=flip] article {
+	-moz-transition: none;
+}
+[data-transition=flip] section {
+	-moz-perspective: 1800px;
+}
+[data-transition=flip] [data-go=forward] article.current {
+	display: block;
+	-moz-animation: flip-show .7s linear;
+	z-index: 2;
+}
+[data-transition=flip] [data-go=forward] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: flip-hide .7s linear;
+	z-index: -1;
+}
+[data-transition=flip] [data-go=back] article.current {
+	display: block;
+	-moz-animation: flip-backIn .7s linear;
+	z-index: 2;
+}
+[data-transition=flip] [data-go=back] article.last {
+	display: block;
+	-moz-animation: flip-backOut .7s linear;
+	z-index: -1;
+	opacity: 0;
+}
+@-moz-keyframes flip-show {
+	0% {
+		-moz-transform: rotateX(-180deg);
+		z-index: -1;
+	}
+	50% {
+		z-index: -1;
+	}
+	100% {
+		z-index: 1;
+	}
+}
+@-moz-keyframes flip-hide {
+	0% {
+		opacity: 1;
+		z-index: 1;
+	}
+	50% {
+		-moz-transform: rotateX(90deg);
+		opacity: 1;
+		z-index: 1;
+	}
+	51%,100% {
+		opacity: 0;
+		z-index: -1;
+	}
+}
+@-moz-keyframes flip-backIn {
+	0% {
+		-moz-transform: rotateX(180deg);
+		z-index: -1;
+	}
+	100% {
+		z-index: 1;
+	}
+}
+@-moz-keyframes flip-backOut {
+	0% {
+		opacity: 1;
+		z-index: 1;
+	}
+	50% {
+		-moz-transform: rotateX(-90deg);
+		opacity: 1;
+		z-index: 1;
+	}
+	51%,100% {
+		opacity: 0;
+		z-index: -1;
+	}
+}
+
+/* Wheel 转动 */
+[data-transition=wheel] section {
+	-moz-perspective: 1800px;
+}
+[data-transition=wheel] article {
+	display: block;
+	opacity: 0;
+	-moz-transition: opacity .5s, -moz-transform .5s;
+}
+[data-transition=wheel] [data-go=forward] article,
+[data-transition=wheel] [data-go=back] article.last {
+	-moz-transform: rotateX(90deg);
+}
+[data-transition=wheel] [data-go=back] article,
+[data-transition=wheel] [data-go=forward] article.last {
+	-moz-transform: rotateX(-90deg);
+}
+[data-transition=wheel] [data-go=forward] article.current,
+[data-transition=wheel] [data-go=back] article.current {
+	-moz-transform: rotateX(0);
+}
+
+/* Reveal 显示 */
+[data-transition=reveal] article {
+	-moz-transition: opacity .5s;
+}
+[data-transition=reveal] [data-go=forward] article.current {
+	display: block;
+	opacity: 1;
+	-moz-animation: reveal-in 3s linear;
+}
+[data-transition=reveal] [data-go=forward] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: reveal-out 3s linear;
+}
+[data-transition=reveal] [data-go=back] article.current {
+	display: block;
+	opacity: 1;
+	-moz-animation: reveal-backin 3s linear;
+}
+[data-transition=reveal] [data-go=back] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: reveal-backout 3s linear;
+}
+@-moz-keyframes reveal-in {
+	0%, 50% {
+		-moz-transform: scale(1.1) translateX(50px);
+		opacity: 0;
+	}
+	100% {
+		-moz-transform: scale(1) translateX(0);
+		opacity: 1
+	}
+}
+@-moz-keyframes reveal-out {
+	0% {
+		opacity: 1;
+	}
+	50%, 100% {
+		-moz-transform: scale(1.1) translateX(-50px);
+		opacity: 0;
+	}
+}
+@-moz-keyframes reveal-backin {
+	0%, 50% {
+		-moz-transform: scale(1.1) translateX(-50px);
+		opacity: 0;
+	}
+	100% {
+		-moz-transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+}
+@-moz-keyframes reveal-backout {
+	0% {
+		opacity: 1;
+	}
+	50%, 100% {
+		-moz-transform: scale(1.1) translateX(50px);
+		opacity: 0;
+	}
+}
+
+/* Fly Through 飞过 */
+[data-transition=fly-through] article {
+	-moz-transition: opacity .5s;
+}
+[data-transition=fly-through] [data-go=forward] article.current {
+	display: block;
+	opacity: 1;
+	-moz-animation: fly-in .6s linear;
+	z-index: 2;
+}
+[data-transition=fly-through] [data-go=forward] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: fly-out .6s linear;
+	z-index: -1;
+}
+[data-transition=fly-through] [data-go=back] article.current {
+	display: block;
+	opacity: 1;
+	-moz-animation: fly-backin .6s linear;
+	z-index: 2;
+}
+[data-transition=fly-through] [data-go=back] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: fly-backout .6s linear;
+	z-index: -1;
+}
+@-moz-keyframes fly-in {
+	0%, 33% {
+		-moz-transform: scale(.5);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1
+	}
+}
+@-moz-keyframes fly-out {
+	0% {
+		opacity: 1
+	}
+	66%, 100% {
+		-moz-transform: scale(2);
+		opacity: 0;
+	}
+}
+@-moz-keyframes fly-backin {
+	0%, 33% {
+		-moz-transform: scale(2);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1
+	}
+}
+@-moz-keyframes fly-backout {
+	0% {
+		opacity: 1
+	}
+	66%, 100% {
+		-moz-transform: scale(.5);
+		opacity: 0;
+	}
+}
+
+/* Beat 跳动 */
+[data-transition=beat] article {
+	display: block;
+	-moz-transform: scale(2);
+	opacity: 0;
+	-moz-transition: opacity .3s, -moz-transform .3s;
+}
+[data-transition=beat] article.current {
+	display: block;
+	-moz-transform: scale(1);
+	opacity: 1;
+}
+[data-transition=beat] article.last {
+	display: block;
+	opacity: 0;
+}
+
+/* Cover 覆盖 */
+[data-transition=cover] article {
+	-moz-transition: opacity .5s;
+}
+[data-transition=cover] [data-go=forward] article.current {
+	display: block;
+	-moz-animation: cover-show 1s linear;
+	z-index: 2;
+}
+[data-transition=cover] [data-go=forward] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: cover-out 1s linear;
+	z-index: -1;
+}
+[data-transition=cover] [data-go=back] article.current {
+	display: block;
+	-moz-animation: cover-in 1s linear;
+	z-index: 2;
+}
+[data-transition=cover] [data-go=back] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: cover-hide 1s linear;
+	z-index: -1;
+}
+@-moz-keyframes cover-show {
+	0%, 33% {
+		-moz-transform: rotateX(10deg) translateX(100%) scale(1.4);
+		opacity: 0
+	}
+	66% {
+		-moz-transform: rotateX(10deg) scale(.8);
+		opacity: 1
+	}
+	100% {
+		opacity: 1;
+		z-index: 2;
+	}
+}
+@-moz-keyframes cover-out {
+	0% {
+		opacity: 1;
+	}
+	33%, 100% {
+		opacity: 1;
+		-moz-transform: rotateX(10deg) scale(.8);
+		z-index: 1;
+	}
+}
+@-moz-keyframes cover-in {
+	0%, 66% {
+		z-index: 1;
+		-moz-transform: rotateX(10deg) scale(.8);
+	}
+	100% {
+		z-index: 1;
+	}
+}
+@-moz-keyframes cover-hide {
+	0% {
+		z-index: 2;
+		opacity: 1;
+	}
+	33% {
+		-moz-transform: rotateX(10deg) scale(.8);
+		opacity: 1;
+	}
+	66%, 100% {
+		opacity: 0;
+		-moz-transform: rotateX(10deg) translateX(100%) scale(1.4);
+	}
+}
+
+/* Uncover 揭开 */
+[data-transition=uncover] article {
+	-moz-transition: opacity .5s;
+}
+[data-transition=uncover] [data-go=forward] article.current {
+	display: block;
+	-moz-animation: uncover-show 1s linear;
+	z-index: 1;
+}
+[data-transition=uncover] [data-go=forward] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: uncover-out 1s linear;
+	z-index: 2;
+}
+[data-transition=uncover] [data-go=back] article.current {
+	display: block;
+	-moz-animation: uncover-in 1s linear;
+	z-index: 2;
+}
+[data-transition=uncover] [data-go=back] article.last {
+	display: block;
+	opacity: 0;
+	-moz-animation: uncover-hide 1s linear;
+	z-index: 1;
+}
+@-moz-keyframes uncover-show {
+	0%, 66% {
+		-moz-transform: rotateX(10deg) scale(.8);
+		z-index: 1;
+	}
+	100% {
+		-moz-transform: rotateX(0deg)
+	}
+}
+@-moz-keyframes uncover-hide {
+	0% {
+		-moz-transform: rotateX(0);
+		opacity: 1
+	}
+	33%, 100% {
+		-moz-transform: rotateX(10deg) scale(.8);
+		opacity: 1
+	}
+}
+@-moz-keyframes uncover-out {
+	0% {
+		opacity: 1;
+		z-index: 2;
+	}
+	33% {
+		-moz-transform: rotateX(10deg) scale(.8);
+		opacity: 1
+	}
+	66%, 100% {
+		-moz-transform: translateX(-100%) scale(1.4);
+		opacity: 0
+	}
+}
+@-moz-keyframes uncover-in {
+	0%, 33% {
+		-moz-transform: translateX(-100%) scale(1.4);
+		opacity: 0;
+		z-index: 2
+	}
+	66% {
+		-moz-transform: rotateX(10deg) scale(.8);
+		opacity: 1
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Fade 淡出 */
+[data-transition=fade] article {
+	-moz-transition: opacity .5s;
+}
+[data-transition=fade] section {
+	-moz-border-radius: 10px;
+	-moz-box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+	background: #fff;
+}
+[data-transition=fade] article {
+	-moz-border-radius: 0;
+	-moz-box-shadow: none;
+	background-color: transparent;
+	background-image: none;
+	opacity: 0;
+	display: block;
+}
+
+/* Push 推进 */
+[data-transition=push] article {
+	-moz-transition: opacity .5s, left .5s;
+}
+[data-transition=push] [data-go=forward] article.last,
+[data-transition=push] article.prev {
+	display: block;
+	opacity: 0;
+	left: -110%;
+}
+[data-transition=push] [data-go=back] article.last,
+[data-transition=push] article.next {
+	display: block;
+	opacity: 0;
+	left: 110%;
+}
+
+/* Scroll 滚动 */
+[data-transition=scroll] article {
+	-moz-transition: opacity .5s, top .5s;
+}
+[data-transition=scroll] [data-go=forward] article.last,
+[data-transition=scroll] article.prev {
+	display: block;
+	opacity: 0;
+	top: -110%;
+}
+[data-transition=scroll] [data-go=back] article.last,
+[data-transition=scroll] article.next {
+	display: block;
+	opacity: 0;
+	top: 110%;
+}
+
+/* Gallery 库 */
+[data-transition=gallery] section {
+	-moz-transform-style: preserve-3d;
+}
+[data-transition=gallery] article {
+	-moz-transition: opacity .5s, left .5s, -moz-transform .5s, -moz-transform-origin .5s;
+}
+[data-transition=gallery] article.prev {
+	display: block;
+	opacity: .5;
+	left: -110%;
+	-moz-transform-origin: 100% 50%;
+	-moz-transform: rotateY(-5deg);
+}
+[data-transition=gallery] article.next {
+	display: block;
+	opacity: .5;
+	left: 110%;
+	-moz-transform-origin: 0 50%;
+	-moz-transform: rotateY(5deg);
+}
+[data-transition=gallery] article.far-prev {
+	display: block;
+	opacity: 0;
+	left: -165%;
+	-moz-transform: rotateY(-10deg) scale(.75);
+}
+[data-transition=gallery] article.far-next {
+	display: block;
+	opacity: 0;
+	left: 165%;
+	-moz-transform: rotateY(10deg) scale(.75);
+}

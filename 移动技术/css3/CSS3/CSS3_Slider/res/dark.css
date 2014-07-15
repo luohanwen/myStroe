@@ -1,0 +1,95 @@
+body {
+	background-color: #666;
+	background-image: -webkit-radial-gradient(50% 50%, circle, #999, #666);
+	background-image: -moz-radial-gradient(50% 50%, circle, #999, #666);
+	background-image: -o-radial-gradient(50% 50%, circle, #999, #666);
+	background-image: radial-gradient(50% 50%, circle, #999, #666);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { color: #fff }
+a,
+a:hover { color: #fff }
+::-moz-selection {
+	text-shadow: none;
+	background: yellow;
+	color: #00;
+}
+::selection {
+	text-shadow: none;
+	background: yellow;
+	color: #000;
+}
+
+/*
+============================== Layout
+*/
+section { text-shadow: 0 2px 5px #000 }
+article {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, .6);
+	-moz-box-shadow: 0 2px 10px rgba(0, 0, 0, .6);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, .6);
+	background-color: #111;
+	background-image: -webkit-radial-gradient(50% 50%, circle, #333, #000);
+	background-image: -moz-radial-gradient(50% 50%, circle, #333, #000);
+	background-image: -o-radial-gradient(50% 50%, circle, #333, #000);
+	background-image: radial-gradient(50% 50%, circle, #333, #000);
+	color: #eee;
+}
+
+/*
+============================== Article
+*/
+q::before,
+q::after,
+blockquote::before,
+blockquote::after { color: gray }
+
+/*
+============================== NavBtn
+*/
+body.fillup #prev,
+body.fillup #next{
+	background: rgba(255, 255, 255, .1);
+	 box-shadow: inset 0 1px 5px rgba(0, 0, 0, .3), 0 0 0 2px rgba(255, 255, 255, .5);
+}
+
+/*
+============================== Footer
+*/
+body.fillup #options dt {
+	color: #fff;
+}
+body.fillup #options:hover dt {
+	color: #000;
+}
+
+/*
+============================== Prettify
+*/
+pre.prettyprint {
+	background: rgba(0,0,0,.3);
+	border: 0px solid #888;
+}
+.prettyprint .str { color: #EC7600 }
+.prettyprint .kwd { color: #93C763 }
+.prettyprint .com { color: #66747B }
+.prettyprint .typ { color: #678CB1 }
+.prettyprint .lit { color: #FACD22 }
+.prettyprint .pun { color: #F1F2F3 }
+.prettyprint .pln { color: #F1F2F3 }
+.prettyprint .tag { color: #8AC763 }
+.prettyprint .atn { color: #E0E2E4 }
+.prettyprint .atv { color: #EC7600 }
+.prettyprint .dec { color: purple }
+
+/*
+============================== Transition
+*/
+[data-transition=fade] section { background-image: -webkit-radial-gradient(50% 50%, circle, #333, #000) }

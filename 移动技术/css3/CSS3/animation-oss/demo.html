@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://www.melonhtml5.com/# -->
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Welcome to foreveross</title>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('body').click(start);
+
+                // setTimeout("showAni('#slogan05','animate')",0); 
+                // setTimeout("showAni('#o1','animate')",1000);
+                // setTimeout("showAni('#o2','animate')",1000);
+                // alert(1)
+            })
+
+            function start(){
+                setTimeout("showAni('#slogan01','animate')",0); 
+                setTimeout("showAni('#slogan02','animate')",2000); 
+                setTimeout("showAni('#slogan03','animate')",4000); 
+                setTimeout("showAni('#slogan04','animate')",6000); 
+                setTimeout("showAni('#slogan05','animate')",8000); 
+                setTimeout("showAni('#o1','animate')",9000);
+                setTimeout("showAni('#o2','animate')",9000);
+                setTimeout("showAni('.bg','animate')",10000);
+                setTimeout("showAni('.bg','up')",11000); 
+                setTimeout("showAni('.companyName','animate')",12000); 
+
+            }
+
+
+            function showAni(id,addclassName){
+                
+                $(id).addClass(addclassName);
+            }
+        </script>
+        <style type="text/css">
+            body{
+                width: 100%;
+            }
+            #frame{
+                width:800px;
+                height: 600px;
+                border: 3px black solid;
+                margin: auto;
+                margin-top:20px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .words{
+                font-size: 100px;
+                display: none;
+                margin: auto;
+                width: 300px;
+                text-align: center;
+                z-index: 200;
+            }
+
+            .words.animate {
+                margin: auto;
+                position: absolute;
+                left: 250px;
+                margin-top: 200px;
+                display: block;
+                font-weight:bolder;
+                -webkit-animation: show 3s ease-out 1;
+                -webkit-animation-fill-mode:forwards;
+            }
+            @-webkit-keyframes show{
+                0% { 
+                    opacity: 0;
+                    color:red;
+                    -webkit-transform:scale(1);
+                }
+                80% { 
+                    opacity: 1;
+                    color:blue; 
+                }
+                100% { 
+                    opacity: 0;
+                    -webkit-transform:scale(1.5);
+                }
+            }
+
+            #o1{
+                width: 50px;
+                height: 50px;
+                border: 3px red solid;
+                border-radius:25px;
+                position: absolute;
+                top:25px;
+                left: 35px;
+            }
+            #o2{
+                width: 50px;
+                height: 50px;
+                border: 3px blue solid;
+                border-radius:25px;
+                position: absolute;
+                top:125px;
+                left: 82px;
+            }
+
+            #o1.animate{
+                display: block;
+                -webkit-animation: fadeOutUp 3s ease-out 1;
+                -webkit-animation-fill-mode:forwards;
+            }
+
+            @-webkit-keyframes fadeOutUp{
+                0% { 
+                    opacity: 1;
+                    color:red;
+                    -webkit-transform:scale(1);
+                }
+                90% { 
+                    opacity: 1;
+                    width: 640px;
+                    height: 640px;
+                    left: -170px;
+                    top:-480px;
+                    border-width: 10px;
+                    border-radius:320px;
+                }
+            }
+
+            #o2.animate{
+                display: block;
+                -webkit-animation: fadeOutDown 3s ease-out 1;
+                -webkit-animation-fill-mode:forwards;
+            }
+
+            @-webkit-keyframes fadeOutDown{
+                0% { 
+                    opacity: 1;
+                    color:blue;
+                    -webkit-transform:scale(1);
+                }
+                90% { 
+                    top:200px;
+                    opacity: 1;
+                    width: 640px;
+                    height: 640px;
+                    left: -170px;
+                    top:30px;
+                    border-width: 10px;
+                    border-radius:320px;
+                }
+            }
+
+            .foo{
+                width: 1000px;
+                height: 1000px;
+                border: 10px white solid;
+                border-radius:500px;
+                left: -100px;
+                position: absolute;
+                opacity: 1;
+            }
+
+            #foo1{
+                top:-600px;
+                background-image: -webkit-linear-gradient(top,white 70%, #ff0066 80%);
+
+            }
+            #foo2{
+                top:200px;
+                overflow:hidden;
+                z-index: 10;
+                background-image: -webkit-linear-gradient(top,#44bbdd 20%, white 30%);
+            }
+            #foo3{
+                top:-807px;
+                left:-4px;
+                background-color: #aa0077;
+                z-index: 1;
+            }
+            .bg{
+                position: relative;
+                opacity: 0;
+                top:0px;
+            }
+
+            .bg.animate {
+                -webkit-animation: showFoo 3s ease-out 1;
+                -webkit-animation-fill-mode:forwards;
+            }
+
+            @-webkit-keyframes showFoo{
+                25% { 
+                    opacity: 0;
+                }
+                100% { 
+                    opacity: 1;
+                }
+            }
+
+            .bg.up{
+                position: relative;
+                opacity: 1;
+                top:0px;
+                -webkit-animation: bgUp 3s ease-out 1;
+                -webkit-animation-fill-mode:forwards;
+            }
+            @-webkit-keyframes bgUp{
+                25% { 
+                    top: 0px;
+                }
+                100% { 
+                    top: -80px;
+                }
+            }
+
+            #slogan07{
+                font-size: 60px;
+                margin: auto;
+                width: 600px;
+                top: 520px;
+                text-align: center;
+                position: absolute;
+                left: 100px;
+            }
+            #slogan06{
+                font-size: 64px;
+                margin: auto;
+                width: 600px;
+                top: 450px;
+                text-align: center;
+                position: absolute;
+                left: 100px;
+            }
+            .companyName{
+                font-weight:bolder;
+                opacity: 0;
+                z-index: 300;
+            }
+            .companyName.animate {
+                -webkit-animation: showCompany 3s ease-out 1;
+                -webkit-animation-fill-mode:forwards;
+            }
+            @-webkit-keyframes showCompany{
+                25% { 
+                    opacity: 0;
+                }
+                100% { 
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>   
+        <div id="frame">
+            <div class="words" id="slogan01">forever</div>
+            <div class="words" id="slogan02">恒</div>
+            <div class="words" id="slogan03">open source</div>
+            <div class="words" id="slogan04">开源</div>
+            <div class="words" id="slogan05">forever oss<div id="o1"></div><div id="o2"></div></div>
+
+            <div class="bg">
+                <div class="foo" id="foo1">
+                    
+                </div>
+                <div class="foo" id="foo2"> 
+                    <div class="foo" id="foo3">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="companyName" id="slogan06">f&nbsp;o&nbsp;r&nbsp;e&nbsp;v&nbsp;e&nbsp;r&nbsp;&nbsp;o&nbsp;s&nbsp;s</div>
+            <div class="companyName" id="slogan07">恒&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;拓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;源</div>
+        </div>
+    </body>
+</html>
