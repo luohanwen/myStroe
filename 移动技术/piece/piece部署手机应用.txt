@@ -1,0 +1,7 @@
+1.安装piece
+cmd 框  npm   进入node npm模式
+npm -g install piece 安装piece
+2 进入项目文件夹
+输入piece命令
+然后输入 server start 命令  
+获取地址 ok

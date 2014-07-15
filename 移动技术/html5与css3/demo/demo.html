@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>demo</title>
+          <style>
+               .colorRed{color:red;}
+          </style>
+          <script src="jquery.js"></script>
+	</head>
+	<body>
+     <h1>html5</h1>
+     <h2>input元素种类</h2>
+     <p>
+     	<form action="">
+     		url:<input type="url">
+     		email:<input type="email">
+     		search: <input type="search">
+     		<input type="submit" value="提交">
+     	</form>
+     </p>
+
+     <h2>list属性</h2>
+     <input type="text" list="greeting">
+     <datalist id="greeting" hidden = true>
+          <option value="test">test</option>
+     </datalist>
+	</body>
+
+     <h2>自定义表单验证错误信息 <span class="colorRed">支持不好！</span></h2>
+     <form action="" name="form1" onsubmit="return check();">
+          <input type="password" name="pass1" id="pass1">
+          <input type="password" name="pass2" id="pass2">
+          <input type="submit" value="submit">
+     </form>
+     <script>
+          function check(){
+               console.info("haven test");
+              var pass1 = document.getElementById("pass1");
+              var pass2 = document.getElementById("pass2");
+              if(pass1 !== pass2){
+                  pass1.setCustomValidity("密码不一致");
+              }
+          }
+     </script>
+
+     <h2>mark元素</h2>
+     <section>
+          <h3>mark</h3>
+          <p><mark>mark</mark>是html5新增的元素</p>
+     </section>
+
+     <h2>progress</h2>
+     <progress value=10 max=100 id="progress"></progress>
+     <script>
+          var progressBar = document.getElementById("progress");
+          var i = 10;
+          setInterval("progressBar.value = i;if(i<100){i += 1}else{clearInterval();}",1000);
+     </script>
+
+     <h2>meter</h2>
+     <meter value="40" min="0" max="100">80%</meter>
+
+     <h2>ol</h2>
+     <ol start="10" reversed>
+          <li>title1</li>
+          <li>title2</li>
+          <li>title3</li>
+          <li>title4</li>
+          <li>title5</li>
+     </ol>
+
+     <h2>small</h2>
+     <p>small元素<small>测试</small></p>
+
+     <h2>文件上传</h2>
+     <input type="file" multiple = true size="80" id="file">
+     <input type="button" value="文件上传" onclick="showFileAttr()">
+     <p>文件名：<span id="fileName"></span></p>
+     <p>文件字节长度：<span id="fileLength"></span></p>
+     <p>文件类型：<span id="fileType"></span></p>
+
+     <p>
+          <label for="">请选择一个文件</label>
+          <input type="file" id="file1">
+          <input type="button" value="读取图像" onclick="readAsDataUrl();">
+          <input type="button" value="读取二进制数据" onclick="readAsBinaryString();">
+          <input type="button" value="读取文本文件" onclick="readAsText();">
+          <input type="button" value="测试事件顺序" onclick="readFile()">
+     </p>
+     <div id="result">
+         <!--  显示读取结果 -->
+     </div>
+     <h2>文件上传触发事件顺序</h2>
+     <div id="resultOrder">
+         <p class="colorRed">事件顺序为：</p>
+     </div>
+     <script>
+          var result = document.getElementById("result");
+          var file1 = document.getElementById("file1");
+          if(typeof FileReader === "undefined"){
+               result.innerHTML = "<p>抱歉您的浏览器不支持FileReader</p>";
+               file1.setAttribute("disbled","disabled");
+          }
+          function showFileAttr(){
+               var file;
+               var fileArr = document.getElementById("file").files;
+               for(var i = 0;i<fileArr.length;i++){
+                    file = fileArr[i];
+                    document.getElementById("fileName").innerHTML = file.name;
+                    document.getElementById("fileLength").innerHTML = file.size;
+                    document.getElementById("fileType").innerHTML = file.type;
+               }
+          }
+          function readAsDataUrl(){
+               //检查是否为图片
+               var file = document.getElementById("file1").files[0];
+               if(!/image\/\w+/.test(file.type)){
+                    alert("请确保您选择的是一张图片");
+                    return false;
+               }
+               var reader = new FileReader();
+               reader.readAsDataURL(file);
+               reader.onload = function(e){
+                    var result = document.getElementById("result");
+                    result.innerHTML = '<img src="'+ this.result +'" >'
+               }
+          }
+
+          function readAsBinaryString(){
+               var file = document.getElementById("file1").files[0];
+               var reader = new FileReader();
+               reader.readAsBinaryString(file);
+               reader.onload = function(){
+                    var result = document.getElementById("result");
+                    result.innerHTML = this.result;
+               }
+
+          }
+
+          function readAsText(){
+               var file = document.getElementById("file1").files[0];
+               var reader = new FileReader();
+               reader.readAsText(file,"gbk");
+               reader.onload = function(){
+                    var result = document.getElementById("result");
+                    result.innerHTML = this.result;
+               }
+          }
+
+          function readFile(){
+               var file = document.getElementById("file1").files[0];
+               var reader = new FileReader();
+               reader.readAsText(file);
+               var result = document.getElementById("resultOrder");
+               reader.onload = function(e){
+                    result.innerHTML += "&nbsp;&nbsp;onload";
+                    console.info("onload");
+                    console.info(file.size);
+               }
+               reader.onprogress = function(e){
+                    console.info("progress");
+                    console.info(file.size);
+                    result.innerHTML += "&nbsp;&nbsp;onprogress";
+               } 
+               reader.onabort = function(e){
+                    result.innerHTML += "&nbsp;&nbsp;onabort";
+               }
+               reader.onerror = function(e){
+                    result.innerHTML += "&nbsp;&nbsp;onerror";
+               }
+               reader.onloadstart = function(e){
+                    result.innerHTML += "&nbsp;&nbsp;onloadstart";
+               }
+               reader.onloadend = function(e){
+                    result.innerHTML += "&nbsp;&nbsp;onloadend";
+               }       
+          }
+
+
+     </script>
+
+     <h2>拖放api</h2>
+     <p>
+        <div draggable="true" class="draggleDiv" id="draggleDiv">被拖放的元素</div> 
+        <div class="containDraggle" id="containDraggle"></div>
+        <div id="draggleEvent"></div> 
+     </p>
+     <style>
+          .draggleDiv{cursor: pointer; width: 200px;height:60px;line-height: 60px;text-align: center;background-color: silver;}
+          .containDraggle{width:100%;height:auto;min-height: 60px; border:1px solid silver;}
+     </style>
+     <script>
+          $("#draggleDiv").unbind("dragstart").bind("dragstart",function(){
+               $("#draggleEvent").append("dragstart移动开始 ");
+          });
+          $("#draggleDiv").unbind("drag").bind("drag",function(){
+               $("#draggleEvent").append("drag移动中 ");
+          });
+          $("#draggleDiv").unbind("dragend").bind("dragend",function(){
+               $("#draggleEvent").append("dragend移动结束 ");
+          });
+          $("#containDraggle").unbind("dragenter").bind("dragenter",function(){
+               $("#containDraggle").append("dragenter 开始进入我");
+          });
+          $("#containDraggle").unbind("dragover").bind("dragover",function(){
+               $("#containDraggle").append("dragover 在我里面移动");
+          });
+          $("#containDraggle").unbind("dragleave").bind("dragleave",function(){
+               $("#containDraggle").append("dragleave 离开我");
+          });
+          $("#containDraggle").unbind("drop").bind("drop",function(){
+               $("#containDraggle").append("drop 有其他元素拖放到本元素中");
+          });
+     </script>
+
+     <h2>canvas</h2>
+     <canvas id="canvas" width="400" height="300"></canvas>
+     <button onclick="draw('canvas')">绘制矩形</button>
+     <button onclick="draw1('canvas')">绘制圆形</button>
+     <script>
+         function draw(canvasId){
+               var canvas = document.getElementById(canvasId);
+               var context = canvas.getContext("2d");
+               context.fillStyle = "red";
+               context.fillRect(1,1,100,100);
+               context.strokeStyle = "blue";
+               context.lineWidth = 2;
+               context.strokeRect(1,1,100,100);
+               //context.clearRect(1,1,100,100); 
+         }         
+         function draw1(canvasId){
+               var canvas = document.getElementById(canvasId);
+               var context = canvas.getContext("2d");
+               context.beginPath();
+               context.arc(160,50,50,0,Math.PI*2,true);
+               context.closePath();
+               context.fillStyle = "red";
+               context.fill();
+         }
+     </script>
+
+     
+
+     <h1>css3</h1>
+     <h2>弹出框平滑弹出效果</h2>
+     <p><input type="button" value="四边扩散1" onclick=""></p>
+     <p><input type="button" value="四边扩散2" onclick="showTCK()"></p>
+     <div class="tck hideTCK" id="tck1"></div>
+     <div class="mask" id="mask1" hidden=true onclick="hideTCK();"></div>
+     <script>
+          function hideTCK(){
+               $("#tck1").addClass("hideTCK");
+               $("#mask1").hide();
+          }
+          function showTCK(){
+               $("#tck1").removeClass("hideTCK");
+               $("#mask1").show();
+          }
+     </script>
+     <style>
+          .tck{-webkit-transition: width 1s , height 1s;width:400px;height:400px;background-color: silver;position:fixed;left:50%;top:50%;margin-left: -200px;margin-top:-200px;z-index: 12;}
+          .mask{position: fixed;left:0;top:0;right:0;bottom: 0;background-color: black;opacity: 0.8;z-index: 10;}
+          .hideTCK{width:0;height:0;}
+     </style>
+
+</html>

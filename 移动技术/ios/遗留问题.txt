@@ -1,0 +1,14 @@
+一、名词解惑
+ios os x
+多态
+二、理解不能
+1.嵌套式消息表达式
+[[myAppObject theArray] insertObject:[myAppObject objectToInsert] atIndex:0];
+
+
+2.以下示例说明如何将类方法用作类的工厂方法。在这种情况下，array 方法是 NSArray 类上的类方法——被 NSMutableArray 继承——它分配并初始化类的新实例，并将其返回给您的代码。
+
+NSMutableArray *myArray = nil;  // nil is essentially the same as NULL
+ 
+// Create a new array and assign it to the myArray variable.
+myArray = [NSMutableArray array];

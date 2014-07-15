@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>demo</title>
+		<script type="text/javascript" src="iscroll.js"></script>
+		<script type="text/javascript">
+			 var myIscroll;
+			 window.onload = function(){
+			 	myIscroll = new iScroll("wrapper",{onScrollEnd:function(){console.info("2222222222222222")}});
+			 	myIscroll.scrollTo(0,"-100");
+			 	/*可以将事件以这种形式写也可以在初始化的时候就写*/
+			 	myIscroll.options.onScrollEnd = function(){
+			 		console.info("11111111111111111111111");
+			 	}
+			 	console.info(myIscroll);
+			 }
+		</script>
+		<style>
+		   body{
+			 overflow: hidden;
+		   }
+	       #wrapper{
+				position:absolute; z-index:1;
+				top:45px; bottom:48px; left:0;
+				width:100%;
+				background:#aaa;
+				overflow:auto;
+	       }
+	       #demo{
+
+	       }
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<ul id="demo">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+				<li>item 4</li>
+				<li>item 5</li>
+				<li>item 6</li>
+				<li>item 7</li>
+				<li>item 8</li>
+				<li>item 9</li>
+				<li>item 10</li>
+				<li>item 11</li>
+				<li>item 12</li>
+				<li>item 13</li>
+				<li>item 14</li>
+				<li>item 15</li>
+				<li>item 16</li>
+				<li>item 17</li>
+				<li>item 18</li>
+				<li>item 19</li>
+				<li>item 20</li>
+				<li>item 21</li>
+				<li>item 22</li>
+				<li>item 23</li>
+				<li>item 24</li>
+				<li>item 25</li>
+				<li>item 26</li>
+				<li>item 27</li>
+				<li>item 28</li>
+				<li>item 29</li>
+				<li>item 30</li>
+				<li>item 31</li>
+				<li>item 32</li>
+				<li>item 33</li>
+				<li>item 34</li>
+				<li>item 35</li>
+				<li>item 36</li>
+				<li>item 37</li>
+				<li>item 38</li>
+				<li>item 39</li>
+				<li>item 40</li>
+			</ul>
+			</div>
+	</body>
+</html>

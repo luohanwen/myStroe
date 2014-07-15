@@ -1,0 +1,7 @@
+一、相关名词
+Hybird客户端，前端mvc，模块化，个性定制，Piece.js sdk基于node.js的命令行工具,消息推送（云推送，消息队列，回执机制，标签机制），设备管理（mdm），css预处理器（css preprocessor: sass less stylus）,grunt
+
+
+二、相关技术
+node.js做工具，如代码生成
+离线试用 Hybird性能加速 

@@ -1,0 +1,22 @@
+{
+  "name": "piece",
+  "description": "Piece HTML5 Framework for Mobile",
+  "version": "0.0.1",
+  "author": {
+    "name": "Justin Yip & Juno Leung",
+    "email": "justin.yip@foxmail.com"
+  },
+  "homepage": "https://github.com/yezhiming/piece",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yezhiming/piece.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yezhiming/piece/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-piece-modulejs": "~0.1.4"
+  }
+}

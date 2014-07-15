@@ -1,0 +1,11 @@
+iOS 打包思路   海航移动运行网
+1.在svn中将html文件中的www更新   将里面的除工具模块的代码全部复制到ios 项目中的www文件下   
+  www下面4个 cordova.js cordova_plugins.js phone plugins 有两套分别对应andriod ios 将对应的版本留下 
+2.在模拟器中简单跑一下
+
+新增：www.base.下面的app.js 修改一下
+
+3.点击bsl-sdk 查看general 改version  build ;  再查看build settings  ，看provisioning profile的release 跟后面打包的证书是否一致 
+4. 手机方式里选择ios Device 
+5.点击Product—Archive archive完毕选择 Distribute—选择第二个 save for enterprise
+next provisioning profile 跟build setting 中保持一致 export 
