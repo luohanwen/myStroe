@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>demo</title>
+</head>
+
+<body>
+
+
+    </br>
+    </br>
+    <input type="text" placeholder="请输入关键字">
+    <input type="text">
+    <script src="./jquery.js"></script>
+    <script>
+    $(function() {
+        var $input = $("body").find("input[type='text']");
+        showPlaceholder($input, "demo");
+    });
+    /**
+     * 解决ie input placeholder默认提示不起作用问题
+     * 解决方案：为input 添加div覆盖，由div来显示有提示语时的样式（div会自动定位与input位置保持一致）
+     * @param $target object 目标input对象集合
+     * @param inputClass string input的基本样式如边框高等 赋予覆盖的div让div的样式与input保持一致
+     * @author haven
+     */
+
+    function showPlaceholder($target, inputClass) {
+        $.each($target, function(index, item) {
+            var tip = $(item).attr("placeholder");
+            //如果input不是可见状态 或者没有定义placeholder返回
+            if ($(item).is(":visible") && typeof tip !== "undefined" && tip !== "undefined") {
+                //获取input的位置信息
+                var offset = $(item).offset();
+                var width = $(item).width();
+                //将input设为不可见状态
+                $(item).css("visibility", "hidden");
+                //添加input与div一一对应的标示符
+                $(item).attr("data-input", index);
+                var maskDiv = '<div class="' + inputClass + '" data-input="' + index + '" style="position:absolute;left:' + offset.left + 'px;top:' + offset.top + 'px;width:' + width + 'px;">' + tip + '</div>';
+                $("body").append(maskDiv);
+
+                //给div添加点击给input聚焦的事件
+                $("div[data-input='" + index + "']:visible").unbind("click").bind("click", function(el) {
+                    $(el.currentTarget).hide();
+                    $("input[data-input='" + index + "']:visible").css("visibility", "visible").focus();;
+                });
+
+                //input失去焦点时如果input没有输入值，则让div继续覆盖
+                $("input[data-input='" + index + "']:visible").unbind("blur").bind("blur", function(el) {
+                    var value = $(el.currentTarget).val();
+                    if (value === "") {
+                        $(el.currentTarget).css("visibility", "hidden");
+                        $("div[data-input='" + index + "']").show();
+                    }
+                });
+            }
+        });
+    }
+    </script>
+    <style>
+    input {
+        height:30px;
+        line-height: 30px;
+        border:1px solid silver;
+        border-radius: 4px;
+        width: 100px;
+    }
+    .demo {
+        height:32px;
+        line-height: 32px;
+        border:1px solid silver;
+        border-radius: 4px;
+        background-color: white;
+        color:#ccc;
+        font-size: 12px;
+        cursor:pointer;
+    }
+    </style>
+
+</body>
+
+</html>
