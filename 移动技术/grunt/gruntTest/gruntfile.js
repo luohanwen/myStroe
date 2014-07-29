@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		//读取package.json
 		pkg: grunt.file.readJSON("package.json"),
-		//任务concat 对src文件夹里所有js文件进行连接
+		/*任务concat 对src文件夹里所有js文件进行连接*/
 		concat: {
 			options: {
 				//定义分割文件的字符
@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 				dest: "dist/<%=pkg.name%>.js"
 			}
 		},
+		/*压缩js*/
 		uglify: {
 			//将concat.dist.dest 里生成的文件进行压缩
 			uglify_target1: {
@@ -41,9 +42,20 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		/*压缩css*/
+		cssmin: {
+			options: {
+				banner: '/* My minified css file */'
+			},
+			dist: {
+				src: ["css/**/*.css"],
+				dest: "dist/test.min.css"
+			}
+		},
+		/*检查js*/
 		jshint: {
-			options:{
-				'-W033':true
+			options: {
+				'-W033': true
 			},
 			all: ['dist/gruntjs.cn.min.js'],
 			test: ['src/test.js']
@@ -53,12 +65,14 @@ module.exports = function(grunt) {
 	//加载任务所需插件
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	//建立默认任务
-	grunt.registerTask('default', ['concat', 'uglify', "jshint"]);
+	grunt.registerTask('default', ['concat', 'uglify', 'cssmin', "jshint"]);
 
 	//建立指定任务
 	grunt.registerTask("concatTest", ["concat"]);
 	grunt.registerTask("uglifyTest", ["uglify"]);
+	grunt.registerTask("cssminTest", ["cssmin"]);
 };
