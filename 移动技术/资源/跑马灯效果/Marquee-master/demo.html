@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="jquery.js"></script>	
+	<script src="marquee.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#demo1").marquee(50,"left");
+		$("#demo2").marquee(100,"top");
+	})
+	</script>
+
+</head>
+<body>
+<!-- 水平 -->
+<style type="text/css">
+#demo1>.marquee-outer{width: 300px;height: 200px;border: 1px solid #eee;overflow: hidden;position: relative;}
+#demo1 .marquee-inner{position: absolute;white-space: nowrap;}
+#demo1 .marquee-inner ul>li{display: inline-block;}
+</style>
+<div id="demo1">
+	<div class="marquee-outer">
+		<div class="marquee-inner">
+			<ul>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+<style type="text/css">
+#demo2>.marquee-outer{width: 300px;height: 20px;line-height: 20px;border: 1px solid #eee;overflow: hidden;position: relative;}
+#demo2 .marquee-inner{position: absolute;white-space: nowrap;}
+#demo2 .marquee-inner ul{margin:0;}
+#demo2 .marquee-inner ul>li{width: 100%;text-align: center}
+</style>
+<!-- 垂直 -->
+<div id="demo2">
+	<div class="marquee-outer">
+		<div class="marquee-inner">
+			<ul>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+				<li>hello</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
