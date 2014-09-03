@@ -1,0 +1,244 @@
+@charset "UTF-8";
+
+/**
+ * YT-GD Framework Version 1.0.1
+ * 团队：宇天科技--广东技术中心
+ * 更新：2014/5/6
+ * 描述：移动端框架
+ */
+
+
+/* css reset
+================================================================================================= */
+
+
+html,
+body,
+div,
+span,
+applet,
+object,
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, Arial, sans-serif;
+  /*font-family: Arial; */
+  color: #666;
+}
+.pad_body{ background-color:#3b3b3b;}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*,*:before,*:after {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+figure {
+  margin: 0;
+}
+img,
+object,
+embed,
+video {
+  max-width: 100%;
+  _width: 100%;
+}
+/*去掉手机默认的点击加框的效果*/
+input,textarea{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0;
+    }
+img {
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+.blod{ font-weight:bold}
+
+/* 链接
+============================================================================================== */
+a:link{ color: #666; text-decoration: none;}
+a:visited {color: #666;}
+a:active{ color: blue;}
+a:hover,
+a:active {
+  outline: 0;
+}
+a:active{
+  color: #ff4300;
+}
+.u_line{
+ text-decoration: underline !important;
+}
+
+/* media
+============================================================================================== */
+@media all
+{
+    html
+    {
+        font-size:16px;
+    }
+}
+
+
+@media screen and (min-width:320px)
+{
+    html
+    {
+        font-size:16px;
+    }
+}
+
+@media screen and (min-width:480px)
+{
+    html
+    {
+        font-size:20px;
+    }
+}
+@media screen and  (min-width:700px)
+{
+    html
+    {
+        font-size:32px;
+    }
+}
+
+@media screen and (min-width:960px)
+{
+    html
+    {
+        font-size:32px;
+    }
+}
+
+@media screen and  (min-width:1024px)
+{
+    html
+    {
+        font-size:46px;
+    }
+}
+
+@media screen and (min-width:1200px)
+{
+    html
+    {
+        font-size:50px;
+    }
+}

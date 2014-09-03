@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/reset-and-media-style.css">
+</head>
+<body>
+     <div class="container">
+          <div class="head">
+               backbone spa test
+          </div>
+          <div class="main">
+               <div class="list">
+                    <ul>
+                        <li>111</li>
+                    </ul>
+               </div>
+          </div>
+     </div>
+</body>
+<script src="js/core/zepto.js" type="text/javascript"></script>
+<script src="js/core/underscore.js" type="text/javascript"></script>
+<script src="js/core/backbone.js" type="text/javascript"></script>
+<script src="js/base/openApi.js" type="text/javascript"></script>
+
+<script>
+      //创建模型
+      var indexModel = Backbone.Model.extend({});
+
+      //创建集合
+      var modelList = Backbone.Collection.extend({
+          model:indexModel
+      });
+
+      var model = new indexModel();
+      var indexView = Backbone.View.extend({
+          initialize:function(){
+              model.url = "http://www.cnblogs.com/mvc/blog/CategoriesTags.aspx?blogApp=yexiaochai&blogId=91319&postId=3486173&_=1409208574898";
+              model.fetch({
+                  success:function(){
+                     console.info(model.toJSON());
+                  }
+              });
+          }
+      });
+      var view = new indexView();
+</script>
+</html>

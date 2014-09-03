@@ -1,0 +1,33 @@
+article{background-color: #d2eafe;}
+/*------- common --------*/
+.hide{display: none;}
+.show{display: block;}
+.tc{text-align: center;}
+.clear{clear:both;}
+
+.mt_10{margin-top: 0.625em;}
+.mt_20{margin-top: 1.25em;}
+.mt_30{margin-top: 1.875em;}
+.mt_40{margin-top: 2.5em;}
+.ml_5{margin-left: 0.3em;}
+.ml_10{margin-left: 0.625em;}
+
+.c_grey{color:#454647;}
+
+
+/* ui组件 */
+.input{vertical-align: middle;text-indent: 5px;font-size: 0.75em;width:90%;height:3em;line-height:3em;color:#333;border:1px solid #dcdcdc;border-radius:5px;-moz-border-radius:5px;}
+/*------- common/--------*/
+
+.container{position: absolute;left:0;right:0;top:0;bottom: 0;}
+.head{height: 2.4em;line-height: 2.4em;text-align: center;background-color: #1a94c9;color:white;}
+.list>ul>li{height: 3em;line-height: 3em;padding-left: 0.8em;border-bottom: 1px solid #eee;cursor: pointer;}
+.list>ul>li:hover{background-color: #bed9f3;color:white;}
+.list>ul>li:active{background-color: #bed9f3;color:white;}
+
+
+
+
+
+
+
