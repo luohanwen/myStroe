@@ -1,0 +1,4 @@
+一.html/css/js pretty html代码格式化问题
+报 node was not found in the default path
+1.检查配置中插件配置中node的路径
+2.html文件的路径（包括里面引用的外部文件的路径）不能包含中文。（深坑啊）
