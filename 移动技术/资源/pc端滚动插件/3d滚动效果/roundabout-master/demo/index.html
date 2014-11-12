@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+    ul{width: 425px;height: 390px;margin-left: 200px;}
+    li {
+        width: 225px;
+		height: 337px;
+		cursor: pointer;
+		border: 3px solid #ccc;
+		border: 3px solid rgba(0, 0, 0, 0.08);
+		border-radius: 4px;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		background-color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+    </ul>
+    <div>
+    	<button id="next">下一张</button>
+    	<button id="pre">上一张</button>
+    </div>
+    <script src="jquery-1.6.2.js"></script>
+    <script src="jquery.roundabout.js"></script>
+    <script>
+    $(function() {
+        $('ul').roundabout({
+            autoplay: true, //自动播放
+            autoplayDuration: 3000, //时间
+            autoplayPauseOnHover: true, //自动鼠标移上停滞
+            shape: 'flurry', //支持属性theJuggler、figure8、waterWheel、square、conveyorBeltLeft、conveyorBeltRight、goodbyeCruelWorld、diagonalRingLeft、diagonalRingRight、rollerCoaster、tearDrop、tickingClock、flurry、nowSlide、risingEssence随便换
+            minOpacity: 1
+        });
+        $("#next").click(function(){
+        	$('ul').roundabout("animateToNextChild")
+        });
+        $("#pre").click(function(){
+        	$('ul').roundabout("animateToPreviousChild")
+        });
+    })
+    </script>
+</body>
+
+</html>
