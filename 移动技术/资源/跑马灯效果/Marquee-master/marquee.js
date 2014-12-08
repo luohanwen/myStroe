@@ -37,4 +37,4 @@
 		this.find(".marquee-inner").mouseover(clearTimer); //鼠标移动上面停止跑马灯
 		this.find(".marquee-inner").mouseout(run);//鼠标移出开始跑马灯
 	};
-})(jQuery);
+})(Zepto);
