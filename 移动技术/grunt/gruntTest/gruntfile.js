@@ -75,4 +75,5 @@ module.exports = function(grunt) {
 	grunt.registerTask("concatTest", ["concat"]);
 	grunt.registerTask("uglifyTest", ["uglify"]);
 	grunt.registerTask("cssminTest", ["cssmin"]);
+	grunt.registerTask("uglify1", ["uglify:uglify_target1"]);
 };
