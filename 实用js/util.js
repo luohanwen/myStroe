@@ -30,3 +30,23 @@ Util.prototype.convertImgToBase64 = function(url, callback, outputFormat) {
         canvas = null;
     };
 };
+/**
+ * 随机获取数组的值，返回新数组
+ * @param  {json} opt 新数组长度和源数组如：{arry:[1,2],range:1}
+ * @return {Array}     [新数组]
+ */
+Util.prototype.getRandomArr(opt) {
+    var old_arry = opt.arry,
+        range = opt.range;
+    //防止超过数组的长度
+    range = range > old_arry.length ? old_arry.length : range;
+    var newArray = [].concat(old_arry), //拷贝原数组进行操作就不会破坏原数组
+        valArray = [];
+    for (var n = 0; n < range; n++) {
+        var r = Math.floor(Math.random() * (newArray.length));
+        valArray.push(newArray[r]);
+        //在原数组删掉，然后在下轮循环中就可以避免重复获取
+        newArray.splice(r, 1);
+    }
+    return valArray;
+}

@@ -1,0 +1,198 @@
+
+body,html {
+	width: 100%;
+	height: 100%;
+	background: #eee;
+	
+}
+
+#box {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+	background: #ccc;
+	box-shadow: 5px 5px 5px #ccc;
+	position: relative;
+	padding-top: 30px;
+}
+
+#box div {
+	box-shadow: 2px 2px 5px #333;
+	display: inline-block;
+	margin: 5px 8px;
+	border-radius: 8px;
+	position: absolute;
+	background: rgb(207, 203, 102);
+}
+
+#box div img {
+	border-radius: 8px;
+}
+
+#box div p {
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: rgb(64, 19, 177);
+	height: 20px;
+	line-height: 20px;
+}
+
+#box div p span {
+	color: rgb(141, 12, 110);
+}
+
+#dark {
+	width: 100%;
+	height: 100%;
+	background: black;
+	position: fixed;
+	opacity: 0.8;
+	top: 0;
+	z-index: 1;
+	display: none;
+}
+
+#content {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	display: none;
+}
+
+#tops {
+	width: 100%;
+	height: 567px;
+}
+
+#tops p.x {
+	width: 47px;
+	height: 47px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	opacity: 0.6;
+	background: url(../images/layerclose.hover.png);
+}
+
+#tops .LR {
+	width: 100%;
+	height: 550px;
+}
+
+#tops .LR div.bigarea {
+	width: 1205px;
+	height: 550px;
+	float: left;
+	position: relative;
+}
+
+#tops .LR p {
+	width: 80px;
+	height: 550px;
+	float: left;
+	opacity: 0;
+}
+
+#tops .LR p.left {
+	background: url(../images/left_hover.png ) no-repeat -10px center;
+}
+
+#tops .LR p.right {
+	float: right;
+	background: url(../images/right_hover.png ) no-repeat left center;
+}
+
+#tops .LR .bigarea img {
+	display: none;
+	margin: 0 auto;
+	width: 876px;
+	height: 400px;
+	position: absolute;
+}
+
+#tops .LR .bigarea img:first-child {
+	display: block;
+}
+
+#bots {
+	width: 100%;
+	height: 100px;
+	position: relative;
+	background: #0F1016;
+}
+
+#bots .kuang {
+	position: absolute;
+	left: 646px;
+	top: 15px;
+}
+
+#bots .langImg {
+	width: 1174px;
+	height: 70px;
+	margin-left: 100px;
+	padding-top: 15px;
+	overflow: hidden;
+	position: relative;
+}
+
+#bots .langImg .areaImg {
+	height: 70px;
+	position: absolute;
+	left: 0px;
+	margin-left: 546px;
+}
+
+#bots .langImg .areaImg img {
+	width: 64px;
+	height: 64px;
+	padding: 3px;
+	display: block;
+	float: left;
+}
+
+#bots .LeftSmallImg {
+	width: 10px;
+	height: 70px;
+	float: left;
+	margin-left: 66px;
+	margin-top: 15px;
+	background: url(../images/SmallImgLeft.png) no-repeat;
+}
+
+#bots .RightSmallImg {
+	width: 10px;
+	height: 70px;
+	float: right;
+	margin-top: 15px;
+	margin-right: 66px;
+	background: url(../images/smallImgRight.png) no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

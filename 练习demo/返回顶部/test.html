@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>返回顶部组件</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+    .content {
+        height: 1000px;
+    }
+    .top_btn {
+        height: 40px;
+        width: 80px;
+        line-height: 40px;
+        text-align: center;
+        background-color: blue;
+        color: white;
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="content" class="content">
+
+    </div>
+    <div class="top_btn" id="top_btn">
+        返回顶部
+    </div>
+    <script type="text/javascript">
+    //事件兼容ie
+    function eventHandle(obj, ev, func) {
+        if (window.attachEvent) {
+            obj.attachEvent("on" + ev, func);
+        } else {
+            obj.addEventListener(ev, func, false);
+        }
+    }
+    eventHandle(window, "load", function() {
+        var returnTopBtn = document.getElementById("top_btn");
+        var clientH = document.documentElement.clientHeight || document.body.clientHeight;
+        var scrollT;
+        console.info(clientH);
+        //绑定滚动事件
+        eventHandle(window, "scroll", function() {
+            scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+            console.info(scrollT);
+            if (scrollT >= 100) {
+                returnTopBtn.style.display = "block";
+            } else {
+                returnTopBtn.style.display = "none";
+            }
+        });
+        //点击返回顶部按钮
+        eventHandle(returnTopBtn, "click", function() {
+            //加上滑动效果
+            var t;
+            var nowScrollT;
+            t = setInterval(function() {
+                nowScrollT = document.documentElement.scrollTop || document.body.scrollTop;
+                nowScrollT = nowScrollT - 80;
+                if (nowScrollT <= 0) {
+                    nowScrollT = 0;
+                    clearInterval(t);
+                }
+                document.body.scrollTop = nowScrollT;
+                document.documentElement.scrollTop = nowScrollT;
+            }, 30)
+        });
+    })
+    </script>
+</body>
+
+</html>

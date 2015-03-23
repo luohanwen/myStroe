@@ -1,0 +1,17 @@
+baseurl: /cube
+safe: true
+lsi: false
+pygments: true
+markdown: redcarpet
+permalink: /:categories/:title
+encoding: utf-8
+exclude:
+  - CONTRIBUTING.md
+  - cube.sublime-*
+  - node_modules
+  - Gruntfile.js
+  - package.json
+  - README.md
+
+version: 1.2.1
+

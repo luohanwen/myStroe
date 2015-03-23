@@ -1,0 +1,61 @@
+
+#checkbox {
+    display: none;
+}
+.checklabel {
+    position: fixed;
+    z-index: 9999;
+    top:60px;
+    width: 990px;
+    height: 0;
+    line-height: 0;
+    text-align: right;
+}
+.checklabel:hover {
+    color: #C5712E;
+}
+.checklabel:after {
+    content:"显示格子";
+    display: inline-block;
+    width: 5em;
+    height: 36px;
+    line-height: 36px;
+    margin-right: -6em;
+    text-align: center;
+    background-color: #DDD;
+}
+#checkbox:checked ~ #main {
+    background-image: url(http://baselinecss.com/css/background-grid/images/baseline+column.png);
+    background-repeat: repeat;
+}
+#checkbox:checked ~ .checklabel:after {
+    content:"隐藏格子";
+}
+
+.cube-modules .dib {
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+}
+.cube-modules .dib:hover {
+    border-bottom: none;
+}
+.cube-modules .iconfont,
+.cube-modules .name,
+.cube-modules .caption {
+    display: block;
+}
+.cube-modules .caption {
+    font-size: 14px;
+    color: #999;
+}
+.cube-modules .iconfont {
+    font-size: 30px;
+}
+
+.mi-doc:before {
+    content: '\0123';
+}
+.mi-demo:before {
+    content: '\f082';
+}
