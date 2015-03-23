@@ -1,0 +1,1 @@
+1.api µÿ÷∑http://flash.flowplayer.org/plugins/flash/controlbar.html#visibilityAndButtons

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>和彩云|乐战三国|中国移动</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="和彩云 彩云  乐战三国  开启宝箱赢大礼 话费 流量 iphone6">
+    <meta http-equiv="description" content="乐战三国  开启宝箱赢大礼">
+
+    <title>乐战三国,开启宝箱赢大礼</title>
+    <script type="text/javascript" src="js/flowplayer-3.2.13.min.js"></script>
+    <script type="text/javascript" src="js/flowplayer.ipad-3.2.13.min.js"></script>
+</head>
+
+<body>
+    <!--视频区-->
+    <div class="video-box">
+        <div id="player" class="player" style="width:640px;height:350px;"></div>
+    </div>
+    <script type="text/javascript">
+    flowplayer("player", {
+        src: "swf/flowplayer-3.2.18.swf",
+        wmode: "transparent",
+        allowfullscreen: false,
+        version: [10, 1],
+
+        onFail: function() {
+            document.getElementById("info").innerHTML =
+                "You need at least Flash version 10.1 to play the movie. " +
+                "Your version is " + this.getVersion();
+        }
+    }, {
+
+        playlist: [
+
+            // show album cover
+            {
+                url: 'http://mrp.weibo.10086.cn.cloudcdn.net/marketPlat/caiyunsanguo/images/video.jpg',
+                scaling: 'orig'
+            }, {
+                url: 'http://mrp.weibo.10086.cn.cloudcdn.net/marketPlat/caiyunsanguo/images/caiyunsanguo.mp4',
+                autoPlay: false
+            }
+        ],
+
+        plugins: {
+            controls: {
+                fullscreen: false
+            }
+        }
+
+    }).ipad();
+    </script>
+    <!-- 代码 end -->
+    <!--=====END 导入视频区=====================================-->
+</body>
+
+</html>
